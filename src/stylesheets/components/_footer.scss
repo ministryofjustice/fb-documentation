@@ -1,0 +1,20 @@
+//
+// Footer Component
+//
+// GOV.UK Frontend footer adapted for full width
+
+@include govuk-exports("app-footer") {
+  .app-width-container--full {
+    max-width: 100%;
+    padding: 0;
+    @include mq($from: desktop) {
+      margin: 0 auto;
+      padding: 0 $govuk-spacing-scale-6;
+    }
+  }
+
+  .app-footer .govuk-c-footer__section-break {
+    margin-bottom: 0;
+    border-bottom: 0;
+  }
+}

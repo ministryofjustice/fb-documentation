@@ -1,0 +1,278 @@
+@import "@govuk-frontend/all/all";
+
+// App-specific variables
+$app-light-grey: #f8f8f8;
+$app-code-color: #dd1144;
+
+// App-specific components
+@import "components/contact-panel";
+@import "components/cookie-banner";
+@import "components/example";
+@import "components/footer";
+@import "components/header";
+@import "components/highlight";
+@import "components/masthead";
+@import "components/mobile-navigation";
+@import "components/navigation";
+@import "components/pane";
+@import "components/subnav";
+@import "components/tabs";
+@import "components/table";
+@import "components/tag";
+
+body {
+  margin: 0;
+}
+
+.app-hide-mobile {
+  @include mq($until: tablet) {
+    display: none;
+  }
+}
+
+.app-hide-tablet {
+  @include mq($from: tablet) {
+    display: none;
+  }
+}
+
+.app-hide-desktop {
+  @include mq($from: desktop) {
+    display: none;
+  }
+}
+
+// Mirrors Bootstrap 4 - open for discussion
+$mq-breakpoint-widescreen: 1200px;
+
+// This will be coming to FE later but making it app specific for now
+.app-site-width-container {
+  @media (min-width: $mq-breakpoint-widescreen) {
+    max-width: 1100px;
+  }
+}
+
+// This layout is currently used on error pages like 404
+.app-site-width-container--constraint {
+  max-width: 960px;
+}
+
+// This is consistent with Elements - will be changed in FE
+.govuk-o-grid__item {
+  @include mq($until: desktop) {
+    padding: 0 $govuk-gutter-half;
+  }
+}
+
+// This is consistent with Elements - will be changed in FE
+.govuk-o-grid__item--one-third,
+.govuk-o-grid__item--two-thirds,
+.govuk-o-grid__item--one-quarter {
+  @include mq($until: desktop) {
+    width: 100%;
+  }
+}
+
+.app-content {
+
+  @include govuk-responsive-padding($govuk-spacing-responsive-6);
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul:not(.app-tabs),
+  ol,
+  img,
+  .app-table--constrained {
+    max-width: 38em;
+  }
+
+  img {
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    padding: $govuk-spacing-scale-2;
+    @include govuk-responsive-margin($govuk-spacing-responsive-2, "top");
+    @include govuk-responsive-margin($govuk-spacing-responsive-6, "bottom");
+    border: 1px solid $govuk-border-colour;
+  }
+}
+
+.app-content__header {
+  @include govuk-font-regular-24;
+}
+
+.app-content__heading {
+  margin-top: 0;
+  margin-bottom: $govuk-spacing-scale-6;
+}
+
+.app-content__section-heading {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: $govuk-secondary-text-colour;
+}
+
+.app-example-page {
+  padding: $govuk-spacing-scale-6 * 2 $govuk-spacing-scale-6 $govuk-spacing-scale-6;
+
+  &:before {
+    content: "Resize";
+    position: fixed;
+    z-index: 2;
+    right: $govuk-spacing-scale-3;
+    bottom: 0;
+    color: $govuk-secondary-text-colour;
+    background: $govuk-white;
+    @include govuk-font-regular-16;
+  }
+}
+
+.app-example-page--full-page {
+  padding: 0;
+}
+
+// Generic chevron
+// can be rotated for --right --bottom --left versions
+.app-chevron--top::before {
+  content: "";
+  display: inline-block;
+  position: relative;
+  top: .15em;
+  left: .15em;
+  width: .45em;
+  height: .45em;
+  margin-top: .25em;
+  margin-right: .5em;
+  transform: rotate(-45deg);
+  border-width: .15em .15em 0 0;
+  border-style: solid;
+  vertical-align: top;
+}
+
+// Copy button
+.app-link--copy {
+  &:link,
+  &:active,
+  &:visited,
+  &:hover {
+    @include govuk-font-regular-16;
+    position: absolute;
+    z-index: 1;
+    top: $govuk-spacing-scale-3;
+    right: $govuk-spacing-scale-3;
+    min-width: 58px;
+    padding: 4px 10px 0;
+    border: 1px solid $govuk-button-colour;
+    color: $govuk-button-colour;
+    background-color: $govuk-white;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    .govuk-prose-scope & {
+      color: $govuk-button-colour; // A specific selector to override .govuk-prose-scope a:link
+      background-color: $govuk-white; // A specific selector to override .govuk-prose-scope a:focus
+    }
+  }
+}
+
+$colour-list-breakpoint: 980px;
+
+.app-colour-list {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.app-colour-list-row {
+  display: block;
+  position: relative;
+  margin-bottom: $govuk-spacing-scale-2;
+  @include mq($from: $colour-list-breakpoint) {
+    display: table-row;
+    margin: auto;
+  }
+}
+
+.app-colour-list-column {
+  display: block;
+  padding-left: 50px;
+  @include mq($from: $colour-list-breakpoint) {
+    display: table-cell;
+    padding-left: 0;
+    vertical-align: middle;
+  }
+}
+
+.app-swatch {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 1px solid transparent; // only light colours need a border
+  border-radius: 50%;
+  @include mq($from: $colour-list-breakpoint) {
+    display: inline-block;
+    position: static;
+    margin-top: 6px;
+    margin-right: 10px;
+    margin-bottom: 7px; // odd number so the text lines up vertically
+    vertical-align: middle;
+  }
+}
+
+.app-swatch-border {
+  border-color: $govuk-grey-2;
+}
+
+.app-colour-list-column--name {
+  font-weight: normal;
+  text-align: left;
+  @include mq($from: $colour-list-breakpoint) {
+    width: 50%;
+  }
+}
+
+.app-colour-list-column--colour {
+  @include mq($from: $colour-list-breakpoint) {
+    width: 15%;
+  }
+}
+
+.app-colour-list-column--notes {
+  @include mq($from: $colour-list-breakpoint) {
+    width: 35%;
+  }
+}
+
+pre {
+  position: relative;
+  margin: 0;
+  padding: $govuk-spacing-scale-3;
+  overflow: auto;
+  border: 1px solid $govuk-border-colour;
+  background-color: $app-light-grey;
+}
+
+.no-js {
+  // Adjustments in app-pane layout as it has toc below
+  .app-pane__content .app-content {
+
+    @include mq($until: tablet) {
+      padding-bottom: 10px;
+    }
+  }
+}
+
+// Add styling for inline code
+p code {
+  padding: 0 $govuk-spacing-scale-1;
+  color: $app-code-color;
+  background-color: $govuk-grey-4;
+}

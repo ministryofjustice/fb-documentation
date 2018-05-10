@@ -1,0 +1,105 @@
+---
+title: Layout
+description:
+section: Styles
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+{% from "_example.njk" import example %}
+
+## Screen size
+
+Design for small screens first using a single-column layout.
+
+Don’t make assumptions about what devices people are using. Design for different screen sizes rather than specific devices.
+
+The default maximum page width is 1020px, but you can make it wider if your content requires it.
+
+## Common layouts
+
+
+### Two-thirds
+
+{{ example({group: 'styles', item: 'layout', example: 'common-two-thirds', html: true, open: true}) }}
+
+### Two-thirds / One-third
+
+{{ example({group: 'styles', item: 'layout', example: 'common-two-thirds-one-third', html: true, open: true}) }}
+
+
+### Row 1: Two-thirds <br>Row 2: Two-thirds / One-third
+
+{{ example({group: 'styles', item: 'layout', example: 'common-two-thirds-two-thirds-one-third', html: true, open: true}) }}
+
+
+## Building your own layout
+
+If you want to build your layout from scratch, or understand what each of the parts are responsible for, here’s an explanation of how the page wrappers and grid system works.
+
+## Page wrappers
+
+### Limiting width of content
+
+To set up your layout you will need to create 2 wrappers. The first should have the class  `govuk-o-width-container`, which sets the maximum width of the content but doesn’t add any vertical margin or padding.
+
+If your design requires them, you should place components such as [Breadcrumbs](../../components/breadcrumbs), [Back link](../../components/back-link) and [Phase banner](../../components/phase-banner) inside this wrapper so that they sit directly underneath the header.
+
+### Add vertical space
+
+Within `govuk-o-width-container` you should add the `govuk-o-main-wrapper` class to your `<main>` element. This adds responsive padding to the top and bottom of the page and will be the container for your main content.
+
+### Exploded view of page wrappers
+
+{{ example({group: 'styles', item: 'layout', example: 'layout-wrappers', html: true, open: true}) }}
+
+### Exploded view of page wrappers without Back link, Breadcrumbs or Phase Banner
+
+If you’re not using the [Breadcrumbs](../../components/breadcrumbs), [Back link](../../components/back-link) or [Phase banner](../../components/phase-banner) components in your design, use a modifier class `govuk-o-main-wrapper--l` to increase the vertical space above the content.
+
+{{ example({group: 'styles', item: 'layout', example: 'layout-wrappers-l', html: true, open: true}) }}
+
+## <a name="grid-system"></a>Grid system
+
+Use the grid system to lay out the content on your service’s pages.
+
+Most GOV.UK pages follow a two-thirds to one-third layout but the grid system allows for a number of additional combinations when necessary.
+
+Your main content should always be in a two-thirds column even if you’re not using a corresponding one-third column for secondary content.
+
+### Understanding the grid system
+
+The grid is structured with a `govuk-o-grid` wrapper which acts as a row to contain your grid columns.
+
+You can add columns inside this wrapper to create your layout. To define your columns add the class  `govuk-o-grid__item` to a new container to set the padding and float properties. Then add a second class, for example `govuk-o-grid__item--one-third` to apply your desired width.
+
+The available widths are:
+
+### Full width
+
+{{ example({group: 'styles', item: 'layout', example: 'full-width', html: true, open: true}) }}
+
+### One-half
+
+{{ example({group: 'styles', item: 'layout', example: 'one-half', html: true, open: true}) }}
+
+### One-third
+
+{{ example({group: 'styles', item: 'layout', example: 'one-third', html: true, open: true}) }}
+
+### Two-thirds
+
+{{ example({group: 'styles', item: 'layout', example: 'two-thirds', html: true, open: true}) }}
+
+### One-quarter
+
+{{ example({group: 'styles', item: 'layout', example: 'one-quarter', html: true, open: true}) }}
+
+### Example combinations
+
+{{ example({group: 'styles', item: 'layout', example: 'combinations', html: true, open: true}) }}
+
+### Nested grids
+
+{{ example({group: 'styles', item: 'layout', example: 'nested', html: true, open: true}) }}

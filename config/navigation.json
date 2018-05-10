@@ -1,0 +1,22 @@
+[
+  {
+    "label": "About",
+    "url": ""
+  },
+  {
+    "label": "Overview",
+    "url": "overview"
+  },
+  {
+    "label": "Pages",
+    "url": "pages"
+  },
+  {
+    "label": "Components",
+    "url": "components"
+  },
+  {
+    "label": "Patterns",
+    "url": "patterns"
+  }
+]

@@ -1,0 +1,46 @@
+{% extends "_generic.njk" %}
+
+{% block body %}
+<div class="app-pane__body">
+  <div class="app-pane__subnav app-hide-mobile">
+    {% include "_subnav.njk" %}
+  </div>
+  <div class="app-pane__content">
+    <main id="content" class="app-content" role="main">
+      <div class="app-content__header">
+        <h1 class="govuk-heading-xl">
+          <span class="govuk-caption-xl">
+          {% if theme %}
+            {{ theme }}
+            {% else %}
+              {{ section }}
+            {% endif %}
+          </span>
+          {{ title }}
+          {% if status %}
+          <div>
+            <strong class="govuk-c-tag govuk-!-mt-r4 govuk-!-mb-r2">
+              {{ status }}
+            </strong>
+            <p class="govuk-body">{{ statusMessage | safe }}</p>
+          </div>
+          {% endif %}
+        </h1>
+      </div>
+      <div class="govuk-prose-scope">
+        {{ contents | safe }}
+      </div>
+      {# {% if section %}
+        {% include "_contact-panel.njk" %}
+      {% endif %}
+      {% if backlog_issue_id %}
+        <p class="govuk-body govuk-!-mb-r0"><a class="govuk-link" href="https://github.com/alphagov/govuk-design-system-backlog/issues/{{backlog_issue_id}}">Discuss ‘{{title}}’ on GitHub</a></p>
+      {% endif %} #}
+    </main>
+    {# No JS fallback to show overview #}
+    <div class="app-pane__subnav-mobile-overview app-hide-desktop">
+      {% include "_subnav.njk" %}
+    </div>
+    {% include "_footer.njk" %}
+  </div>
+{% endblock %}
