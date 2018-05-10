@@ -1,0 +1,106 @@
+---
+title: Fieldset
+description: Component for fieldset
+section: Components
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+```
+{
+  "$id": "http://gov.uk/schema/fieldset/v1.0.0",
+  "title": "Fieldset",
+  "description": "Component for fieldset",
+  "type": "object",
+  "category": [
+    "block",
+    "component",
+    "control",
+    "fieldset",
+    "grouping"
+  ],
+  "properties": {
+    "_type": {
+      "const": "fieldset",
+      "title": "Data type",
+      "type": "string"
+    },
+    "legendHtml": {
+      "title": "Legend",
+      "description": "Text to use in fieldset legend",
+      "type": "string"
+    },
+    "legendHintHtml": {
+      "title": "Hint",
+      "description": "Hint text to use in fieldset legend",
+      "type": "string"
+    },
+    "multiple": {
+      "type": "boolean"
+    },
+    "multipleMinimum": {
+      "type": "number",
+      "minimum": 0,
+      "default": 1
+    },
+    "multipleMaximum": {
+      "type": "number",
+      "minimum": 0
+    },
+    "model": {
+      "title": "Model to store field in",
+      "type": "string"
+    },
+    "modelProtect": {
+      "type": "boolean",
+      "default": false
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "category": [
+          "component",
+          "block"
+        ]
+      }
+    },
+    "show": {
+      "title": "Whether to show block or not",
+      "oneOf": [
+        {
+          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+        }
+      ],
+      "default": true
+    },
+    "_id": {
+      "title": "Data ID",
+      "type": "string"
+    },
+    "_isa": {
+      "title": "Based on",
+      "type": "string",
+      "blockReference": true
+    },
+    "id": {
+      "type": "string"
+    },
+    "classes": {
+      "title": "Additional HTML classes",
+      "type": "string"
+    },
+    "attributes": {
+      "title": "Additional HTML attributes",
+      "type": "object"
+    }
+  },
+  "required": [
+    "_id",
+    "_type",
+    "legendHtml"
+  ]
+}
+```
+        

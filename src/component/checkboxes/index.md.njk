@@ -1,0 +1,191 @@
+---
+title: Radios
+description: Component that provides a checkbox fieldset
+section: Components
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+```
+{
+  "$id": "http://gov.uk/schema/checkboxes/v1.0.0",
+  "title": "Radios",
+  "description": "Component that provides a checkbox fieldset",
+  "type": "object",
+  "properties": {
+    "_type": {
+      "const": "checkboxes",
+      "title": "Data type",
+      "type": "string"
+    },
+    "name": {
+      "title": "Input name",
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": [
+        {
+          "$id": "http://gov.uk/schema/checkbox/v1.0.0",
+          "title": "Checkbox option",
+          "description": "Component that provides a radio option",
+          "type": "object",
+          "required": [
+            "_id",
+            "_type",
+            "value"
+          ],
+          "properties": {
+            "_type": {
+              "const": "checkbox",
+              "title": "Data type",
+              "type": "string"
+            },
+            "name": {
+              "title": "Input name",
+              "type": "string"
+            },
+            "model": {
+              "title": "Model to store field in",
+              "type": "string"
+            },
+            "modelProtect": {
+              "type": "boolean",
+              "default": false
+            },
+            "value": {
+              "title": "Option value",
+              "type": "string"
+            },
+            "show": {
+              "title": "Whether to show block or not",
+              "oneOf": [
+                {
+                  "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+                }
+              ],
+              "default": true
+            },
+            "_id": {
+              "title": "Data ID",
+              "type": "string"
+            },
+            "_isa": {
+              "title": "Based on",
+              "type": "string",
+              "blockReference": true
+            },
+            "label": {
+              "title": "Label",
+              "type": "string"
+            },
+            "hint": {
+              "title": "Hint text",
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "legend": {
+      "title": "Legend",
+      "type": "string"
+    },
+    "hint": {
+      "title": "Hint text",
+      "type": "string"
+    },
+    "disabled": {
+      "title": "Disabled",
+      "oneOf": [
+        {
+          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+        }
+      ],
+      "default": false
+    },
+    "show": {
+      "title": "Whether to show block or not",
+      "oneOf": [
+        {
+          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+        }
+      ],
+      "default": true
+    },
+    "_id": {
+      "title": "Data ID",
+      "type": "string"
+    },
+    "_isa": {
+      "title": "Based on",
+      "type": "string",
+      "blockReference": true
+    },
+    "id": {
+      "type": "string"
+    },
+    "classes": {
+      "title": "Additional HTML classes",
+      "type": "string"
+    },
+    "attributes": {
+      "title": "Additional HTML attributes",
+      "type": "object"
+    },
+    "model": {
+      "title": "Model to store field in",
+      "type": "string"
+    },
+    "modelProtect": {
+      "type": "boolean",
+      "default": false
+    },
+    "validation": {
+      "role": "validation",
+      "properties": {
+        "required": {
+          "title": "Required",
+          "oneOf": [
+            {
+              "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+            }
+          ],
+          "default": true
+        }
+      }
+    },
+    "errors": {
+      "role": "errorStrings",
+      "properties": {
+        "required": {
+          "title": "Error strings for required",
+          "type": "object",
+          "properties": {
+            "inline": {
+              "type": "string",
+              "role": "errorString"
+            },
+            "summary": {
+              "type": "string",
+              "role": "errorString"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "_id",
+    "_type",
+    "legend"
+  ],
+  "category": [
+    "block",
+    "component",
+    "control"
+  ]
+}
+```
+        

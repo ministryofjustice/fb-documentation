@@ -1,0 +1,74 @@
+---
+title: Warning text
+description: Component that provides warning text
+section: Components
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+```
+{
+  "$id": "http://gov.uk/schema/warningText/v1.0.0",
+  "title": "Warning text",
+  "description": "Component that provides warning text",
+  "usage": "Use when there are consequences - for example, a fine or prison sentence",
+  "type": "object",
+  "properties": {
+    "_type": {
+      "const": "warningText",
+      "title": "Data type",
+      "type": "string"
+    },
+    "iconFallbackText": {
+      "title": "Fallback text for the icon",
+      "type": "string"
+    },
+    "html": {
+      "title": "Text",
+      "description": "Warning text content",
+      "type": "string",
+      "multiline": true
+    },
+    "show": {
+      "title": "Whether to show block or not",
+      "oneOf": [
+        {
+          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+        }
+      ],
+      "default": true
+    },
+    "_id": {
+      "title": "Data ID",
+      "type": "string"
+    },
+    "_isa": {
+      "title": "Based on",
+      "type": "string",
+      "blockReference": true
+    },
+    "id": {
+      "type": "string"
+    },
+    "classes": {
+      "title": "Additional HTML classes",
+      "type": "string"
+    },
+    "attributes": {
+      "title": "Additional HTML attributes",
+      "type": "object"
+    }
+  },
+  "category": [
+    "block",
+    "component",
+    "content"
+  ],
+  "required": [
+    "_id",
+    "_type"
+  ]
+}
+```
+        

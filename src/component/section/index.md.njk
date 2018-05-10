@@ -1,0 +1,112 @@
+---
+title: Section
+description: Component for creating sections within a page
+section: Components
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+```
+{
+  "$id": "http://gov.uk/schema/section/v1.0.0",
+  "title": "Section",
+  "description": "Component for creating sections within a page",
+  "type": "object",
+  "category": [
+    "block",
+    "component",
+    "content",
+    "grouping"
+  ],
+  "properties": {
+    "_type": {
+      "const": "section",
+      "title": "Data type",
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "lede": {
+      "type": "string"
+    },
+    "content": {
+      "type": "string",
+      "multiline": true
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "category": [
+          "component",
+          "block"
+        ],
+        "required": [
+          "_id",
+          "_type"
+        ],
+        "properties": {
+          "show": {
+            "title": "Whether to show block or not",
+            "oneOf": [
+              {
+                "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+              }
+            ],
+            "default": true
+          },
+          "_id": {
+            "title": "Data ID",
+            "type": "string"
+          },
+          "_type": {
+            "title": "Data type",
+            "type": "string"
+          },
+          "_isa": {
+            "title": "Based on",
+            "type": "string",
+            "blockReference": true
+          }
+        }
+      }
+    },
+    "show": {
+      "title": "Whether to show block or not",
+      "oneOf": [
+        {
+          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+        }
+      ],
+      "default": true
+    },
+    "_id": {
+      "title": "Data ID",
+      "type": "string"
+    },
+    "_isa": {
+      "title": "Based on",
+      "type": "string",
+      "blockReference": true
+    },
+    "id": {
+      "type": "string"
+    },
+    "classes": {
+      "title": "Additional HTML classes",
+      "type": "string"
+    },
+    "attributes": {
+      "title": "Additional HTML attributes",
+      "type": "object"
+    }
+  },
+  "required": [
+    "_id",
+    "_type"
+  ]
+}
+```
+        

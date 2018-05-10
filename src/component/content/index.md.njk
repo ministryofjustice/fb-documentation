@@ -1,0 +1,68 @@
+---
+title: Content
+description: Component for creating content
+section: Components
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+```
+{
+  "$id": "http://gov.uk/schema/content/v1.0.0",
+  "title": "Content",
+  "description": "Component for creating content",
+  "type": "object",
+  "category": [
+    "block",
+    "component",
+    "content"
+  ],
+  "properties": {
+    "_type": {
+      "const": "content",
+      "title": "Data type",
+      "type": "string"
+    },
+    "html": {
+      "type": "string",
+      "multiline": true
+    },
+    "show": {
+      "title": "Whether to show block or not",
+      "oneOf": [
+        {
+          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+        }
+      ],
+      "default": true
+    },
+    "_id": {
+      "title": "Data ID",
+      "type": "string"
+    },
+    "_isa": {
+      "title": "Based on",
+      "type": "string",
+      "blockReference": true
+    },
+    "id": {
+      "type": "string"
+    },
+    "classes": {
+      "title": "Additional HTML classes",
+      "type": "string"
+    },
+    "attributes": {
+      "title": "Additional HTML attributes",
+      "type": "object"
+    }
+  },
+  "required": [
+    "_id",
+    "_type",
+    "html"
+  ]
+}
+```
+        

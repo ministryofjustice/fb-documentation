@@ -1,0 +1,58 @@
+---
+title: Service
+description: Service configuration
+section: Configuration
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+```
+{
+  "$id": "http://gov.uk/schema/Service/v1.0.0",
+  "title": "Service",
+  "description": "Service configuration",
+  "type": "object",
+  "properties": {
+    "_type": {
+      "const": "Service",
+      "title": "Data type",
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string",
+      "enum": [
+        "",
+        "alpha",
+        "beta"
+      ]
+    },
+    "phaseText": {
+      "type": "string"
+    },
+    "_id": {
+      "title": "Data ID",
+      "type": "string"
+    },
+    "_isa": {
+      "title": "Based on",
+      "type": "string",
+      "blockReference": true
+    }
+  },
+  "category": [
+    "configuration"
+  ],
+  "required": [
+    "_id",
+    "_type",
+    "name",
+    "phase",
+    "phaseText"
+  ]
+}
+```
+        

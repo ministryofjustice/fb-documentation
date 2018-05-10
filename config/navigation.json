@@ -4,19 +4,23 @@
     "url": ""
   },
   {
+    "label": "Get started",
+    "url": "get-started"
+  },
+  {
     "label": "Overview",
     "url": "overview"
   },
   {
     "label": "Pages",
-    "url": "pages"
+    "url": "page"
   },
   {
     "label": "Components",
-    "url": "components"
+    "url": "component"
   },
   {
     "label": "Patterns",
-    "url": "patterns"
+    "url": "pattern"
   }
 ]

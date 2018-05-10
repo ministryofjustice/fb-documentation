@@ -1,0 +1,59 @@
+---
+title: Select option
+description: Component that provides a select option
+section: Components
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+```
+{
+  "$id": "http://gov.uk/schema/option/v1.0.0",
+  "title": "Select option",
+  "description": "Component that provides a select option",
+  "type": "object",
+  "properties": {
+    "_type": {
+      "const": "option",
+      "title": "Data type",
+      "type": "string"
+    },
+    "option": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "show": {
+      "title": "Whether to show block or not",
+      "oneOf": [
+        {
+          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+        }
+      ],
+      "default": true
+    },
+    "_id": {
+      "title": "Data ID",
+      "type": "string"
+    },
+    "_isa": {
+      "title": "Based on",
+      "type": "string",
+      "blockReference": true
+    }
+  },
+  "required": [
+    "_id",
+    "_type",
+    "option",
+    "value"
+  ],
+  "category": [
+    "component",
+    "block"
+  ]
+}
+```
+        

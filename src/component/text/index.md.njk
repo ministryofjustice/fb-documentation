@@ -1,0 +1,198 @@
+---
+title: Text
+description: Component that provides a text input field
+section: Components
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+```
+{
+  "$id": "http://gov.uk/schema/text/v1.0.0",
+  "title": "Text",
+  "description": "Component that provides a text input field",
+  "type": "object",
+  "properties": {
+    "_type": {
+      "const": "text",
+      "title": "Data type",
+      "type": "string"
+    },
+    "widthClassInput": {
+      "type": "string",
+      "enumMap": "widthClassMap",
+      "enum": [
+        "10",
+        "20",
+        "30",
+        "three-quarters",
+        "two-thirds",
+        "one-half",
+        "one-third",
+        "one-quarter"
+      ]
+    },
+    "name": {
+      "title": "Input name",
+      "type": "string"
+    },
+    "disabled": {
+      "title": "Disabled",
+      "oneOf": [
+        {
+          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+        }
+      ],
+      "default": false
+    },
+    "show": {
+      "title": "Whether to show block or not",
+      "oneOf": [
+        {
+          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+        }
+      ],
+      "default": true
+    },
+    "_id": {
+      "title": "Data ID",
+      "type": "string"
+    },
+    "_isa": {
+      "title": "Based on",
+      "type": "string",
+      "blockReference": true
+    },
+    "id": {
+      "type": "string"
+    },
+    "classes": {
+      "title": "Additional HTML classes",
+      "type": "string"
+    },
+    "attributes": {
+      "title": "Additional HTML attributes",
+      "type": "object"
+    },
+    "model": {
+      "title": "Model to store field in",
+      "type": "string"
+    },
+    "modelProtect": {
+      "type": "boolean",
+      "default": false
+    },
+    "validation": {
+      "role": "validation",
+      "properties": {
+        "required": {
+          "title": "Required",
+          "oneOf": [
+            {
+              "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+            }
+          ],
+          "default": true
+        },
+        "minLength": {
+          "title": "Minimum length",
+          "type": "number",
+          "minimum": 0
+        },
+        "maxLength": {
+          "title": "Maximum length",
+          "type": "number",
+          "minimum": 0
+        },
+        "pattern": {
+          "title": "Pattern to match string against",
+          "type": "string"
+        }
+      }
+    },
+    "errors": {
+      "role": "errorStrings",
+      "properties": {
+        "required": {
+          "title": "Error strings for required",
+          "type": "object",
+          "properties": {
+            "inline": {
+              "type": "string",
+              "role": "errorString"
+            },
+            "summary": {
+              "type": "string",
+              "role": "errorString"
+            }
+          }
+        },
+        "minLength": {
+          "title": "Error strings for minLength",
+          "type": "object",
+          "properties": {
+            "inline": {
+              "type": "string",
+              "role": "errorString"
+            },
+            "summary": {
+              "type": "string",
+              "role": "errorString"
+            }
+          }
+        },
+        "maxLength": {
+          "title": "Error strings for maxLength",
+          "type": "object",
+          "properties": {
+            "inline": {
+              "type": "string",
+              "role": "errorString"
+            },
+            "summary": {
+              "type": "string",
+              "role": "errorString"
+            }
+          }
+        },
+        "pattern": {
+          "title": "Error strings for pattern",
+          "type": "object",
+          "properties": {
+            "inline": {
+              "type": "string",
+              "role": "errorString"
+            },
+            "summary": {
+              "type": "string",
+              "role": "errorString"
+            }
+          }
+        }
+      }
+    },
+    "label": {
+      "title": "Label",
+      "type": "string"
+    },
+    "hint": {
+      "title": "Hint text",
+      "type": "string"
+    }
+  },
+  "category": [
+    "block",
+    "component",
+    "control",
+    "field"
+  ],
+  "required": [
+    "_id",
+    "_type",
+    "label",
+    "name"
+  ]
+}
+```
+        

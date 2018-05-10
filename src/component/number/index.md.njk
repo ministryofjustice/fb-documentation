@@ -1,0 +1,238 @@
+---
+title: Number
+description: Component that provides a number input field
+section: Components
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+```
+{
+  "$id": "http://gov.uk/schema/number/v1.0.0",
+  "title": "Number",
+  "description": "Component that provides a number input field",
+  "type": "object",
+  "properties": {
+    "_type": {
+      "const": "number",
+      "title": "Data type",
+      "type": "string"
+    },
+    "widthClassInput": {
+      "default": "10",
+      "type": "string",
+      "enumMap": "widthClassMap",
+      "enum": [
+        "10",
+        "20",
+        "30",
+        "three-quarters",
+        "two-thirds",
+        "one-half",
+        "one-third",
+        "one-quarter"
+      ]
+    },
+    "name": {
+      "title": "Input name",
+      "type": "string"
+    },
+    "disabled": {
+      "title": "Disabled",
+      "oneOf": [
+        {
+          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+        }
+      ],
+      "default": false
+    },
+    "show": {
+      "title": "Whether to show block or not",
+      "oneOf": [
+        {
+          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+        }
+      ],
+      "default": true
+    },
+    "_id": {
+      "title": "Data ID",
+      "type": "string"
+    },
+    "_isa": {
+      "title": "Based on",
+      "type": "string",
+      "blockReference": true
+    },
+    "id": {
+      "type": "string"
+    },
+    "classes": {
+      "title": "Additional HTML classes",
+      "type": "string"
+    },
+    "attributes": {
+      "title": "Additional HTML attributes",
+      "type": "object"
+    },
+    "model": {
+      "title": "Model to store field in",
+      "type": "string"
+    },
+    "modelProtect": {
+      "type": "boolean",
+      "default": false
+    },
+    "validation": {
+      "role": "validation",
+      "properties": {
+        "required": {
+          "title": "Required",
+          "oneOf": [
+            {
+              "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+            }
+          ],
+          "default": true
+        },
+        "multipleOf": {
+          "title": "Multiple of",
+          "type": "number",
+          "minimum": 0
+        },
+        "maximum": {
+          "title": "Maximum",
+          "type": "number",
+          "minimum": 0
+        },
+        "exclusiveMaximum": {
+          "title": "Exclusive maximum",
+          "type": "number",
+          "minimum": 0
+        },
+        "minimum": {
+          "title": "Minimum",
+          "type": "number",
+          "minimum": 0
+        },
+        "exclusiveMinimum": {
+          "title": "Exclusive minimum",
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "errors": {
+      "role": "errorStrings",
+      "properties": {
+        "required": {
+          "title": "Error strings for required",
+          "type": "object",
+          "properties": {
+            "inline": {
+              "type": "string",
+              "role": "errorString"
+            },
+            "summary": {
+              "type": "string",
+              "role": "errorString"
+            }
+          }
+        },
+        "multipleOf": {
+          "title": "Error strings for multipleOf",
+          "type": "object",
+          "properties": {
+            "inline": {
+              "type": "string",
+              "role": "errorString"
+            },
+            "summary": {
+              "type": "string",
+              "role": "errorString"
+            }
+          }
+        },
+        "maximum": {
+          "title": "Error strings for maximum",
+          "type": "object",
+          "properties": {
+            "inline": {
+              "type": "string",
+              "role": "errorString"
+            },
+            "summary": {
+              "type": "string",
+              "role": "errorString"
+            }
+          }
+        },
+        "exclusiveMaximum": {
+          "title": "Error strings for exclusiveMaximum",
+          "type": "object",
+          "properties": {
+            "inline": {
+              "type": "string",
+              "role": "errorString"
+            },
+            "summary": {
+              "type": "string",
+              "role": "errorString"
+            }
+          }
+        },
+        "minimum": {
+          "title": "Error strings for minimum",
+          "type": "object",
+          "properties": {
+            "inline": {
+              "type": "string",
+              "role": "errorString"
+            },
+            "summary": {
+              "type": "string",
+              "role": "errorString"
+            }
+          }
+        },
+        "exclusiveMinimum": {
+          "title": "Error strings for exclusiveMinimum",
+          "type": "object",
+          "properties": {
+            "inline": {
+              "type": "string",
+              "role": "errorString"
+            },
+            "summary": {
+              "type": "string",
+              "role": "errorString"
+            }
+          }
+        }
+      }
+    },
+    "label": {
+      "title": "Label",
+      "type": "string"
+    },
+    "hint": {
+      "title": "Hint text",
+      "type": "string"
+    }
+  },
+  "category": [
+    "block",
+    "component",
+    "control",
+    "field"
+  ],
+  "required": [
+    "_id",
+    "_type",
+    "label",
+    "name"
+  ]
+}
+```
+        
