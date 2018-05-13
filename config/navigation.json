@@ -22,5 +22,13 @@
   {
     "label": "Patterns",
     "url": "pattern"
+  },
+  {
+    "label": "Configuration",
+    "url": "configuration"
+  },
+  {
+    "label": "Definitions",
+    "url": "definition"
   }
 ]
