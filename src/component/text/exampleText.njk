@@ -1,0 +1,27 @@
+---
+layout: layout-specification.njk
+---
+{%- macro text(data) %}
+{% from "input/macro.njk" import govukInput %}
+{% if data.error %}
+{% set params = setObject(data, {
+    errorMessage: {
+      html: data.error
+    }
+  }) %}
+{% endif %}
+{% set params = setObject(params, {
+    label: {
+      html: data.label,
+      hintHtml: data.hint
+    }
+  }) %}
+{{ govukInput(params) }}
+{% endmacro -%}
+{% set data = {
+  "_id": "componentId",
+  "_type": "text",
+  "name": "username",
+  "label": "What is your username?"
+} %}
+{{ text(data) }}

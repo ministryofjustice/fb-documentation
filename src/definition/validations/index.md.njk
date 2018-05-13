@@ -1,0 +1,701 @@
+---
+title: Validations
+description: undefined
+section: undefined
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+
+
+
+{{ govukTable({
+  "caption": "Schema properties",
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": []
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/validations/v1.0.0\",
+  \"_name\": \"validations\",
+  \"title\": \"Validations\",
+  \"type\": \"object\",
+  \"definitions\": {
+    \"errorStrings\": {
+      \"type\": \"object\",
+      \"properties\": {
+        \"inline\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        },
+        \"summary\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        }
+      }
+    },
+    \"required\": {
+      \"title\": \"Required\",
+      \"oneOf\": [
+        {
+          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+        }
+      ],
+      \"default\": true
+    },
+    \"errorsRequired\": {
+      \"title\": \"Error strings for required\",
+      \"allOf\": [
+        {
+          \"$ref\": \"#/definitions/errorStrings\"
+        }
+      ]
+    },
+    \"minLength\": {
+      \"title\": \"Minimum length\",
+      \"type\": \"number\",
+      \"minimum\": 0
+    },
+    \"errorsMinLength\": {
+      \"title\": \"Error strings for minLength\",
+      \"allOf\": [
+        {
+          \"$ref\": \"#/definitions/errorStrings\"
+        }
+      ]
+    },
+    \"maxLength\": {
+      \"title\": \"Maximum length\",
+      \"type\": \"number\",
+      \"minimum\": 0
+    },
+    \"errorsMaxLength\": {
+      \"title\": \"Error strings for maxLength\",
+      \"allOf\": [
+        {
+          \"$ref\": \"#/definitions/errorStrings\"
+        }
+      ]
+    },
+    \"pattern\": {
+      \"title\": \"Pattern to match string against\",
+      \"type\": \"string\"
+    },
+    \"errorsPattern\": {
+      \"title\": \"Error strings for pattern\",
+      \"allOf\": [
+        {
+          \"$ref\": \"#/definitions/errorStrings\"
+        }
+      ]
+    },
+    \"multipleOf\": {
+      \"title\": \"Multiple of\",
+      \"type\": \"number\",
+      \"minimum\": 0
+    },
+    \"errorsMultipleOf\": {
+      \"title\": \"Error strings for multipleOf\",
+      \"allOf\": [
+        {
+          \"$ref\": \"#/definitions/errorStrings\"
+        }
+      ]
+    },
+    \"maximum\": {
+      \"title\": \"Maximum\",
+      \"type\": \"number\",
+      \"minimum\": 0
+    },
+    \"errorsMaximum\": {
+      \"title\": \"Error strings for maximum\",
+      \"allOf\": [
+        {
+          \"$ref\": \"#/definitions/errorStrings\"
+        }
+      ]
+    },
+    \"exclusiveMaximum\": {
+      \"title\": \"Exclusive maximum\",
+      \"type\": \"number\",
+      \"minimum\": 0
+    },
+    \"errorsExclusiveMaximum\": {
+      \"title\": \"Error strings for exclusiveMaximum\",
+      \"allOf\": [
+        {
+          \"$ref\": \"#/definitions/errorStrings\"
+        }
+      ]
+    },
+    \"minimum\": {
+      \"title\": \"Minimum\",
+      \"type\": \"number\",
+      \"minimum\": 0
+    },
+    \"errorsMinimum\": {
+      \"title\": \"Error strings for minimum\",
+      \"allOf\": [
+        {
+          \"$ref\": \"#/definitions/errorStrings\"
+        }
+      ]
+    },
+    \"exclusiveMinimum\": {
+      \"title\": \"Exclusive minimum\",
+      \"type\": \"number\",
+      \"minimum\": 0
+    },
+    \"errorsExclusiveMinimum\": {
+      \"title\": \"Error strings for exclusiveMinimum\",
+      \"allOf\": [
+        {
+          \"$ref\": \"#/definitions/errorStrings\"
+        }
+      ]
+    },
+    \"requiredBundle\": {
+      \"properties\": {
+        \"validation\": {
+          \"role\": \"validation\",
+          \"properties\": {
+            \"required\": {
+              \"$ref\": \"#/definitions/required\"
+            }
+          }
+        },
+        \"errors\": {
+          \"role\": \"errorStrings\",
+          \"properties\": {
+            \"required\": {
+              \"$ref\": \"#/definitions/errorsRequired\"
+            }
+          }
+        }
+      }
+    },
+    \"stringBundle\": {
+      \"properties\": {
+        \"validation\": {
+          \"properties\": {
+            \"minLength\": {
+              \"$ref\": \"#/definitions/minLength\"
+            },
+            \"maxLength\": {
+              \"$ref\": \"#/definitions/maxLength\"
+            },
+            \"pattern\": {
+              \"$ref\": \"#/definitions/pattern\"
+            }
+          }
+        },
+        \"errors\": {
+          \"properties\": {
+            \"minLength\": {
+              \"$ref\": \"#/definitions/errorsMinLength\"
+            },
+            \"maxLength\": {
+              \"$ref\": \"#/definitions/errorsMaxLength\"
+            },
+            \"pattern\": {
+              \"$ref\": \"#/definitions/errorsPattern\"
+            }
+          }
+        }
+      }
+    },
+    \"numberBundle\": {
+      \"properties\": {
+        \"validation\": {
+          \"properties\": {
+            \"multipleOf\": {
+              \"$ref\": \"#/definitions/multipleOf\"
+            },
+            \"maximum\": {
+              \"$ref\": \"#/definitions/maximum\"
+            },
+            \"exclusiveMaximum\": {
+              \"$ref\": \"#/definitions/exclusiveMaximum\"
+            },
+            \"minimum\": {
+              \"$ref\": \"#/definitions/minimum\"
+            },
+            \"exclusiveMinimum\": {
+              \"$ref\": \"#/definitions/exclusiveMinimum\"
+            }
+          }
+        },
+        \"errors\": {
+          \"properties\": {
+            \"multipleOf\": {
+              \"$ref\": \"#/definitions/errorsMultipleOf\"
+            },
+            \"maximum\": {
+              \"$ref\": \"#/definitions/errorsMaximum\"
+            },
+            \"exclusiveMaximum\": {
+              \"$ref\": \"#/definitions/errorsExclusiveMaximum\"
+            },
+            \"minimum\": {
+              \"$ref\": \"#/definitions/errorsMinimum\"
+            },
+            \"exclusiveMinimum\": {
+              \"$ref\": \"#/definitions/errorsExclusiveMinimum\"
+            }
+          }
+        }
+      }
+    }
+  },
+  \"category\": [
+    \"definition\"
+  ]
+}
+```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/validations/v1.0.0\",
+  \"_name\": \"validations\",
+  \"title\": \"Validations\",
+  \"type\": \"object\",
+  \"definitions\": {
+    \"errorStrings\": {
+      \"type\": \"object\",
+      \"properties\": {
+        \"inline\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        },
+        \"summary\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        }
+      }
+    },
+    \"required\": {
+      \"title\": \"Required\",
+      \"oneOf\": [
+        {
+          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+        }
+      ],
+      \"default\": true
+    },
+    \"errorsRequired\": {
+      \"title\": \"Error strings for required\",
+      \"type\": \"object\",
+      \"properties\": {
+        \"inline\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        },
+        \"summary\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        }
+      }
+    },
+    \"minLength\": {
+      \"title\": \"Minimum length\",
+      \"type\": \"number\",
+      \"minimum\": 0
+    },
+    \"errorsMinLength\": {
+      \"title\": \"Error strings for minLength\",
+      \"type\": \"object\",
+      \"properties\": {
+        \"inline\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        },
+        \"summary\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        }
+      }
+    },
+    \"maxLength\": {
+      \"title\": \"Maximum length\",
+      \"type\": \"number\",
+      \"minimum\": 0
+    },
+    \"errorsMaxLength\": {
+      \"title\": \"Error strings for maxLength\",
+      \"type\": \"object\",
+      \"properties\": {
+        \"inline\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        },
+        \"summary\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        }
+      }
+    },
+    \"pattern\": {
+      \"title\": \"Pattern to match string against\",
+      \"type\": \"string\"
+    },
+    \"errorsPattern\": {
+      \"title\": \"Error strings for pattern\",
+      \"type\": \"object\",
+      \"properties\": {
+        \"inline\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        },
+        \"summary\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        }
+      }
+    },
+    \"multipleOf\": {
+      \"title\": \"Multiple of\",
+      \"type\": \"number\",
+      \"minimum\": 0
+    },
+    \"errorsMultipleOf\": {
+      \"title\": \"Error strings for multipleOf\",
+      \"type\": \"object\",
+      \"properties\": {
+        \"inline\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        },
+        \"summary\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        }
+      }
+    },
+    \"maximum\": {
+      \"title\": \"Maximum\",
+      \"type\": \"number\",
+      \"minimum\": 0
+    },
+    \"errorsMaximum\": {
+      \"title\": \"Error strings for maximum\",
+      \"type\": \"object\",
+      \"properties\": {
+        \"inline\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        },
+        \"summary\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        }
+      }
+    },
+    \"exclusiveMaximum\": {
+      \"title\": \"Exclusive maximum\",
+      \"type\": \"number\",
+      \"minimum\": 0
+    },
+    \"errorsExclusiveMaximum\": {
+      \"title\": \"Error strings for exclusiveMaximum\",
+      \"type\": \"object\",
+      \"properties\": {
+        \"inline\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        },
+        \"summary\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        }
+      }
+    },
+    \"minimum\": {
+      \"title\": \"Minimum\",
+      \"type\": \"number\",
+      \"minimum\": 0
+    },
+    \"errorsMinimum\": {
+      \"title\": \"Error strings for minimum\",
+      \"type\": \"object\",
+      \"properties\": {
+        \"inline\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        },
+        \"summary\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        }
+      }
+    },
+    \"exclusiveMinimum\": {
+      \"title\": \"Exclusive minimum\",
+      \"type\": \"number\",
+      \"minimum\": 0
+    },
+    \"errorsExclusiveMinimum\": {
+      \"title\": \"Error strings for exclusiveMinimum\",
+      \"type\": \"object\",
+      \"properties\": {
+        \"inline\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        },
+        \"summary\": {
+          \"type\": \"string\",
+          \"role\": \"errorString\"
+        }
+      }
+    },
+    \"requiredBundle\": {
+      \"properties\": {
+        \"validation\": {
+          \"role\": \"validation\",
+          \"properties\": {
+            \"required\": {
+              \"title\": \"Required\",
+              \"oneOf\": [
+                {
+                  \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+                }
+              ],
+              \"default\": true
+            }
+          }
+        },
+        \"errors\": {
+          \"role\": \"errorStrings\",
+          \"properties\": {
+            \"required\": {
+              \"title\": \"Error strings for required\",
+              \"type\": \"object\",
+              \"properties\": {
+                \"inline\": {
+                  \"type\": \"string\",
+                  \"role\": \"errorString\"
+                },
+                \"summary\": {
+                  \"type\": \"string\",
+                  \"role\": \"errorString\"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    \"stringBundle\": {
+      \"properties\": {
+        \"validation\": {
+          \"properties\": {
+            \"minLength\": {
+              \"title\": \"Minimum length\",
+              \"type\": \"number\",
+              \"minimum\": 0
+            },
+            \"maxLength\": {
+              \"title\": \"Maximum length\",
+              \"type\": \"number\",
+              \"minimum\": 0
+            },
+            \"pattern\": {
+              \"title\": \"Pattern to match string against\",
+              \"type\": \"string\"
+            }
+          }
+        },
+        \"errors\": {
+          \"properties\": {
+            \"minLength\": {
+              \"title\": \"Error strings for minLength\",
+              \"type\": \"object\",
+              \"properties\": {
+                \"inline\": {
+                  \"type\": \"string\",
+                  \"role\": \"errorString\"
+                },
+                \"summary\": {
+                  \"type\": \"string\",
+                  \"role\": \"errorString\"
+                }
+              }
+            },
+            \"maxLength\": {
+              \"title\": \"Error strings for maxLength\",
+              \"type\": \"object\",
+              \"properties\": {
+                \"inline\": {
+                  \"type\": \"string\",
+                  \"role\": \"errorString\"
+                },
+                \"summary\": {
+                  \"type\": \"string\",
+                  \"role\": \"errorString\"
+                }
+              }
+            },
+            \"pattern\": {
+              \"title\": \"Error strings for pattern\",
+              \"type\": \"object\",
+              \"properties\": {
+                \"inline\": {
+                  \"type\": \"string\",
+                  \"role\": \"errorString\"
+                },
+                \"summary\": {
+                  \"type\": \"string\",
+                  \"role\": \"errorString\"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    \"numberBundle\": {
+      \"properties\": {
+        \"validation\": {
+          \"properties\": {
+            \"multipleOf\": {
+              \"title\": \"Multiple of\",
+              \"type\": \"number\",
+              \"minimum\": 0
+            },
+            \"maximum\": {
+              \"title\": \"Maximum\",
+              \"type\": \"number\",
+              \"minimum\": 0
+            },
+            \"exclusiveMaximum\": {
+              \"title\": \"Exclusive maximum\",
+              \"type\": \"number\",
+              \"minimum\": 0
+            },
+            \"minimum\": {
+              \"title\": \"Minimum\",
+              \"type\": \"number\",
+              \"minimum\": 0
+            },
+            \"exclusiveMinimum\": {
+              \"title\": \"Exclusive minimum\",
+              \"type\": \"number\",
+              \"minimum\": 0
+            }
+          }
+        },
+        \"errors\": {
+          \"properties\": {
+            \"multipleOf\": {
+              \"title\": \"Error strings for multipleOf\",
+              \"type\": \"object\",
+              \"properties\": {
+                \"inline\": {
+                  \"type\": \"string\",
+                  \"role\": \"errorString\"
+                },
+                \"summary\": {
+                  \"type\": \"string\",
+                  \"role\": \"errorString\"
+                }
+              }
+            },
+            \"maximum\": {
+              \"title\": \"Error strings for maximum\",
+              \"type\": \"object\",
+              \"properties\": {
+                \"inline\": {
+                  \"type\": \"string\",
+                  \"role\": \"errorString\"
+                },
+                \"summary\": {
+                  \"type\": \"string\",
+                  \"role\": \"errorString\"
+                }
+              }
+            },
+            \"exclusiveMaximum\": {
+              \"title\": \"Error strings for exclusiveMaximum\",
+              \"type\": \"object\",
+              \"properties\": {
+                \"inline\": {
+                  \"type\": \"string\",
+                  \"role\": \"errorString\"
+                },
+                \"summary\": {
+                  \"type\": \"string\",
+                  \"role\": \"errorString\"
+                }
+              }
+            },
+            \"minimum\": {
+              \"title\": \"Error strings for minimum\",
+              \"type\": \"object\",
+              \"properties\": {
+                \"inline\": {
+                  \"type\": \"string\",
+                  \"role\": \"errorString\"
+                },
+                \"summary\": {
+                  \"type\": \"string\",
+                  \"role\": \"errorString\"
+                }
+              }
+            },
+            \"exclusiveMinimum\": {
+              \"title\": \"Error strings for exclusiveMinimum\",
+              \"type\": \"object\",
+              \"properties\": {
+                \"inline\": {
+                  \"type\": \"string\",
+                  \"role\": \"errorString\"
+                },
+                \"summary\": {
+                  \"type\": \"string\",
+                  \"role\": \"errorString\"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  \"category\": [
+    \"definition\"
+  ]
+}
+```
+"
+}) }}
+
+        

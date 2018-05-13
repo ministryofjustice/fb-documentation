@@ -7,174 +7,545 @@ backlog_issue_id:
 layout: layout-pane.njk
 ---
 
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+
+
+
+{{ govukTable({
+  "caption": "Schema properties",
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "_id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data ID"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_type"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data type"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "url"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "URL"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_isa"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "content"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Content"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "continue"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "extraItems"
+    },
+    {
+      "text": "array"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional items following continue button"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "heading"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Heading"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "items"
+    },
+    {
+      "text": "array"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Items"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "lede"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Lede"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "model"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Model to store field in"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "modelProtect"
+    },
+    {
+      "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": false
+    }
+  ],
+  [
+    {
+      "text": "multiple"
+    },
+    {
+      "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleMaximum"
+    },
+    {
+      "text": "number"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleMinimum"
+    },
+    {
+      "text": "number"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": 1
+    }
+  ],
+  [
+    {
+      "text": "nextPage"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "What page (if any), and under what condtions, to go to next"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "show"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Whether to show block or not"
+    },
+    {
+      "html": true
+    }
+  ],
+  [
+    {
+      "text": "steps"
+    },
+    {
+      "text": "array"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Steps"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "title"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Title"
+    },
+    {
+      "html": "-"
+    }
+  ]
+]
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
 ```
 {
-  "$id": "http://gov.uk/schema/pageConfirmation/v1.0.0",
-  "title": "Confirmation page",
-  "description": "Confirmation page",
-  "type": "object",
-  "category": [
-    "formPage",
-    "page"
+  \"$id\": \"http://gov.uk/schema/pageConfirmation/v1.0.0\",
+  \"title\": \"Confirmation page\",
+  \"description\": \"Confirmation page\",
+  \"type\": \"object\",
+  \"category\": [],
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"pageConfirmation\"
+    },
+    \"continue\": {
+      \"const\": \"makes no sense\"
+    }
+  },
+  \"allOf\": [
+    {
+      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/formPage\"
+    }
+  ]
+}
+```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/pageConfirmation/v1.0.0\",
+  \"title\": \"Confirmation page\",
+  \"description\": \"Confirmation page\",
+  \"type\": \"object\",
+  \"category\": [
+    \"formPage\",
+    \"page\"
   ],
-  "properties": {
-    "_type": {
-      "const": "pageConfirmation",
-      "title": "Data type",
-      "type": "string"
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"pageConfirmation\",
+      \"title\": \"Data type\",
+      \"type\": \"string\"
     },
-    "continue": {
-      "const": "makes no sense"
+    \"continue\": {
+      \"const\": \"makes no sense\"
     },
-    "extraItems": {
-      "title": "Additional items following continue button",
-      "type": "array",
-      "items": {
-        "type": "object",
-        "category": [
-          "component",
-          "block"
+    \"extraItems\": {
+      \"title\": \"Additional items following continue button\",
+      \"type\": \"array\",
+      \"items\": {
+        \"type\": \"object\",
+        \"category\": [
+          \"component\",
+          \"block\"
         ],
-        "properties": {
-          "show": {
-            "title": "Whether to show block or not",
-            "oneOf": [
+        \"properties\": {
+          \"show\": {
+            \"title\": \"Whether to show block or not\",
+            \"oneOf\": [
               {
-                "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+                \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
               }
             ],
-            "default": true
+            \"default\": true
           }
         }
       }
     },
-    "steps": {
-      "title": "Steps",
-      "type": "array",
-      "items": {
-        "type": "string"
+    \"steps\": {
+      \"title\": \"Steps\",
+      \"type\": \"array\",
+      \"items\": {
+        \"type\": \"string\"
       }
     },
-    "nextPage": {
-      "title": "What page (if any), and under what condtions, to go to next",
-      "oneOf": [
+    \"nextPage\": {
+      \"title\": \"What page (if any), and under what condtions, to go to next\",
+      \"oneOf\": [
         {
-          "type": "string"
+          \"type\": \"string\"
         },
         {
-          "type": "array",
-          "items": {
-            "oneOf": [
+          \"type\": \"array\",
+          \"items\": {
+            \"oneOf\": [
               {
-                "type": "object",
-                "properties": {
-                  "page": {
-                    "type": "string"
+                \"type\": \"object\",
+                \"properties\": {
+                  \"page\": {
+                    \"type\": \"string\"
                   },
-                  "condition": {
-                    "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+                  \"condition\": {
+                    \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
                   }
                 },
-                "required": [
-                  "page",
-                  "condition"
+                \"required\": [
+                  \"page\",
+                  \"condition\"
                 ]
               },
               {
-                "type": "string"
+                \"type\": \"string\"
               }
             ]
           }
         }
       ]
     },
-    "url": {
-      "title": "URL",
-      "type": "string"
+    \"url\": {
+      \"title\": \"URL\",
+      \"type\": \"string\"
     },
-    "heading": {
-      "title": "Heading",
-      "type": "string"
+    \"heading\": {
+      \"title\": \"Heading\",
+      \"type\": \"string\"
     },
-    "title": {
-      "title": "Title",
-      "type": "string"
+    \"title\": {
+      \"title\": \"Title\",
+      \"type\": \"string\"
     },
-    "lede": {
-      "title": "Lede",
-      "type": "string"
+    \"lede\": {
+      \"title\": \"Lede\",
+      \"type\": \"string\"
     },
-    "content": {
-      "title": "Content",
-      "type": "string",
-      "multiline": true
+    \"content\": {
+      \"title\": \"Content\",
+      \"type\": \"string\",
+      \"multiline\": true
     },
-    "items": {
-      "title": "Items",
-      "type": "array",
-      "items": {
-        "type": "object",
-        "category": [
-          "component",
-          "block"
+    \"items\": {
+      \"title\": \"Items\",
+      \"type\": \"array\",
+      \"items\": {
+        \"type\": \"object\",
+        \"category\": [
+          \"component\",
+          \"block\"
         ],
-        "properties": {
-          "show": {
-            "title": "Whether to show block or not",
-            "oneOf": [
+        \"properties\": {
+          \"show\": {
+            \"title\": \"Whether to show block or not\",
+            \"oneOf\": [
               {
-                "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+                \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
               }
             ],
-            "default": true
+            \"default\": true
           }
         }
       }
     },
-    "show": {
-      "title": "Whether to show block or not",
-      "oneOf": [
+    \"show\": {
+      \"title\": \"Whether to show block or not\",
+      \"oneOf\": [
         {
-          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
         }
       ],
-      "default": true
+      \"default\": true
     },
-    "_id": {
-      "title": "Data ID",
-      "type": "string"
+    \"_id\": {
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
     },
-    "_isa": {
-      "title": "Based on",
-      "type": "string",
-      "blockReference": true
+    \"_isa\": {
+      \"title\": \"Based on\",
+      \"type\": \"string\",
+      \"blockReference\": true
     },
-    "multiple": {
-      "type": "boolean"
+    \"multiple\": {
+      \"type\": \"boolean\"
     },
-    "multipleMinimum": {
-      "type": "number",
-      "minimum": 0,
-      "default": 1
+    \"multipleMinimum\": {
+      \"type\": \"number\",
+      \"minimum\": 0,
+      \"default\": 1
     },
-    "multipleMaximum": {
-      "type": "number",
-      "minimum": 0
+    \"multipleMaximum\": {
+      \"type\": \"number\",
+      \"minimum\": 0
     },
-    "model": {
-      "title": "Model to store field in",
-      "type": "string"
+    \"model\": {
+      \"title\": \"Model to store field in\",
+      \"type\": \"string\"
     },
-    "modelProtect": {
-      "type": "boolean",
-      "default": false
+    \"modelProtect\": {
+      \"type\": \"boolean\",
+      \"default\": false
     }
   },
-  "required": [
-    "_id",
-    "_type",
-    "url"
+  \"required\": [
+    \"_id\",
+    \"_type\",
+    \"url\"
   ]
 }
 ```
+"
+}) }}
+
         

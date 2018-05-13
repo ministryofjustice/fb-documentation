@@ -7,52 +7,230 @@ backlog_issue_id:
 layout: layout-pane.njk
 ---
 
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+
+
+
+{{ govukTable({
+  "caption": "Schema properties",
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "_id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data ID"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_type"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data type"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "name"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "phase"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "phaseText"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_isa"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ]
+]
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
 ```
 {
-  "$id": "http://gov.uk/schema/Service/v1.0.0",
-  "title": "Service",
-  "description": "Service configuration",
-  "type": "object",
-  "properties": {
-    "_type": {
-      "const": "Service",
-      "title": "Data type",
-      "type": "string"
+  \"$id\": \"http://gov.uk/schema/Service/v1.0.0\",
+  \"title\": \"Service\",
+  \"description\": \"Service configuration\",
+  \"type\": \"object\",
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"Service\"
     },
-    "name": {
-      "type": "string"
+    \"name\": {
+      \"type\": \"string\"
     },
-    "phase": {
-      "type": "string",
-      "enum": [
-        "",
-        "alpha",
-        "beta"
+    \"phase\": {
+      \"type\": \"string\",
+      \"enum\": [
+        \"\",
+        \"alpha\",
+        \"beta\"
       ]
     },
-    "phaseText": {
-      "type": "string"
-    },
-    "_id": {
-      "title": "Data ID",
-      "type": "string"
-    },
-    "_isa": {
-      "title": "Based on",
-      "type": "string",
-      "blockReference": true
+    \"phaseText\": {
+      \"type\": \"string\"
     }
   },
-  "category": [
-    "configuration"
+  \"allOf\": [
+    {
+      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/data\"
+    }
   ],
-  "required": [
-    "_id",
-    "_type",
-    "name",
-    "phase",
-    "phaseText"
+  \"category\": [
+    \"configuration\"
+  ],
+  \"required\": [
+    \"name\",
+    \"phase\",
+    \"phaseText\"
   ]
 }
 ```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/Service/v1.0.0\",
+  \"title\": \"Service\",
+  \"description\": \"Service configuration\",
+  \"type\": \"object\",
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"Service\",
+      \"title\": \"Data type\",
+      \"type\": \"string\"
+    },
+    \"name\": {
+      \"type\": \"string\"
+    },
+    \"phase\": {
+      \"type\": \"string\",
+      \"enum\": [
+        \"\",
+        \"alpha\",
+        \"beta\"
+      ]
+    },
+    \"phaseText\": {
+      \"type\": \"string\"
+    },
+    \"_id\": {
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
+    },
+    \"_isa\": {
+      \"title\": \"Based on\",
+      \"type\": \"string\",
+      \"blockReference\": true
+    }
+  },
+  \"category\": [
+    \"configuration\"
+  ],
+  \"required\": [
+    \"_id\",
+    \"_type\",
+    \"name\",
+    \"phase\",
+    \"phaseText\"
+  ]
+}
+```
+"
+}) }}
+
         

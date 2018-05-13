@@ -7,75 +7,297 @@ backlog_issue_id:
 layout: layout-pane.njk
 ---
 
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+
+
+
+{{ govukTable({
+  "caption": "Schema properties",
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "_id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data ID"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_type"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data type"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_isa"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "attributes"
+    },
+    {
+      "text": "object"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML attributes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "classes"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML classes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "items"
+    },
+    {
+      "text": "array"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "model"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Model to store field in"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "modelProtect"
+    },
+    {
+      "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": false
+    }
+  ],
+  [
+    {
+      "text": "show"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Whether to show block or not"
+    },
+    {
+      "html": true
+    }
+  ]
+]
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
 ```
 {
-  "$id": "http://gov.uk/schema/group/v1.0.0",
-  "title": "Group",
-  "description": "Component for grouping blocks",
-  "type": "object",
-  "properties": {
-    "_type": {
-      "const": "group",
-      "title": "Data type",
-      "type": "string"
-    },
-    "items": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "category": [
-          "component",
-          "block"
-        ]
-      }
-    },
-    "show": {
-      "title": "Whether to show block or not",
-      "oneOf": [
-        {
-          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
-        }
-      ],
-      "default": true
-    },
-    "_id": {
-      "title": "Data ID",
-      "type": "string"
-    },
-    "_isa": {
-      "title": "Based on",
-      "type": "string",
-      "blockReference": true
-    },
-    "model": {
-      "title": "Model to store field in",
-      "type": "string"
-    },
-    "modelProtect": {
-      "type": "boolean",
-      "default": false
-    },
-    "id": {
-      "type": "string"
-    },
-    "classes": {
-      "title": "Additional HTML classes",
-      "type": "string"
-    },
-    "attributes": {
-      "title": "Additional HTML attributes",
-      "type": "object"
+  \"$id\": \"http://gov.uk/schema/group/v1.0.0\",
+  \"title\": \"Group\",
+  \"description\": \"Component for grouping blocks\",
+  \"type\": \"object\",
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"group\"
     }
   },
-  "category": [
-    "block",
-    "component",
-    "grouping"
-  ],
-  "required": [
-    "_id",
-    "_type"
+  \"allOf\": [
+    {
+      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/grouping\"
+    }
   ]
 }
 ```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/group/v1.0.0\",
+  \"title\": \"Group\",
+  \"description\": \"Component for grouping blocks\",
+  \"type\": \"object\",
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"group\",
+      \"title\": \"Data type\",
+      \"type\": \"string\"
+    },
+    \"items\": {
+      \"type\": \"array\",
+      \"items\": {
+        \"type\": \"object\",
+        \"category\": [
+          \"component\",
+          \"block\"
+        ]
+      }
+    },
+    \"show\": {
+      \"title\": \"Whether to show block or not\",
+      \"oneOf\": [
+        {
+          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+        }
+      ],
+      \"default\": true
+    },
+    \"_id\": {
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
+    },
+    \"_isa\": {
+      \"title\": \"Based on\",
+      \"type\": \"string\",
+      \"blockReference\": true
+    },
+    \"model\": {
+      \"title\": \"Model to store field in\",
+      \"type\": \"string\"
+    },
+    \"modelProtect\": {
+      \"type\": \"boolean\",
+      \"default\": false
+    },
+    \"id\": {
+      \"type\": \"string\"
+    },
+    \"classes\": {
+      \"title\": \"Additional HTML classes\",
+      \"type\": \"string\"
+    },
+    \"attributes\": {
+      \"title\": \"Additional HTML attributes\",
+      \"type\": \"object\"
+    }
+  },
+  \"category\": [
+    \"block\",
+    \"component\",
+    \"grouping\"
+  ],
+  \"required\": [
+    \"_id\",
+    \"_type\"
+  ]
+}
+```
+"
+}) }}
+
         

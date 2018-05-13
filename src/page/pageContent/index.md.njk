@@ -7,90 +7,319 @@ backlog_issue_id:
 layout: layout-pane.njk
 ---
 
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+
+
+
+{{ govukTable({
+  "caption": "Schema properties",
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "_id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data ID"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_type"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data type"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "heading"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Heading"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "url"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "URL"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_isa"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "content"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Content"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "items"
+    },
+    {
+      "text": "array"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Items"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "lede"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Lede"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "show"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Whether to show block or not"
+    },
+    {
+      "html": true
+    }
+  ],
+  [
+    {
+      "text": "title"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Title"
+    },
+    {
+      "html": "-"
+    }
+  ]
+]
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
 ```
 {
-  "$id": "http://gov.uk/schema/pageContent/v1.0.0",
-  "title": "Content page",
-  "description": "Content page",
-  "type": "object",
-  "category": [
-    "contentPage",
-    "page"
+  \"$id\": \"http://gov.uk/schema/pageContent/v1.0.0\",
+  \"title\": \"Content page\",
+  \"description\": \"Content page\",
+  \"type\": \"object\",
+  \"category\": [],
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"pageContent\"
+    }
+  },
+  \"allOf\": [
+    {
+      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/contentPage\"
+    }
+  ]
+}
+```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/pageContent/v1.0.0\",
+  \"title\": \"Content page\",
+  \"description\": \"Content page\",
+  \"type\": \"object\",
+  \"category\": [
+    \"contentPage\",
+    \"page\"
   ],
-  "properties": {
-    "_type": {
-      "const": "pageContent",
-      "title": "Data type",
-      "type": "string"
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"pageContent\",
+      \"title\": \"Data type\",
+      \"type\": \"string\"
     },
-    "url": {
-      "title": "URL",
-      "type": "string"
+    \"url\": {
+      \"title\": \"URL\",
+      \"type\": \"string\"
     },
-    "heading": {
-      "title": "Heading",
-      "type": "string"
+    \"heading\": {
+      \"title\": \"Heading\",
+      \"type\": \"string\"
     },
-    "title": {
-      "title": "Title",
-      "type": "string"
+    \"title\": {
+      \"title\": \"Title\",
+      \"type\": \"string\"
     },
-    "lede": {
-      "title": "Lede",
-      "type": "string"
+    \"lede\": {
+      \"title\": \"Lede\",
+      \"type\": \"string\"
     },
-    "content": {
-      "title": "Content",
-      "type": "string",
-      "multiline": true
+    \"content\": {
+      \"title\": \"Content\",
+      \"type\": \"string\",
+      \"multiline\": true
     },
-    "items": {
-      "title": "Items",
-      "type": "array",
-      "items": {
-        "type": "object",
-        "category": [
-          "component",
-          "block"
+    \"items\": {
+      \"title\": \"Items\",
+      \"type\": \"array\",
+      \"items\": {
+        \"type\": \"object\",
+        \"category\": [
+          \"component\",
+          \"block\"
         ],
-        "properties": {
-          "show": {
-            "title": "Whether to show block or not",
-            "oneOf": [
+        \"properties\": {
+          \"show\": {
+            \"title\": \"Whether to show block or not\",
+            \"oneOf\": [
               {
-                "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+                \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
               }
             ],
-            "default": true
+            \"default\": true
           }
         }
       }
     },
-    "show": {
-      "title": "Whether to show block or not",
-      "oneOf": [
+    \"show\": {
+      \"title\": \"Whether to show block or not\",
+      \"oneOf\": [
         {
-          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
         }
       ],
-      "default": true
+      \"default\": true
     },
-    "_id": {
-      "title": "Data ID",
-      "type": "string"
+    \"_id\": {
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
     },
-    "_isa": {
-      "title": "Based on",
-      "type": "string",
-      "blockReference": true
+    \"_isa\": {
+      \"title\": \"Based on\",
+      \"type\": \"string\",
+      \"blockReference\": true
     }
   },
-  "required": [
-    "_id",
-    "_type",
-    "heading",
-    "url"
+  \"required\": [
+    \"_id\",
+    \"_type\",
+    \"heading\",
+    \"url\"
   ]
 }
 ```
+"
+}) }}
+
         

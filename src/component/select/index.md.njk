@@ -7,188 +7,528 @@ backlog_issue_id:
 layout: layout-pane.njk
 ---
 
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+
+
+
+{{ govukTable({
+  "caption": "Schema properties",
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "_id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data ID"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_type"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data type"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "label"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Label"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "name"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Input name"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_isa"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "attributes"
+    },
+    {
+      "text": "object"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML attributes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "classes"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML classes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "disabled"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Disabled"
+    },
+    {
+      "html": false
+    }
+  ],
+  [
+    {
+      "text": "errors"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "hint"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Hint text"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "items"
+    },
+    {
+      "text": "array"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "model"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Model to store field in"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "modelProtect"
+    },
+    {
+      "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": false
+    }
+  ],
+  [
+    {
+      "text": "show"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Whether to show block or not"
+    },
+    {
+      "html": true
+    }
+  ],
+  [
+    {
+      "text": "validation"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "widthClassInput"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ]
+]
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
 ```
 {
-  "$id": "http://gov.uk/schema/select/v1.0.0",
-  "title": "Select",
-  "description": "Component that provides a select field",
-  "type": "object",
-  "properties": {
-    "_type": {
-      "const": "select",
-      "title": "Data type",
-      "type": "string"
+  \"$id\": \"http://gov.uk/schema/select/v1.0.0\",
+  \"title\": \"Select\",
+  \"description\": \"Component that provides a select field\",
+  \"type\": \"object\",
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"select\"
     },
-    "widthClassInput": {
-      "type": "string",
-      "enumMap": "widthClassMap",
-      "enum": [
-        "10",
-        "20",
-        "30",
-        "three-quarters",
-        "two-thirds",
-        "one-half",
-        "one-third",
-        "one-quarter"
-      ]
+    \"widthClassInput\": {
+      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/widthClassInput\"
     },
-    "items": {
-      "type": "array",
-      "items": [
+    \"items\": {
+      \"type\": \"array\",
+      \"items\": [
         {
-          "$id": "http://gov.uk/schema/option/v1.0.0",
-          "title": "Select option",
-          "description": "Component that provides a select option",
-          "type": "object",
-          "required": [
-            "_id",
-            "_type",
-            "option",
-            "value"
-          ],
-          "category": [
-            "component",
-            "block"
-          ],
-          "properties": {
-            "_type": {
-              "const": "option",
-              "title": "Data type",
-              "type": "string"
-            },
-            "option": {
-              "type": "string"
-            },
-            "value": {
-              "type": "string"
-            },
-            "show": {
-              "title": "Whether to show block or not",
-              "oneOf": [
-                {
-                  "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
-                }
-              ],
-              "default": true
-            },
-            "_id": {
-              "title": "Data ID",
-              "type": "string"
-            },
-            "_isa": {
-              "title": "Based on",
-              "type": "string",
-              "blockReference": true
-            }
-          }
+          \"$ref\": \"/schema/option/v1.0.0#\"
         }
       ]
-    },
-    "name": {
-      "title": "Input name",
-      "type": "string"
-    },
-    "disabled": {
-      "title": "Disabled",
-      "oneOf": [
-        {
-          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
-        }
-      ],
-      "default": false
-    },
-    "show": {
-      "title": "Whether to show block or not",
-      "oneOf": [
-        {
-          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
-        }
-      ],
-      "default": true
-    },
-    "_id": {
-      "title": "Data ID",
-      "type": "string"
-    },
-    "_isa": {
-      "title": "Based on",
-      "type": "string",
-      "blockReference": true
-    },
-    "id": {
-      "type": "string"
-    },
-    "classes": {
-      "title": "Additional HTML classes",
-      "type": "string"
-    },
-    "attributes": {
-      "title": "Additional HTML attributes",
-      "type": "object"
-    },
-    "model": {
-      "title": "Model to store field in",
-      "type": "string"
-    },
-    "modelProtect": {
-      "type": "boolean",
-      "default": false
-    },
-    "validation": {
-      "role": "validation",
-      "properties": {
-        "required": {
-          "title": "Required",
-          "oneOf": [
-            {
-              "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
-            }
-          ],
-          "default": true
-        }
-      }
-    },
-    "errors": {
-      "role": "errorStrings",
-      "properties": {
-        "required": {
-          "title": "Error strings for required",
-          "type": "object",
-          "properties": {
-            "inline": {
-              "type": "string",
-              "role": "errorString"
-            },
-            "summary": {
-              "type": "string",
-              "role": "errorString"
-            }
-          }
-        }
-      }
-    },
-    "label": {
-      "title": "Label",
-      "type": "string"
-    },
-    "hint": {
-      "title": "Hint text",
-      "type": "string"
     }
   },
-  "category": [
-    "block",
-    "component",
-    "control",
-    "field"
-  ],
-  "required": [
-    "_id",
-    "_type",
-    "label",
-    "name"
+  \"allOf\": [
+    {
+      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/field\"
+    }
   ]
 }
 ```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/select/v1.0.0\",
+  \"title\": \"Select\",
+  \"description\": \"Component that provides a select field\",
+  \"type\": \"object\",
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"select\",
+      \"title\": \"Data type\",
+      \"type\": \"string\"
+    },
+    \"widthClassInput\": {
+      \"type\": \"string\",
+      \"enumMap\": \"widthClassMap\",
+      \"enum\": [
+        \"10\",
+        \"20\",
+        \"30\",
+        \"three-quarters\",
+        \"two-thirds\",
+        \"one-half\",
+        \"one-third\",
+        \"one-quarter\"
+      ]
+    },
+    \"items\": {
+      \"type\": \"array\",
+      \"items\": [
+        {
+          \"$id\": \"http://gov.uk/schema/option/v1.0.0\",
+          \"title\": \"Select option\",
+          \"description\": \"Component that provides a select option\",
+          \"type\": \"object\",
+          \"required\": [
+            \"_id\",
+            \"_type\",
+            \"option\",
+            \"value\"
+          ],
+          \"category\": [
+            \"component\",
+            \"block\"
+          ],
+          \"properties\": {
+            \"_type\": {
+              \"const\": \"option\",
+              \"title\": \"Data type\",
+              \"type\": \"string\"
+            },
+            \"option\": {
+              \"type\": \"string\"
+            },
+            \"value\": {
+              \"type\": \"string\"
+            },
+            \"show\": {
+              \"title\": \"Whether to show block or not\",
+              \"oneOf\": [
+                {
+                  \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+                }
+              ],
+              \"default\": true
+            },
+            \"_id\": {
+              \"title\": \"Data ID\",
+              \"type\": \"string\"
+            },
+            \"_isa\": {
+              \"title\": \"Based on\",
+              \"type\": \"string\",
+              \"blockReference\": true
+            }
+          }
+        }
+      ]
+    },
+    \"name\": {
+      \"title\": \"Input name\",
+      \"type\": \"string\"
+    },
+    \"disabled\": {
+      \"title\": \"Disabled\",
+      \"oneOf\": [
+        {
+          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+        }
+      ],
+      \"default\": false
+    },
+    \"show\": {
+      \"title\": \"Whether to show block or not\",
+      \"oneOf\": [
+        {
+          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+        }
+      ],
+      \"default\": true
+    },
+    \"_id\": {
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
+    },
+    \"_isa\": {
+      \"title\": \"Based on\",
+      \"type\": \"string\",
+      \"blockReference\": true
+    },
+    \"id\": {
+      \"type\": \"string\"
+    },
+    \"classes\": {
+      \"title\": \"Additional HTML classes\",
+      \"type\": \"string\"
+    },
+    \"attributes\": {
+      \"title\": \"Additional HTML attributes\",
+      \"type\": \"object\"
+    },
+    \"model\": {
+      \"title\": \"Model to store field in\",
+      \"type\": \"string\"
+    },
+    \"modelProtect\": {
+      \"type\": \"boolean\",
+      \"default\": false
+    },
+    \"validation\": {
+      \"role\": \"validation\",
+      \"properties\": {
+        \"required\": {
+          \"title\": \"Required\",
+          \"oneOf\": [
+            {
+              \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+            }
+          ],
+          \"default\": true
+        }
+      }
+    },
+    \"errors\": {
+      \"role\": \"errorStrings\",
+      \"properties\": {
+        \"required\": {
+          \"title\": \"Error strings for required\",
+          \"type\": \"object\",
+          \"properties\": {
+            \"inline\": {
+              \"type\": \"string\",
+              \"role\": \"errorString\"
+            },
+            \"summary\": {
+              \"type\": \"string\",
+              \"role\": \"errorString\"
+            }
+          }
+        }
+      }
+    },
+    \"label\": {
+      \"title\": \"Label\",
+      \"type\": \"string\"
+    },
+    \"hint\": {
+      \"title\": \"Hint text\",
+      \"type\": \"string\"
+    }
+  },
+  \"category\": [
+    \"block\",
+    \"component\",
+    \"control\",
+    \"field\"
+  ],
+  \"required\": [
+    \"_id\",
+    \"_type\",
+    \"label\",
+    \"name\"
+  ]
+}
+```
+"
+}) }}
+
         

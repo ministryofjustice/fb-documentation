@@ -7,177 +7,534 @@ backlog_issue_id:
 layout: layout-pane.njk
 ---
 
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+
+
+
+{{ govukTable({
+  "caption": "Schema properties",
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "_id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data ID"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_type"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data type"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "label"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Label"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "name"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Input name"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_isa"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "attributes"
+    },
+    {
+      "text": "object"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML attributes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "classes"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML classes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "dateType"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Date type"
+    },
+    {
+      "html": "day-month-year"
+    }
+  ],
+  [
+    {
+      "text": "disabled"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Disabled"
+    },
+    {
+      "html": false
+    }
+  ],
+  [
+    {
+      "text": "errors"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "hint"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Hint text"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "model"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Model to store field in"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "modelProtect"
+    },
+    {
+      "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": false
+    }
+  ],
+  [
+    {
+      "text": "show"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Whether to show block or not"
+    },
+    {
+      "html": true
+    }
+  ],
+  [
+    {
+      "text": "validation"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ]
+]
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
 ```
 {
-  "$id": "http://gov.uk/schema/date/v1.0.0",
-  "title": "Date",
-  "description": "Component that provides a composite date input field",
-  "type": "object",
-  "properties": {
-    "_type": {
-      "const": "date",
-      "title": "Data type",
-      "type": "string"
+  \"$id\": \"http://gov.uk/schema/date/v1.0.0\",
+  \"title\": \"Date\",
+  \"description\": \"Component that provides a composite date input field\",
+  \"type\": \"object\",
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"date\"
     },
-    "dateType": {
-      "title": "Date type",
-      "type": "string",
-      "enum": [
-        "day-month-year",
-        "month-year",
-        "day-month",
-        "year"
+    \"dateType\": {
+      \"title\": \"Date type\",
+      \"type\": \"string\",
+      \"enum\": [
+        \"day-month-year\",
+        \"month-year\",
+        \"day-month\",
+        \"year\"
       ],
-      "default": "day-month-year"
+      \"default\": \"day-month-year\"
     },
-    "validation": {
-      "role": "validation",
-      "properties": {
-        "formatMinimum": {
-          "oneOf": [
+    \"validation\": {
+      \"properties\": {
+        \"formatMinimum\": {
+          \"$ref\": \"#/definitions/validDate\"
+        },
+        \"formatMaximum\": {
+          \"$ref\": \"#/definitions/validDate\"
+        }
+      }
+    }
+  },
+  \"allOf\": [
+    {
+      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/field\"
+    }
+  ],
+  \"definitions\": {
+    \"dateTypeEnum\": {
+      \"day-month-year\": \"Day / Month / Year\",
+      \"month-year\": \"Month / Year\",
+      \"year\": \"Year\",
+      \"day-month\": \"Day / Month\"
+    },
+    \"validDate\": {
+      \"oneOf\": [
+        {
+          \"type\": \"string\",
+          \"format\": \"date\"
+        },
+        {
+          \"type\": \"string\",
+          \"pattern\": \"^\\d+\\w$\"
+        }
+      ]
+    }
+  }
+}
+```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/date/v1.0.0\",
+  \"title\": \"Date\",
+  \"description\": \"Component that provides a composite date input field\",
+  \"type\": \"object\",
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"date\",
+      \"title\": \"Data type\",
+      \"type\": \"string\"
+    },
+    \"dateType\": {
+      \"title\": \"Date type\",
+      \"type\": \"string\",
+      \"enum\": [
+        \"day-month-year\",
+        \"month-year\",
+        \"day-month\",
+        \"year\"
+      ],
+      \"default\": \"day-month-year\"
+    },
+    \"validation\": {
+      \"role\": \"validation\",
+      \"properties\": {
+        \"formatMinimum\": {
+          \"oneOf\": [
             {
-              "type": "string",
-              "format": "date"
+              \"type\": \"string\",
+              \"format\": \"date\"
             },
             {
-              "type": "string",
-              "pattern": "^\\d+\\w$"
+              \"type\": \"string\",
+              \"pattern\": \"^\\d+\\w$\"
             }
           ]
         },
-        "formatMaximum": {
-          "oneOf": [
+        \"formatMaximum\": {
+          \"oneOf\": [
             {
-              "type": "string",
-              "format": "date"
+              \"type\": \"string\",
+              \"format\": \"date\"
             },
             {
-              "type": "string",
-              "pattern": "^\\d+\\w$"
+              \"type\": \"string\",
+              \"pattern\": \"^\\d+\\w$\"
             }
           ]
         },
-        "required": {
-          "title": "Required",
-          "oneOf": [
+        \"required\": {
+          \"title\": \"Required\",
+          \"oneOf\": [
             {
-              "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+              \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
             }
           ],
-          "default": true
+          \"default\": true
         }
       }
     },
-    "name": {
-      "title": "Input name",
-      "type": "string"
+    \"name\": {
+      \"title\": \"Input name\",
+      \"type\": \"string\"
     },
-    "disabled": {
-      "title": "Disabled",
-      "oneOf": [
+    \"disabled\": {
+      \"title\": \"Disabled\",
+      \"oneOf\": [
         {
-          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
         }
       ],
-      "default": false
+      \"default\": false
     },
-    "show": {
-      "title": "Whether to show block or not",
-      "oneOf": [
+    \"show\": {
+      \"title\": \"Whether to show block or not\",
+      \"oneOf\": [
         {
-          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
+          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
         }
       ],
-      "default": true
+      \"default\": true
     },
-    "_id": {
-      "title": "Data ID",
-      "type": "string"
+    \"_id\": {
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
     },
-    "_isa": {
-      "title": "Based on",
-      "type": "string",
-      "blockReference": true
+    \"_isa\": {
+      \"title\": \"Based on\",
+      \"type\": \"string\",
+      \"blockReference\": true
     },
-    "id": {
-      "type": "string"
+    \"id\": {
+      \"type\": \"string\"
     },
-    "classes": {
-      "title": "Additional HTML classes",
-      "type": "string"
+    \"classes\": {
+      \"title\": \"Additional HTML classes\",
+      \"type\": \"string\"
     },
-    "attributes": {
-      "title": "Additional HTML attributes",
-      "type": "object"
+    \"attributes\": {
+      \"title\": \"Additional HTML attributes\",
+      \"type\": \"object\"
     },
-    "model": {
-      "title": "Model to store field in",
-      "type": "string"
+    \"model\": {
+      \"title\": \"Model to store field in\",
+      \"type\": \"string\"
     },
-    "modelProtect": {
-      "type": "boolean",
-      "default": false
+    \"modelProtect\": {
+      \"type\": \"boolean\",
+      \"default\": false
     },
-    "errors": {
-      "role": "errorStrings",
-      "properties": {
-        "required": {
-          "title": "Error strings for required",
-          "type": "object",
-          "properties": {
-            "inline": {
-              "type": "string",
-              "role": "errorString"
+    \"errors\": {
+      \"role\": \"errorStrings\",
+      \"properties\": {
+        \"required\": {
+          \"title\": \"Error strings for required\",
+          \"type\": \"object\",
+          \"properties\": {
+            \"inline\": {
+              \"type\": \"string\",
+              \"role\": \"errorString\"
             },
-            "summary": {
-              "type": "string",
-              "role": "errorString"
+            \"summary\": {
+              \"type\": \"string\",
+              \"role\": \"errorString\"
             }
           }
         }
       }
     },
-    "label": {
-      "title": "Label",
-      "type": "string"
+    \"label\": {
+      \"title\": \"Label\",
+      \"type\": \"string\"
     },
-    "hint": {
-      "title": "Hint text",
-      "type": "string"
+    \"hint\": {
+      \"title\": \"Hint text\",
+      \"type\": \"string\"
     }
   },
-  "definitions": {
-    "dateTypeEnum": {
-      "day-month-year": "Day / Month / Year",
-      "month-year": "Month / Year",
-      "year": "Year",
-      "day-month": "Day / Month"
+  \"definitions\": {
+    \"dateTypeEnum\": {
+      \"day-month-year\": \"Day / Month / Year\",
+      \"month-year\": \"Month / Year\",
+      \"year\": \"Year\",
+      \"day-month\": \"Day / Month\"
     },
-    "validDate": {
-      "oneOf": [
+    \"validDate\": {
+      \"oneOf\": [
         {
-          "type": "string",
-          "format": "date"
+          \"type\": \"string\",
+          \"format\": \"date\"
         },
         {
-          "type": "string",
-          "pattern": "^\\d+\\w$"
+          \"type\": \"string\",
+          \"pattern\": \"^\\d+\\w$\"
         }
       ]
     }
   },
-  "category": [
-    "block",
-    "component",
-    "control",
-    "field"
+  \"category\": [
+    \"block\",
+    \"component\",
+    \"control\",
+    \"field\"
   ],
-  "required": [
-    "_id",
-    "_type",
-    "label",
-    "name"
+  \"required\": [
+    \"_id\",
+    \"_type\",
+    \"label\",
+    \"name\"
   ]
 }
 ```
+"
+}) }}
+
         

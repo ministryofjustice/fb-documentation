@@ -7,62 +7,262 @@ backlog_issue_id:
 layout: layout-pane.njk
 ---
 
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+
+
+
+{{ govukTable({
+  "caption": "Schema properties",
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "_id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data ID"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_type"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data type"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "html"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_isa"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "attributes"
+    },
+    {
+      "text": "object"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML attributes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "classes"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML classes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "show"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Whether to show block or not"
+    },
+    {
+      "html": true
+    }
+  ]
+]
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
 ```
 {
-  "$id": "http://gov.uk/schema/content/v1.0.0",
-  "title": "Content",
-  "description": "Component for creating content",
-  "type": "object",
-  "category": [
-    "block",
-    "component",
-    "content"
+  \"$id\": \"http://gov.uk/schema/content/v1.0.0\",
+  \"title\": \"Content\",
+  \"description\": \"Component for creating content\",
+  \"type\": \"object\",
+  \"category\": [
+    \"content\"
   ],
-  "properties": {
-    "_type": {
-      "const": "content",
-      "title": "Data type",
-      "type": "string"
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"content\"
     },
-    "html": {
-      "type": "string",
-      "multiline": true
-    },
-    "show": {
-      "title": "Whether to show block or not",
-      "oneOf": [
-        {
-          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
-        }
-      ],
-      "default": true
-    },
-    "_id": {
-      "title": "Data ID",
-      "type": "string"
-    },
-    "_isa": {
-      "title": "Based on",
-      "type": "string",
-      "blockReference": true
-    },
-    "id": {
-      "type": "string"
-    },
-    "classes": {
-      "title": "Additional HTML classes",
-      "type": "string"
-    },
-    "attributes": {
-      "title": "Additional HTML attributes",
-      "type": "object"
+    \"html\": {
+      \"type\": \"string\",
+      \"multiline\": true
     }
   },
-  "required": [
-    "_id",
-    "_type",
-    "html"
+  \"allOf\": [
+    {
+      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/content\"
+    }
+  ],
+  \"required\": [
+    \"html\"
   ]
 }
 ```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/content/v1.0.0\",
+  \"title\": \"Content\",
+  \"description\": \"Component for creating content\",
+  \"type\": \"object\",
+  \"category\": [
+    \"block\",
+    \"component\",
+    \"content\"
+  ],
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"content\",
+      \"title\": \"Data type\",
+      \"type\": \"string\"
+    },
+    \"html\": {
+      \"type\": \"string\",
+      \"multiline\": true
+    },
+    \"show\": {
+      \"title\": \"Whether to show block or not\",
+      \"oneOf\": [
+        {
+          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+        }
+      ],
+      \"default\": true
+    },
+    \"_id\": {
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
+    },
+    \"_isa\": {
+      \"title\": \"Based on\",
+      \"type\": \"string\",
+      \"blockReference\": true
+    },
+    \"id\": {
+      \"type\": \"string\"
+    },
+    \"classes\": {
+      \"title\": \"Additional HTML classes\",
+      \"type\": \"string\"
+    },
+    \"attributes\": {
+      \"title\": \"Additional HTML attributes\",
+      \"type\": \"object\"
+    }
+  },
+  \"required\": [
+    \"_id\",
+    \"_type\",
+    \"html\"
+  ]
+}
+```
+"
+}) }}
+
         

@@ -7,178 +7,480 @@ backlog_issue_id:
 layout: layout-pane.njk
 ---
 
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+
+
+
+{{ govukTable({
+  "caption": "Schema properties",
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "_id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data ID"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_type"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data type"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "label"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Label"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "name"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Input name"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_isa"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "attributes"
+    },
+    {
+      "text": "object"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML attributes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "classes"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML classes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "disabled"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Disabled"
+    },
+    {
+      "html": false
+    }
+  ],
+  [
+    {
+      "text": "errors"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "hint"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Hint text"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "model"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Model to store field in"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "modelProtect"
+    },
+    {
+      "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": false
+    }
+  ],
+  [
+    {
+      "text": "show"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Whether to show block or not"
+    },
+    {
+      "html": true
+    }
+  ],
+  [
+    {
+      "text": "validation"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ]
+]
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
 ```
 {
-  "$id": "http://gov.uk/schema/textarea/v1.0.0",
-  "title": "Textarea",
-  "description": "Component that provides a textarea field",
-  "type": "object",
-  "properties": {
-    "_type": {
-      "const": "textarea",
-      "title": "Data type",
-      "type": "string"
-    },
-    "name": {
-      "title": "Input name",
-      "type": "string"
-    },
-    "disabled": {
-      "title": "Disabled",
-      "oneOf": [
-        {
-          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
-        }
-      ],
-      "default": false
-    },
-    "show": {
-      "title": "Whether to show block or not",
-      "oneOf": [
-        {
-          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
-        }
-      ],
-      "default": true
-    },
-    "_id": {
-      "title": "Data ID",
-      "type": "string"
-    },
-    "_isa": {
-      "title": "Based on",
-      "type": "string",
-      "blockReference": true
-    },
-    "id": {
-      "type": "string"
-    },
-    "classes": {
-      "title": "Additional HTML classes",
-      "type": "string"
-    },
-    "attributes": {
-      "title": "Additional HTML attributes",
-      "type": "object"
-    },
-    "model": {
-      "title": "Model to store field in",
-      "type": "string"
-    },
-    "modelProtect": {
-      "type": "boolean",
-      "default": false
-    },
-    "validation": {
-      "role": "validation",
-      "properties": {
-        "required": {
-          "title": "Required",
-          "oneOf": [
-            {
-              "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
-            }
-          ],
-          "default": true
-        },
-        "minLength": {
-          "title": "Minimum length",
-          "type": "number",
-          "minimum": 0
-        },
-        "maxLength": {
-          "title": "Maximum length",
-          "type": "number",
-          "minimum": 0
-        },
-        "pattern": {
-          "title": "Pattern to match string against",
-          "type": "string"
-        }
-      }
-    },
-    "errors": {
-      "role": "errorStrings",
-      "properties": {
-        "required": {
-          "title": "Error strings for required",
-          "type": "object",
-          "properties": {
-            "inline": {
-              "type": "string",
-              "role": "errorString"
-            },
-            "summary": {
-              "type": "string",
-              "role": "errorString"
-            }
-          }
-        },
-        "minLength": {
-          "title": "Error strings for minLength",
-          "type": "object",
-          "properties": {
-            "inline": {
-              "type": "string",
-              "role": "errorString"
-            },
-            "summary": {
-              "type": "string",
-              "role": "errorString"
-            }
-          }
-        },
-        "maxLength": {
-          "title": "Error strings for maxLength",
-          "type": "object",
-          "properties": {
-            "inline": {
-              "type": "string",
-              "role": "errorString"
-            },
-            "summary": {
-              "type": "string",
-              "role": "errorString"
-            }
-          }
-        },
-        "pattern": {
-          "title": "Error strings for pattern",
-          "type": "object",
-          "properties": {
-            "inline": {
-              "type": "string",
-              "role": "errorString"
-            },
-            "summary": {
-              "type": "string",
-              "role": "errorString"
-            }
-          }
-        }
-      }
-    },
-    "label": {
-      "title": "Label",
-      "type": "string"
-    },
-    "hint": {
-      "title": "Hint text",
-      "type": "string"
+  \"$id\": \"http://gov.uk/schema/textarea/v1.0.0\",
+  \"title\": \"Textarea\",
+  \"description\": \"Component that provides a textarea field\",
+  \"type\": \"object\",
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"textarea\"
     }
   },
-  "category": [
-    "block",
-    "component",
-    "control",
-    "field"
-  ],
-  "required": [
-    "_id",
-    "_type",
-    "label",
-    "name"
+  \"allOf\": [
+    {
+      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/field\"
+    },
+    {
+      \"$ref\": \"/schema/validations/v1.0.0#/definitions/stringBundle\"
+    }
   ]
 }
 ```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/textarea/v1.0.0\",
+  \"title\": \"Textarea\",
+  \"description\": \"Component that provides a textarea field\",
+  \"type\": \"object\",
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"textarea\",
+      \"title\": \"Data type\",
+      \"type\": \"string\"
+    },
+    \"name\": {
+      \"title\": \"Input name\",
+      \"type\": \"string\"
+    },
+    \"disabled\": {
+      \"title\": \"Disabled\",
+      \"oneOf\": [
+        {
+          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+        }
+      ],
+      \"default\": false
+    },
+    \"show\": {
+      \"title\": \"Whether to show block or not\",
+      \"oneOf\": [
+        {
+          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+        }
+      ],
+      \"default\": true
+    },
+    \"_id\": {
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
+    },
+    \"_isa\": {
+      \"title\": \"Based on\",
+      \"type\": \"string\",
+      \"blockReference\": true
+    },
+    \"id\": {
+      \"type\": \"string\"
+    },
+    \"classes\": {
+      \"title\": \"Additional HTML classes\",
+      \"type\": \"string\"
+    },
+    \"attributes\": {
+      \"title\": \"Additional HTML attributes\",
+      \"type\": \"object\"
+    },
+    \"model\": {
+      \"title\": \"Model to store field in\",
+      \"type\": \"string\"
+    },
+    \"modelProtect\": {
+      \"type\": \"boolean\",
+      \"default\": false
+    },
+    \"validation\": {
+      \"role\": \"validation\",
+      \"properties\": {
+        \"required\": {
+          \"title\": \"Required\",
+          \"oneOf\": [
+            {
+              \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+            }
+          ],
+          \"default\": true
+        },
+        \"minLength\": {
+          \"title\": \"Minimum length\",
+          \"type\": \"number\",
+          \"minimum\": 0
+        },
+        \"maxLength\": {
+          \"title\": \"Maximum length\",
+          \"type\": \"number\",
+          \"minimum\": 0
+        },
+        \"pattern\": {
+          \"title\": \"Pattern to match string against\",
+          \"type\": \"string\"
+        }
+      }
+    },
+    \"errors\": {
+      \"role\": \"errorStrings\",
+      \"properties\": {
+        \"required\": {
+          \"title\": \"Error strings for required\",
+          \"type\": \"object\",
+          \"properties\": {
+            \"inline\": {
+              \"type\": \"string\",
+              \"role\": \"errorString\"
+            },
+            \"summary\": {
+              \"type\": \"string\",
+              \"role\": \"errorString\"
+            }
+          }
+        },
+        \"minLength\": {
+          \"title\": \"Error strings for minLength\",
+          \"type\": \"object\",
+          \"properties\": {
+            \"inline\": {
+              \"type\": \"string\",
+              \"role\": \"errorString\"
+            },
+            \"summary\": {
+              \"type\": \"string\",
+              \"role\": \"errorString\"
+            }
+          }
+        },
+        \"maxLength\": {
+          \"title\": \"Error strings for maxLength\",
+          \"type\": \"object\",
+          \"properties\": {
+            \"inline\": {
+              \"type\": \"string\",
+              \"role\": \"errorString\"
+            },
+            \"summary\": {
+              \"type\": \"string\",
+              \"role\": \"errorString\"
+            }
+          }
+        },
+        \"pattern\": {
+          \"title\": \"Error strings for pattern\",
+          \"type\": \"object\",
+          \"properties\": {
+            \"inline\": {
+              \"type\": \"string\",
+              \"role\": \"errorString\"
+            },
+            \"summary\": {
+              \"type\": \"string\",
+              \"role\": \"errorString\"
+            }
+          }
+        }
+      }
+    },
+    \"label\": {
+      \"title\": \"Label\",
+      \"type\": \"string\"
+    },
+    \"hint\": {
+      \"title\": \"Hint text\",
+      \"type\": \"string\"
+    }
+  },
+  \"category\": [
+    \"block\",
+    \"component\",
+    \"control\",
+    \"field\"
+  ],
+  \"required\": [
+    \"_id\",
+    \"_type\",
+    \"label\",
+    \"name\"
+  ]
+}
+```
+"
+}) }}
+
         

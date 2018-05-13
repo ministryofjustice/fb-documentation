@@ -7,74 +7,317 @@ backlog_issue_id:
 layout: layout-pane.njk
 ---
 
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+
+
+
+{{ govukTable({
+  "caption": "Schema properties",
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "_id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data ID"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_type"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data type"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_isa"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "attributes"
+    },
+    {
+      "text": "object"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML attributes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "classes"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML classes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "html"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Content"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "open"
+    },
+    {
+      "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Open"
+    },
+    {
+      "html": false
+    }
+  ],
+  [
+    {
+      "text": "show"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Whether to show block or not"
+    },
+    {
+      "html": true
+    }
+  ],
+  [
+    {
+      "text": "summary"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Summary"
+    },
+    {
+      "html": "-"
+    }
+  ]
+]
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
 ```
 {
-  "$id": "http://gov.uk/schema/details/v1.0.0",
-  "title": "Details",
-  "description": "Component for revealing content on user demand (progressive disclosure)",
-  "type": "object",
-  "properties": {
-    "_type": {
-      "const": "details",
-      "title": "Data type",
-      "type": "string"
+  \"$id\": \"http://gov.uk/schema/details/v1.0.0\",
+  \"title\": \"Details\",
+  \"description\": \"Component for revealing content on user demand (progressive disclosure)\",
+  \"type\": \"object\",
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"details\"
     },
-    "summary": {
-      "title": "Summary",
-      "description": "Text to use within the visible part of the details block",
-      "type": "string"
+    \"summary\": {
+      \"title\": \"Summary\",
+      \"description\": \"Text to use within the visible part of the details block\",
+      \"type\": \"string\"
     },
-    "html": {
-      "title": "Content",
-      "description": "Text to use within the disclosed part of the details block",
-      "type": "string",
-      "multiline": true
+    \"html\": {
+      \"title\": \"Content\",
+      \"description\": \"Text to use within the disclosed part of the details block\",
+      \"type\": \"string\",
+      \"multiline\": true
     },
-    "open": {
-      "title": "Open",
-      "description": "Whether details block should be expanded when the page loads",
-      "type": "boolean",
-      "default": false
-    },
-    "show": {
-      "title": "Whether to show block or not",
-      "oneOf": [
-        {
-          "$ref": "http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition"
-        }
-      ],
-      "default": true
-    },
-    "_id": {
-      "title": "Data ID",
-      "type": "string"
-    },
-    "_isa": {
-      "title": "Based on",
-      "type": "string",
-      "blockReference": true
-    },
-    "id": {
-      "type": "string"
-    },
-    "classes": {
-      "title": "Additional HTML classes",
-      "type": "string"
-    },
-    "attributes": {
-      "title": "Additional HTML attributes",
-      "type": "object"
+    \"open\": {
+      \"title\": \"Open\",
+      \"description\": \"Whether details block should be expanded when the page loads\",
+      \"type\": \"boolean\",
+      \"default\": false
     }
   },
-  "category": [
-    "block",
-    "component",
-    "content"
-  ],
-  "required": [
-    "_id",
-    "_type"
+  \"allOf\": [
+    {
+      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/content\"
+    }
   ]
 }
 ```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/details/v1.0.0\",
+  \"title\": \"Details\",
+  \"description\": \"Component for revealing content on user demand (progressive disclosure)\",
+  \"type\": \"object\",
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"details\",
+      \"title\": \"Data type\",
+      \"type\": \"string\"
+    },
+    \"summary\": {
+      \"title\": \"Summary\",
+      \"description\": \"Text to use within the visible part of the details block\",
+      \"type\": \"string\"
+    },
+    \"html\": {
+      \"title\": \"Content\",
+      \"description\": \"Text to use within the disclosed part of the details block\",
+      \"type\": \"string\",
+      \"multiline\": true
+    },
+    \"open\": {
+      \"title\": \"Open\",
+      \"description\": \"Whether details block should be expanded when the page loads\",
+      \"type\": \"boolean\",
+      \"default\": false
+    },
+    \"show\": {
+      \"title\": \"Whether to show block or not\",
+      \"oneOf\": [
+        {
+          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+        }
+      ],
+      \"default\": true
+    },
+    \"_id\": {
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
+    },
+    \"_isa\": {
+      \"title\": \"Based on\",
+      \"type\": \"string\",
+      \"blockReference\": true
+    },
+    \"id\": {
+      \"type\": \"string\"
+    },
+    \"classes\": {
+      \"title\": \"Additional HTML classes\",
+      \"type\": \"string\"
+    },
+    \"attributes\": {
+      \"title\": \"Additional HTML attributes\",
+      \"type\": \"object\"
+    }
+  },
+  \"category\": [
+    \"block\",
+    \"component\",
+    \"content\"
+  ],
+  \"required\": [
+    \"_id\",
+    \"_type\"
+  ]
+}
+```
+"
+}) }}
+
         
