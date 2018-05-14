@@ -12,9 +12,17 @@ layout: layout-pane.njk
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
 
+## Hello Number schema!
+
+Wahey number schema
 
 
-
+Basic number example
+{{ specExample({group: 'component', item: 'number', example: 'exampleNumber', html: true, json: true, open: true}) }}
+Number example set to 20 width
+{{ specExample({group: 'component', item: 'number', example: 'exampleNumberWidthClassInput20', html: true, json: true, open: true}) }}
+Number example set to half width
+{{ specExample({group: 'component', item: 'number', example: 'exampleNumberWidthClassInputOne-half', html: true, json: true, open: true}) }}
 
 {{ govukTable({
   "caption": "Schema properties",

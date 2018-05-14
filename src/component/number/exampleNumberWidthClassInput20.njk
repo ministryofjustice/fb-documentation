@@ -1,17 +1,18 @@
 ---
 layout: layout-specification.njk
 ---
-{%- macro text(data) %}
+{%- macro number(data) %}
 {% from "input/macro.njk" import govukInput %}
 {% set params = setError(data) %}
 {% set params = setLabel(params) %}
-{% set params = setInputWidthClass(params) %}
+{% set params = setInputWidthClass(params, '10') %}
 {{ govukInput(params) }}
 {% endmacro -%}
 {% set data = {
   "_id": "componentId",
-  "_type": "text",
-  "name": "username",
-  "label": "What is your username?"
+  "_type": "number",
+  "name": "age",
+  "label": "How old are you?",
+  "widthClassInput": "20"
 } %}
-{{ text(data) }}
+{{ number(data) }}
