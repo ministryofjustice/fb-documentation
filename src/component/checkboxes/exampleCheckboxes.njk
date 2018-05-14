@@ -1,0 +1,33 @@
+---
+layout: layout-specification.njk
+---
+{%- macro checkboxes(data) %}
+{% from "checkboxes/macro.njk" import govukCheckboxes %}
+{% set params = setError(data) %}
+{% set params = setItemsLabel(params) %}
+{% set params = setInputWidthClass(params) %}
+{{ govukCheckboxes(params) }}
+{% endmacro -%}
+{% set data = {
+  "_id": "componentId",
+  "_type": "checkboxes",
+  "legend": "Select all the countries have you lived in",
+  "name": "countries",
+  "items": [
+    {
+      "_id": "countries--eng",
+      "_type": "checkbox",
+      "name": "eng",
+      "value": "yes",
+      "label": "England"
+    },
+    {
+      "_id": "countries--sco",
+      "_type": "checkbox",
+      "name": "sco",
+      "value": "yes",
+      "label": "Scotland"
+    }
+  ]
+} %}
+{{ checkboxes(data) }}

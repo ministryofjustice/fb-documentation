@@ -1,0 +1,31 @@
+---
+layout: layout-specification.njk
+---
+{%- macro radios(data) %}
+{% from "radios/macro.njk" import govukRadios %}
+{% set params = setError(data) %}
+{% set params = setItemsLabel(params) %}
+{% set params = setInputWidthClass(params) %}
+{{ govukRadios(params) }}
+{% endmacro -%}
+{% set data = {
+  "_id": "radiosYesNo",
+  "_type": "radios",
+  "legend": "Is this your first form?",
+  "name": "radiosYesNo",
+  "items": [
+    {
+      "_id": "radiosYesNo--yes",
+      "_type": "radio",
+      "value": "yes",
+      "label": "Yes"
+    },
+    {
+      "_id": "radiosYesNo--no",
+      "_type": "radio",
+      "value": "no",
+      "label": "No"
+    }
+  ]
+} %}
+{{ radios(data) }}

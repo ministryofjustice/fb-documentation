@@ -1,0 +1,7 @@
+{
+  "_id": "componentId",
+  "_type": "date",
+  "label": "When were you born?",
+  "name": "dob",
+  "dateType": "day-month-year"
+}

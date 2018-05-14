@@ -1,0 +1,32 @@
+---
+layout: layout-specification.njk
+---
+{%- macro date(data) %}
+{% from "date-input/macro.njk" import govukDateInput %}
+{% set params = setError(data) %}
+{% set params = setLabel(params) %}
+{% set params = setItemsLabel(params) %}
+{% set params = setInputWidthClass(params) %}
+{% set params = setObject(data, {
+  items:[
+    {
+      name: 'day'
+    },
+    {
+      name: 'month'
+    },
+    {
+      name: 'year'
+    }
+  ]
+}) %}
+{{ govukDateInput(params) }}
+{% endmacro -%}
+{% set data = {
+  "_id": "componentId",
+  "_type": "date",
+  "label": "When were you born?",
+  "name": "dob",
+  "dateType": "day-month-year"
+} %}
+{{ date(data) }}

@@ -73,6 +73,23 @@ layout: layout-pane.njk
   ],
   [
     {
+      "text": "name"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Input name"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
       "text": "value"
     },
     {
@@ -173,23 +190,6 @@ layout: layout-pane.njk
   ],
   [
     {
-      "text": "name"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Input name"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
       "text": "show"
     },
     {},
@@ -230,6 +230,9 @@ layout: layout-pane.njk
     {
       \"$ref\": \"/schema/v1.0.0/definitions#/definitions/option\"
     }
+  ],
+  \"required\": [
+    \"name\"
   ]
 }
 ```
@@ -294,14 +297,15 @@ layout: layout-pane.njk
       \"type\": \"string\"
     }
   },
-  \"category\": [
-    \"component\",
-    \"option\"
-  ],
   \"required\": [
     \"_id\",
     \"_type\",
+    \"name\",
     \"value\"
+  ],
+  \"category\": [
+    \"component\",
+    \"option\"
   ]
 }
 ```

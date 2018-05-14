@@ -1,0 +1,32 @@
+---
+layout: layout-specification.njk
+---
+{%- macro select(data) %}
+{% from "select/macro.njk" import govukSelect %}
+{% set params = setError(data) %}
+{% set params = setLabel(params) %}
+{% set params = setItemsLabel(params) %}
+{% set params = setInputWidthClass(params) %}
+{{ govukSelect(params) }}
+{% endmacro -%}
+{% set data = {
+  "_id": "selectAB",
+  "_type": "select",
+  "label": "Which type do you want?",
+  "name": "select-ab",
+  "items": [
+    {
+      "_id": "select-ab--a",
+      "_type": "option",
+      "value": "a",
+      "label": "A"
+    },
+    {
+      "_id": "select-ab--b",
+      "_type": "option",
+      "value": "b",
+      "label": "B"
+    }
+  ]
+} %}
+{{ select(data) }}

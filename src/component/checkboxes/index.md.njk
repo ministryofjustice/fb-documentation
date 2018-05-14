@@ -15,6 +15,8 @@ layout: layout-pane.njk
 
 
 
+Basic checkboxes example
+{{ specExample({group: 'component', item: 'checkboxes', example: 'exampleCheckboxes', html: true, json: true, open: true}) }}
 
 {{ govukTable({
   "caption": "Schema properties",
@@ -356,14 +358,15 @@ layout: layout-pane.njk
           \"title\": \"Checkbox option\",
           \"description\": \"Component that provides a radio option\",
           \"type\": \"object\",
-          \"category\": [
-            \"component\",
-            \"option\"
-          ],
           \"required\": [
             \"_id\",
             \"_type\",
+            \"name\",
             \"value\"
+          ],
+          \"category\": [
+            \"component\",
+            \"option\"
           ],
           \"properties\": {
             \"_type\": {
