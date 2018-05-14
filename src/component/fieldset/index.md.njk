@@ -12,9 +12,11 @@ layout: layout-pane.njk
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
 
+A fieldset groups several controls in a form.
 
 
-
+Basic example of fieldset
+{{ specExample({group: 'component', item: 'fieldset', example: 'exampleFieldset', html: true, json: true, open: true}) }}
 
 {{ govukTable({
   "caption": "Schema properties",

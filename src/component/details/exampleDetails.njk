@@ -119,32 +119,18 @@ text: text,
 textarea: textarea,
 warningText: warningText
 } %}
-{%- macro select(data) %}
-{% from "select/macro.njk" import govukSelect %}
+{%- macro details(data) %}
+{% from "details/macro.njk" import govukDetails %}
 {% set params = setError(data) %}
-{% set params = setLabel(params) %}
-{% set params = setItemsLabel(params) %}
-{% set params = setInputWidthClass(params) %}
-{{ govukSelect(params) }}
+{% set params = setObject(params, {
+  summaryHtml: params.summary
+}) %}
+{{ govukDetails(params) }}
 {% endmacro -%}
 {% set data = {
-  "_id": "selectAB",
-  "_type": "select",
-  "label": "Which type do you want?",
-  "name": "select-ab",
-  "items": [
-    {
-      "_id": "select-ab--a",
-      "_type": "option",
-      "value": "a",
-      "label": "A"
-    },
-    {
-      "_id": "select-ab--b",
-      "_type": "option",
-      "value": "b",
-      "label": "B"
-    }
-  ]
+  "_id": "componentId",
+  "_type": "details",
+  "summary": "Help with nationality",
+  "html": "We need to know your nationality so we can work out which elections you’re entitled to vote in. If you can’t provide your nationality, you’ll have to send copies of identity documents through the post."
 } %}
-{{ select(data) }}
+{{ details(data) }}

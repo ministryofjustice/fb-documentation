@@ -119,32 +119,39 @@ text: text,
 textarea: textarea,
 warningText: warningText
 } %}
-{%- macro select(data) %}
-{% from "select/macro.njk" import govukSelect %}
-{% set params = setError(data) %}
-{% set params = setLabel(params) %}
-{% set params = setItemsLabel(params) %}
-{% set params = setInputWidthClass(params) %}
-{{ govukSelect(params) }}
+{%- macro section(data) %}
+<section class="govuk-prose-scope fb-section">
+{%- if data.heading %}
+<h2>{{ data.heading }}</h2>
+{% endif -%}
+{%- if data.lede %}
+<p class="fb-section--lede">{{ data.lede }}</p>
+{% endif -%}
+{%- if data.content %}
+<div class="fb-section--content">{{ data.content }}</div>
+{% endif -%}
+{%- for item in data.items %}
+{{ blocks[item._type](item) }}
+{% endfor -%}
+</section>
 {% endmacro -%}
 {% set data = {
-  "_id": "selectAB",
-  "_type": "select",
-  "label": "Which type do you want?",
-  "name": "select-ab",
+  "_id": "componentId",
+  "_type": "section",
+  "heading": "Section heading",
   "items": [
     {
-      "_id": "select-ab--a",
-      "_type": "option",
-      "value": "a",
-      "label": "A"
+      "_id": "componentId--name",
+      "_type": "text",
+      "name": "name",
+      "label": "What is your name?"
     },
     {
-      "_id": "select-ab--b",
-      "_type": "option",
-      "value": "b",
-      "label": "B"
+      "_id": "componentId--colour",
+      "_type": "text",
+      "name": "colour",
+      "label": "What is your favourite colour?"
     }
   ]
 } %}
-{{ select(data) }}
+{{ section(data) }}

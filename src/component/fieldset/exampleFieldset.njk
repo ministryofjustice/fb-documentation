@@ -119,32 +119,33 @@ text: text,
 textarea: textarea,
 warningText: warningText
 } %}
-{%- macro select(data) %}
-{% from "select/macro.njk" import govukSelect %}
+{%- macro fieldset(data) %}
+{% from "fieldset/macro.njk" import govukFieldset %}
 {% set params = setError(data) %}
-{% set params = setLabel(params) %}
 {% set params = setItemsLabel(params) %}
-{% set params = setInputWidthClass(params) %}
-{{ govukSelect(params) }}
+{%- call govukFieldset(params) %}
+{%- for item in data.items %}
+{{ blocks[item._type](item) }}
+{% endfor -%}
+{% endcall -%}
 {% endmacro -%}
 {% set data = {
-  "_id": "selectAB",
-  "_type": "select",
-  "label": "Which type do you want?",
-  "name": "select-ab",
+  "_id": "componentId",
+  "_type": "fieldset",
+  "legend": "About you",
   "items": [
     {
-      "_id": "select-ab--a",
-      "_type": "option",
-      "value": "a",
-      "label": "A"
+      "_id": "componentId--name",
+      "_type": "text",
+      "name": "name",
+      "label": "What is your name?"
     },
     {
-      "_id": "select-ab--b",
-      "_type": "option",
-      "value": "b",
-      "label": "B"
+      "_id": "componentId--colour",
+      "_type": "text",
+      "name": "colour",
+      "label": "What is your favourite colour?"
     }
   ]
 } %}
-{{ select(data) }}
+{{ fieldset(data) }}

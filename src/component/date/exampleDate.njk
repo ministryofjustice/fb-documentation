@@ -1,6 +1,124 @@
 ---
 layout: layout-specification.njk
 ---
+{%- macro checkboxes(data) %}
+{% from "checkboxes/macro.njk" import govukCheckboxes %}
+{% set params = setError(data) %}
+{% set params = setItemsLabel(params) %}
+{% set params = setInputWidthClass(params) %}
+{{ govukCheckboxes(params) }}
+{% endmacro -%}{%- macro content(data) %}
+<div class="govuk-prose-scope fb-content">
+{% set params = setContent(data) %}
+{{ params.html | safe }}
+</div>
+{% endmacro -%}{%- macro date(data) %}
+{% from "date-input/macro.njk" import govukDateInput %}
+{% set params = setError(data) %}
+{% set params = setLabel(params) %}
+{% set params = setItemsLabel(params) %}
+{% set params = setInputWidthClass(params) %}
+{% set params = setObject(data, {
+  items:[
+    {
+      name: 'day'
+    },
+    {
+      name: 'month'
+    },
+    {
+      name: 'year'
+    }
+  ]
+}) %}
+{{ govukDateInput(params) }}
+{% endmacro -%}{%- macro details(data) %}
+{% from "details/macro.njk" import govukDetails %}
+{% set params = setError(data) %}
+{% set params = setObject(params, {
+  summaryHtml: params.summary
+}) %}
+{{ govukDetails(params) }}
+{% endmacro -%}{%- macro fieldset(data) %}
+{% from "fieldset/macro.njk" import govukFieldset %}
+{% set params = setError(data) %}
+{% set params = setItemsLabel(params) %}
+{%- call govukFieldset(params) %}
+{%- for item in data.items %}
+{{ blocks[item._type](item) }}
+{% endfor -%}
+{% endcall -%}
+{% endmacro -%}{%- macro group(data) %}
+<div class="fb-group">
+{%- for item in data.items %}
+{{ blocks[item._type](item) }}
+{% endfor -%}
+</div>
+{% endmacro -%}{%- macro number(data) %}
+{% from "input/macro.njk" import govukInput %}
+{% set params = setError(data) %}
+{% set params = setLabel(params) %}
+{% set params = setInputWidthClass(params, '10') %}
+{{ govukInput(params) }}
+{% endmacro -%}{%- macro radios(data) %}
+{% from "radios/macro.njk" import govukRadios %}
+{% set params = setError(data) %}
+{% set params = setItemsLabel(params) %}
+{% set params = setInputWidthClass(params) %}
+{{ govukRadios(params) }}
+{% endmacro -%}{%- macro section(data) %}
+<section class="govuk-prose-scope fb-section">
+{%- if data.heading %}
+<h2>{{ data.heading }}</h2>
+{% endif -%}
+{%- if data.lede %}
+<p class="fb-section--lede">{{ data.lede }}</p>
+{% endif -%}
+{%- if data.content %}
+<div class="fb-section--content">{{ data.content }}</div>
+{% endif -%}
+{%- for item in data.items %}
+{{ blocks[item._type](item) }}
+{% endfor -%}
+</section>
+{% endmacro -%}{%- macro select(data) %}
+{% from "select/macro.njk" import govukSelect %}
+{% set params = setError(data) %}
+{% set params = setLabel(params) %}
+{% set params = setItemsLabel(params) %}
+{% set params = setInputWidthClass(params) %}
+{{ govukSelect(params) }}
+{% endmacro -%}{%- macro text(data) %}
+{% from "input/macro.njk" import govukInput %}
+{% set params = setError(data) %}
+{% set params = setLabel(params) %}
+{% set params = setInputWidthClass(params) %}
+{{ govukInput(params) }}
+{% endmacro -%}{%- macro textarea(data) %}
+{% from "textarea/macro.njk" import govukTextarea %}
+{% set params = setError(data) %}
+{% set params = setLabel(params) %}
+{% set params = setInputWidthClass(params) %}
+{{ govukTextarea(params) }}
+{% endmacro -%}{%- macro warningText(data) %}
+{% from "warning-text/macro.njk" import govukWarningText %}
+{% set params = setError(data) %}
+{{ govukWarningText(params) }}
+{% endmacro -%}{% set blocks = {
+checkboxes: checkboxes,
+content: content,
+date: date,
+details: details,
+fieldset: fieldset,
+group: group,
+number: number,
+radios: radios,
+section: section,
+select: select,
+text: text,
+textarea: textarea,
+warningText: warningText
+} %}
 {%- macro date(data) %}
 {% from "date-input/macro.njk" import govukDateInput %}
 {% set params = setError(data) %}

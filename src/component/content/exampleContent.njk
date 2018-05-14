@@ -119,32 +119,15 @@ text: text,
 textarea: textarea,
 warningText: warningText
 } %}
-{%- macro select(data) %}
-{% from "select/macro.njk" import govukSelect %}
-{% set params = setError(data) %}
-{% set params = setLabel(params) %}
-{% set params = setItemsLabel(params) %}
-{% set params = setInputWidthClass(params) %}
-{{ govukSelect(params) }}
+{%- macro content(data) %}
+<div class="govuk-prose-scope fb-content">
+{% set params = setContent(data) %}
+{{ params.html | safe }}
+</div>
 {% endmacro -%}
 {% set data = {
-  "_id": "selectAB",
-  "_type": "select",
-  "label": "Which type do you want?",
-  "name": "select-ab",
-  "items": [
-    {
-      "_id": "select-ab--a",
-      "_type": "option",
-      "value": "a",
-      "label": "A"
-    },
-    {
-      "_id": "select-ab--b",
-      "_type": "option",
-      "value": "b",
-      "label": "B"
-    }
-  ]
+  "_id": "componentId",
+  "_type": "content",
+  "html": "## Why we need to know this\n\nWe need to know your nationality so we can work out which elections you’re entitled to vote in.\n\nIf you can’t provide your nationality, you’ll have to send copies of identity documents through the post.\n\n- Passport\n- Driving licence\n- Bank statements"
 } %}
-{{ select(data) }}
+{{ content(data) }}

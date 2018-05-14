@@ -12,9 +12,11 @@ layout: layout-pane.njk
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
 
+A group is a container for when elements need to be grouped together but without imparting any semantic intent (as opposed to [fieldset](../fieldset) and [section](../section))
 
 
-
+Basic group example
+{{ specExample({group: 'component', item: 'group', example: 'exampleGroup', html: true, json: true, open: true}) }}
 
 {{ govukTable({
   "caption": "Schema properties",
