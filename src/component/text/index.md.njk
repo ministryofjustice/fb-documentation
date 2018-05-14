@@ -2,6 +2,7 @@
 title: Text
 description: Component that provides a text input field
 section: Components
+theme: control
 aliases:
 backlog_issue_id:
 layout: layout-pane.njk
@@ -10,6 +11,10 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+
+## Hello Text schema!
+
+Wahey text schema
 
 
 Hello text.json
@@ -298,7 +303,7 @@ Hello text.json
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/text/v1.0.0\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/text\",
   \"title\": \"Text\",
   \"description\": \"Component that provides a text input field\",
   \"type\": \"object\",
@@ -307,15 +312,15 @@ Hello text.json
       \"const\": \"text\"
     },
     \"widthClassInput\": {
-      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/widthClassInput\"
+      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/widthClassInput\"
     }
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/field\"
+      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/field\"
     },
     {
-      \"$ref\": \"/schema/validations/v1.0.0#/definitions/stringBundle\"
+      \"$ref\": \"/schema/v1.0.0/validations#/definitions/stringBundle\"
     }
   ]
 }
@@ -328,7 +333,7 @@ Hello text.json
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/text/v1.0.0\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/text\",
   \"title\": \"Text\",
   \"description\": \"Component that provides a text input field\",
   \"type\": \"object\",
@@ -360,7 +365,7 @@ Hello text.json
       \"title\": \"Disabled\",
       \"oneOf\": [
         {
-          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
         }
       ],
       \"default\": false
@@ -369,7 +374,7 @@ Hello text.json
       \"title\": \"Whether to show block or not\",
       \"oneOf\": [
         {
-          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
         }
       ],
       \"default\": true
@@ -409,7 +414,7 @@ Hello text.json
           \"title\": \"Required\",
           \"oneOf\": [
             {
-              \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+              \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
             }
           ],
           \"default\": true

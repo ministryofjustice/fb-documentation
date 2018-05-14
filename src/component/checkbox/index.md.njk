@@ -1,8 +1,8 @@
 ---
-title: Fieldset
-description: Component for fieldset
+title: Checkbox option
+description: Component that provides a radio option
 section: Components
-theme: grouping
+theme: option
 aliases:
 backlog_issue_id:
 layout: layout-pane.njk
@@ -73,7 +73,7 @@ layout: layout-pane.njk
   ],
   [
     {
-      "text": "legendHtml"
+      "text": "value"
     },
     {
       "text": "string"
@@ -82,7 +82,7 @@ layout: layout-pane.njk
       "text": "yes"
     },
     {
-      "html": "Legend"
+      "html": "Option value"
     },
     {
       "html": "-"
@@ -107,24 +107,7 @@ layout: layout-pane.njk
   ],
   [
     {
-      "text": "attributes"
-    },
-    {
-      "text": "object"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Additional HTML attributes"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "classes"
+      "text": "hint"
     },
     {
       "text": "string"
@@ -133,7 +116,7 @@ layout: layout-pane.njk
       "text": "no"
     },
     {
-      "html": "Additional HTML classes"
+      "html": "Hint text"
     },
     {
       "html": "-"
@@ -141,37 +124,7 @@ layout: layout-pane.njk
   ],
   [
     {
-      "text": "id"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "no"
-    },
-    {},
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "items"
-    },
-    {
-      "text": "array"
-    },
-    {
-      "text": "no"
-    },
-    {},
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "legendHintHtml"
+      "text": "label"
     },
     {
       "text": "string"
@@ -180,7 +133,7 @@ layout: layout-pane.njk
       "text": "no"
     },
     {
-      "html": "Hint"
+      "html": "Label"
     },
     {
       "html": "-"
@@ -220,47 +173,19 @@ layout: layout-pane.njk
   ],
   [
     {
-      "text": "multiple"
+      "text": "name"
     },
     {
-      "text": "boolean"
+      "text": "string"
     },
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Input name"
+    },
     {
       "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "multipleMaximum"
-    },
-    {
-      "text": "number"
-    },
-    {
-      "text": "no"
-    },
-    {},
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "multipleMinimum"
-    },
-    {
-      "text": "number"
-    },
-    {
-      "text": "no"
-    },
-    {},
-    {
-      "html": 1
     }
   ],
   [
@@ -286,39 +211,25 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/fieldset\",
-  \"title\": \"Fieldset\",
-  \"description\": \"Component for fieldset\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/checkbox\",
+  \"title\": \"Checkbox option\",
+  \"description\": \"Component that provides a radio option\",
   \"type\": \"object\",
-  \"category\": [
-    \"control\",
-    \"fieldset\"
-  ],
   \"properties\": {
     \"_type\": {
-      \"const\": \"fieldset\"
+      \"const\": \"checkbox\"
     },
-    \"legendHtml\": {
-      \"title\": \"Legend\",
-      \"description\": \"Text to use in fieldset legend\",
-      \"type\": \"string\"
-    },
-    \"legendHintHtml\": {
-      \"title\": \"Hint\",
-      \"description\": \"Hint text to use in fieldset legend\",
-      \"type\": \"string\"
+    \"name\": {
+      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/name\"
     }
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/multipleProperties\"
+      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/modelProperties\"
     },
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/grouping\"
+      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/option\"
     }
-  ],
-  \"required\": [
-    \"legendHtml\"
   ]
 }
 ```
@@ -330,44 +241,19 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/fieldset\",
-  \"title\": \"Fieldset\",
-  \"description\": \"Component for fieldset\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/checkbox\",
+  \"title\": \"Checkbox option\",
+  \"description\": \"Component that provides a radio option\",
   \"type\": \"object\",
-  \"category\": [
-    \"block\",
-    \"component\",
-    \"control\",
-    \"fieldset\",
-    \"grouping\"
-  ],
   \"properties\": {
     \"_type\": {
-      \"const\": \"fieldset\",
+      \"const\": \"checkbox\",
       \"title\": \"Data type\",
       \"type\": \"string\"
     },
-    \"legendHtml\": {
-      \"title\": \"Legend\",
-      \"description\": \"Text to use in fieldset legend\",
+    \"name\": {
+      \"title\": \"Input name\",
       \"type\": \"string\"
-    },
-    \"legendHintHtml\": {
-      \"title\": \"Hint\",
-      \"description\": \"Hint text to use in fieldset legend\",
-      \"type\": \"string\"
-    },
-    \"multiple\": {
-      \"type\": \"boolean\"
-    },
-    \"multipleMinimum\": {
-      \"type\": \"number\",
-      \"minimum\": 0,
-      \"default\": 1
-    },
-    \"multipleMaximum\": {
-      \"type\": \"number\",
-      \"minimum\": 0
     },
     \"model\": {
       \"title\": \"Model to store field in\",
@@ -377,15 +263,9 @@ layout: layout-pane.njk
       \"type\": \"boolean\",
       \"default\": false
     },
-    \"items\": {
-      \"type\": \"array\",
-      \"items\": {
-        \"type\": \"object\",
-        \"category\": [
-          \"component\",
-          \"block\"
-        ]
-      }
+    \"value\": {
+      \"title\": \"Option value\",
+      \"type\": \"string\"
     },
     \"show\": {
       \"title\": \"Whether to show block or not\",
@@ -405,22 +285,23 @@ layout: layout-pane.njk
       \"type\": \"string\",
       \"blockReference\": true
     },
-    \"id\": {
+    \"label\": {
+      \"title\": \"Label\",
       \"type\": \"string\"
     },
-    \"classes\": {
-      \"title\": \"Additional HTML classes\",
+    \"hint\": {
+      \"title\": \"Hint text\",
       \"type\": \"string\"
-    },
-    \"attributes\": {
-      \"title\": \"Additional HTML attributes\",
-      \"type\": \"object\"
     }
   },
+  \"category\": [
+    \"component\",
+    \"option\"
+  ],
   \"required\": [
     \"_id\",
     \"_type\",
-    \"legendHtml\"
+    \"value\"
   ]
 }
 ```

@@ -2,6 +2,7 @@
 title: Radios
 description: Component that provides a radio fieldset
 section: Components
+theme: control
 aliases:
 backlog_issue_id:
 layout: layout-pane.njk
@@ -10,6 +11,8 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+
+
 
 
 
@@ -296,7 +299,7 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/radios/v1.0.0\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/radios\",
   \"title\": \"Radios\",
   \"description\": \"Component that provides a radio fieldset\",
   \"type\": \"object\",
@@ -305,20 +308,20 @@ layout: layout-pane.njk
       \"const\": \"radios\"
     },
     \"name\": {
-      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/name\"
+      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/name\"
     },
     \"items\": {
       \"type\": \"array\",
       \"items\": [
         {
-          \"$ref\": \"/schema/radio/v1.0.0#\"
+          \"$ref\": \"/schema/v1.0.0/radio#\"
         }
       ]
     }
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/fieldset\"
+      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/fieldset\"
     }
   ]
 }
@@ -331,7 +334,7 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/radios/v1.0.0\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/radios\",
   \"title\": \"Radios\",
   \"description\": \"Component that provides a radio fieldset\",
   \"type\": \"object\",
@@ -349,7 +352,7 @@ layout: layout-pane.njk
       \"type\": \"array\",
       \"items\": [
         {
-          \"$id\": \"http://gov.uk/schema/radio/v1.0.0\",
+          \"$id\": \"http://gov.uk/schema/v1.0.0/radio\",
           \"title\": \"Radio option\",
           \"description\": \"Component that provides a radio option\",
           \"type\": \"object\",
@@ -358,6 +361,10 @@ layout: layout-pane.njk
             \"_type\",
             \"label\",
             \"value\"
+          ],
+          \"category\": [
+            \"component\",
+            \"option\"
           ],
           \"properties\": {
             \"_type\": {
@@ -373,7 +380,7 @@ layout: layout-pane.njk
               \"title\": \"Whether to show block or not\",
               \"oneOf\": [
                 {
-                  \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+                  \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
                 }
               ],
               \"default\": true
@@ -411,7 +418,7 @@ layout: layout-pane.njk
       \"title\": \"Disabled\",
       \"oneOf\": [
         {
-          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
         }
       ],
       \"default\": false
@@ -420,7 +427,7 @@ layout: layout-pane.njk
       \"title\": \"Whether to show block or not\",
       \"oneOf\": [
         {
-          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
         }
       ],
       \"default\": true
@@ -460,7 +467,7 @@ layout: layout-pane.njk
           \"title\": \"Required\",
           \"oneOf\": [
             {
-              \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+              \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
             }
           ],
           \"default\": true

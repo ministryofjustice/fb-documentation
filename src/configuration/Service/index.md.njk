@@ -2,6 +2,7 @@
 title: Service
 description: Service configuration
 section: Configuration
+theme: 
 aliases:
 backlog_issue_id:
 layout: layout-pane.njk
@@ -10,6 +11,8 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+
+
 
 
 
@@ -138,7 +141,7 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/Service/v1.0.0\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/Service\",
   \"title\": \"Service\",
   \"description\": \"Service configuration\",
   \"type\": \"object\",
@@ -163,7 +166,7 @@ layout: layout-pane.njk
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/data\"
+      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/data\"
     }
   ],
   \"category\": [
@@ -184,7 +187,7 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/Service/v1.0.0\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/Service\",
   \"title\": \"Service\",
   \"description\": \"Service configuration\",
   \"type\": \"object\",

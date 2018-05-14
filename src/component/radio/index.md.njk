@@ -1,8 +1,8 @@
 ---
-title: Content
-description: Component for creating content
+title: Radio option
+description: Component that provides a radio option
 section: Components
-theme: content
+theme: option
 aliases:
 backlog_issue_id:
 layout: layout-pane.njk
@@ -73,7 +73,7 @@ layout: layout-pane.njk
   ],
   [
     {
-      "text": "html"
+      "text": "label"
     },
     {
       "text": "string"
@@ -81,7 +81,26 @@ layout: layout-pane.njk
     {
       "text": "yes"
     },
-    {},
+    {
+      "html": "Label"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "value"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Option value"
+    },
     {
       "html": "-"
     }
@@ -105,24 +124,7 @@ layout: layout-pane.njk
   ],
   [
     {
-      "text": "attributes"
-    },
-    {
-      "text": "object"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Additional HTML attributes"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "classes"
+      "text": "hint"
     },
     {
       "text": "string"
@@ -131,23 +133,8 @@ layout: layout-pane.njk
       "text": "no"
     },
     {
-      "html": "Additional HTML classes"
+      "html": "Hint text"
     },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "id"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "no"
-    },
-    {},
     {
       "html": "-"
     }
@@ -175,29 +162,22 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/content\",
-  \"title\": \"Content\",
-  \"description\": \"Component for creating content\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/radio\",
+  \"title\": \"Radio option\",
+  \"description\": \"Component that provides a radio option\",
   \"type\": \"object\",
-  \"category\": [
-    \"content\"
-  ],
   \"properties\": {
     \"_type\": {
-      \"const\": \"content\"
-    },
-    \"html\": {
-      \"type\": \"string\",
-      \"multiline\": true
+      \"const\": \"radio\"
     }
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/content\"
+      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/option\"
     }
   ],
   \"required\": [
-    \"html\"
+    \"label\"
   ]
 }
 ```
@@ -209,24 +189,19 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/content\",
-  \"title\": \"Content\",
-  \"description\": \"Component for creating content\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/radio\",
+  \"title\": \"Radio option\",
+  \"description\": \"Component that provides a radio option\",
   \"type\": \"object\",
-  \"category\": [
-    \"block\",
-    \"component\",
-    \"content\"
-  ],
   \"properties\": {
     \"_type\": {
-      \"const\": \"content\",
+      \"const\": \"radio\",
       \"title\": \"Data type\",
       \"type\": \"string\"
     },
-    \"html\": {
-      \"type\": \"string\",
-      \"multiline\": true
+    \"value\": {
+      \"title\": \"Option value\",
+      \"type\": \"string\"
     },
     \"show\": {
       \"title\": \"Whether to show block or not\",
@@ -246,22 +221,24 @@ layout: layout-pane.njk
       \"type\": \"string\",
       \"blockReference\": true
     },
-    \"id\": {
+    \"label\": {
+      \"title\": \"Label\",
       \"type\": \"string\"
     },
-    \"classes\": {
-      \"title\": \"Additional HTML classes\",
+    \"hint\": {
+      \"title\": \"Hint text\",
       \"type\": \"string\"
-    },
-    \"attributes\": {
-      \"title\": \"Additional HTML attributes\",
-      \"type\": \"object\"
     }
   },
   \"required\": [
     \"_id\",
     \"_type\",
-    \"html\"
+    \"label\",
+    \"value\"
+  ],
+  \"category\": [
+    \"component\",
+    \"option\"
   ]
 }
 ```

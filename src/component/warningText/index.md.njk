@@ -2,6 +2,7 @@
 title: Warning text
 description: Component that provides warning text
 section: Components
+theme: content
 aliases:
 backlog_issue_id:
 layout: layout-pane.njk
@@ -10,6 +11,8 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+
+
 
 
 
@@ -191,7 +194,7 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/warningText/v1.0.0\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/warningText\",
   \"title\": \"Warning text\",
   \"description\": \"Component that provides warning text\",
   \"usage\": \"Use when there are consequences - for example, a fine or prison sentence\",
@@ -213,7 +216,7 @@ layout: layout-pane.njk
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/content\"
+      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/content\"
     }
   ]
 }
@@ -226,7 +229,7 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/warningText/v1.0.0\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/warningText\",
   \"title\": \"Warning text\",
   \"description\": \"Component that provides warning text\",
   \"usage\": \"Use when there are consequences - for example, a fine or prison sentence\",
@@ -251,7 +254,7 @@ layout: layout-pane.njk
       \"title\": \"Whether to show block or not\",
       \"oneOf\": [
         {
-          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
         }
       ],
       \"default\": true

@@ -2,6 +2,7 @@
 title: Select
 description: Component that provides a select field
 section: Components
+theme: control
 aliases:
 backlog_issue_id:
 layout: layout-pane.njk
@@ -10,6 +11,8 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+
+
 
 
 
@@ -311,7 +314,7 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/select/v1.0.0\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/select\",
   \"title\": \"Select\",
   \"description\": \"Component that provides a select field\",
   \"type\": \"object\",
@@ -320,20 +323,20 @@ layout: layout-pane.njk
       \"const\": \"select\"
     },
     \"widthClassInput\": {
-      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/widthClassInput\"
+      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/widthClassInput\"
     },
     \"items\": {
       \"type\": \"array\",
       \"items\": [
         {
-          \"$ref\": \"/schema/option/v1.0.0#\"
+          \"$ref\": \"/schema/v1.0.0/option#\"
         }
       ]
     }
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/field\"
+      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/field\"
     }
   ]
 }
@@ -346,7 +349,7 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/select/v1.0.0\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/select\",
   \"title\": \"Select\",
   \"description\": \"Component that provides a select field\",
   \"type\": \"object\",
@@ -374,7 +377,7 @@ layout: layout-pane.njk
       \"type\": \"array\",
       \"items\": [
         {
-          \"$id\": \"http://gov.uk/schema/option/v1.0.0\",
+          \"$id\": \"http://gov.uk/schema/v1.0.0/option\",
           \"title\": \"Select option\",
           \"description\": \"Component that provides a select option\",
           \"type\": \"object\",
@@ -385,8 +388,9 @@ layout: layout-pane.njk
             \"value\"
           ],
           \"category\": [
+            \"block\",
             \"component\",
-            \"block\"
+            \"option\"
           ],
           \"properties\": {
             \"_type\": {
@@ -404,7 +408,7 @@ layout: layout-pane.njk
               \"title\": \"Whether to show block or not\",
               \"oneOf\": [
                 {
-                  \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+                  \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
                 }
               ],
               \"default\": true
@@ -430,7 +434,7 @@ layout: layout-pane.njk
       \"title\": \"Disabled\",
       \"oneOf\": [
         {
-          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
         }
       ],
       \"default\": false
@@ -439,7 +443,7 @@ layout: layout-pane.njk
       \"title\": \"Whether to show block or not\",
       \"oneOf\": [
         {
-          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
         }
       ],
       \"default\": true
@@ -479,7 +483,7 @@ layout: layout-pane.njk
           \"title\": \"Required\",
           \"oneOf\": [
             {
-              \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+              \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
             }
           ],
           \"default\": true

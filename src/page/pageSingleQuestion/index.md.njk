@@ -2,6 +2,7 @@
 title: Single question page
 description: Single question page
 section: Pages
+theme: 
 aliases:
 backlog_issue_id:
 layout: layout-pane.njk
@@ -10,6 +11,8 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+
+
 
 
 
@@ -336,7 +339,7 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/pageSingleQuestion/v1.0.0\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/pageSingleQuestion\",
   \"title\": \"Single question page\",
   \"description\": \"Single question page\",
   \"type\": \"object\",
@@ -351,7 +354,7 @@ layout: layout-pane.njk
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/formPage\"
+      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/formPage\"
     }
   ],
   \"required\": [
@@ -367,7 +370,7 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/pageSingleQuestion/v1.0.0\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/pageSingleQuestion\",
   \"title\": \"Single question page\",
   \"description\": \"Single question page\",
   \"type\": \"object\",
@@ -396,7 +399,7 @@ layout: layout-pane.njk
             \"title\": \"Whether to show block or not\",
             \"oneOf\": [
               {
-                \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+                \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
               }
             ],
             \"default\": true
@@ -418,7 +421,7 @@ layout: layout-pane.njk
             \"title\": \"Whether to show block or not\",
             \"oneOf\": [
               {
-                \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+                \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
               }
             ],
             \"default\": true
@@ -450,7 +453,7 @@ layout: layout-pane.njk
                     \"type\": \"string\"
                   },
                   \"condition\": {
-                    \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+                    \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
                   }
                 },
                 \"required\": [
@@ -491,7 +494,7 @@ layout: layout-pane.njk
       \"title\": \"Whether to show block or not\",
       \"oneOf\": [
         {
-          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
         }
       ],
       \"default\": true

@@ -2,6 +2,7 @@
 title: Date
 description: Component that provides a composite date input field
 section: Components
+theme: control
 aliases:
 backlog_issue_id:
 layout: layout-pane.njk
@@ -10,6 +11,8 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+
+
 
 
 
@@ -298,7 +301,7 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/date/v1.0.0\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/date\",
   \"title\": \"Date\",
   \"description\": \"Component that provides a composite date input field\",
   \"type\": \"object\",
@@ -330,7 +333,7 @@ layout: layout-pane.njk
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/definitions/v1.0.0#/definitions/field\"
+      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/field\"
     }
   ],
   \"definitions\": {
@@ -363,7 +366,7 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/date/v1.0.0\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/date\",
   \"title\": \"Date\",
   \"description\": \"Component that provides a composite date input field\",
   \"type\": \"object\",
@@ -415,7 +418,7 @@ layout: layout-pane.njk
           \"title\": \"Required\",
           \"oneOf\": [
             {
-              \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+              \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
             }
           ],
           \"default\": true
@@ -430,7 +433,7 @@ layout: layout-pane.njk
       \"title\": \"Disabled\",
       \"oneOf\": [
         {
-          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
         }
       ],
       \"default\": false
@@ -439,7 +442,7 @@ layout: layout-pane.njk
       \"title\": \"Whether to show block or not\",
       \"oneOf\": [
         {
-          \"$ref\": \"http://gov.uk/schema/condition/v1.0.0#/definitions/booleanOrCondition\"
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
         }
       ],
       \"default\": true
