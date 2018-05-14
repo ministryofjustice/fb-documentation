@@ -1,17 +1,17 @@
 {
-  "name": "govuk_design_system",
+  "name": "fb-documentation",
   "private": true,
-  "description": "GOV.UK Design System",
+  "description": "Form Builder documentation",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alphagov/govuk-design-system.git"
+    "url": "git+https://github.com/ministryofjustice/fb-documentation.git"
   },
-  "author": "Government Digital Service developers",
+  "author": "MoJ Digital Form Builder team",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alphagov/govuk-design-system/issues"
+    "url": "https://github.com/ministryofjustice/fb-documentation/issues"
   },
-  "homepage": "https://github.com/alphagov/govuk-design-system#readme",
+  "homepage": "https://github.com/ministryofjustice/fb-documentation#readme",
   "scripts": {
     "preinstall": "node bin/check-nvmrc.js",
     "prestart": "node bin/check-nvmrc.js",
