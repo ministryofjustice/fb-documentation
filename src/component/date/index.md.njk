@@ -11,15 +11,16 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
 
+Use the Date component to help users enter a date.
 
+[Read more about when to use the date component on the GOV.UK Design System]({{ $DesignSystem }}/components/date-input)
 
+### Properties
 
-Basic date example
-{{ specExample({group: 'component', item: 'date', example: 'exampleDate', html: true, json: true, open: true}) }}
 
 {{ govukTable({
-  "caption": "Schema properties",
   "firstCellIsHeader": true,
   "head": [
     {
@@ -118,7 +119,7 @@ Basic date example
       "text": "no"
     },
     {
-      "html": "Based on"
+      "html": "Reference to data based on"
     },
     {
       "html": "-"
@@ -230,7 +231,9 @@ Basic date example
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Additional HTML id"
+    },
     {
       "html": "-"
     }
@@ -262,7 +265,9 @@ Basic date example
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Whether to prevent the block’s model being overridden or appended "
+    },
     {
       "html": false
     }
@@ -297,6 +302,15 @@ Basic date example
   ]
 ]
 }) }}
+
+
+### Examples
+
+
+Basic date example
+{{ specExample({group: 'component', item: 'date', example: 'exampleDate', html: true, json: true, open: true}) }}
+
+### Schema
 
 {{ govukDetails({
   "summaryText": "Raw schema",
@@ -454,11 +468,13 @@ Basic date example
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Based on\",
+      \"title\": \"Reference to data based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
     },
     \"id\": {
+      \"title\": \"Additional HTML id\",
       \"type\": \"string\"
     },
     \"classes\": {
@@ -474,6 +490,7 @@ Basic date example
       \"type\": \"string\"
     },
     \"modelProtect\": {
+      \"title\": \"Whether to prevent the block’s model being overridden or appended \",
       \"type\": \"boolean\",
       \"default\": false
     },

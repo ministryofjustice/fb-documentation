@@ -11,15 +11,20 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
 
-A fieldset groups several controls in a form.
+Use the Fieldset component to group related form inputs.
 
+A fieldset may contain any other type of blocks including other fieldsets.
 
-Basic example of fieldset
-{{ specExample({group: 'component', item: 'fieldset', example: 'exampleFieldset', html: true, json: true, open: true}) }}
+The fieldset component should only be used on form pages.
+
+[Read more about when to use the fieldset component on the GOV.UK Design System]({{ $DesignSystem }}/components/fieldset)
+
+### Properties
+
 
 {{ govukTable({
-  "caption": "Schema properties",
   "firstCellIsHeader": true,
   "head": [
     {
@@ -101,7 +106,7 @@ Basic example of fieldset
       "text": "no"
     },
     {
-      "html": "Based on"
+      "html": "Reference to data based on"
     },
     {
       "html": "-"
@@ -151,7 +156,9 @@ Basic example of fieldset
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Additional HTML id"
+    },
     {
       "html": "-"
     }
@@ -166,7 +173,9 @@ Basic example of fieldset
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Items"
+    },
     {
       "html": "-"
     }
@@ -215,7 +224,9 @@ Basic example of fieldset
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Whether to prevent the block’s model being overridden or appended "
+    },
     {
       "html": false
     }
@@ -282,6 +293,15 @@ Basic example of fieldset
   ]
 ]
 }) }}
+
+
+### Examples
+
+
+Basic example of fieldset
+{{ specExample({group: 'component', item: 'fieldset', example: 'exampleFieldset', html: true, json: true, open: true}) }}
+
+### Schema
 
 {{ govukDetails({
   "summaryText": "Raw schema",
@@ -376,10 +396,12 @@ Basic example of fieldset
       \"type\": \"string\"
     },
     \"modelProtect\": {
+      \"title\": \"Whether to prevent the block’s model being overridden or appended \",
       \"type\": \"boolean\",
       \"default\": false
     },
     \"items\": {
+      \"title\": \"Items\",
       \"type\": \"array\",
       \"items\": {
         \"type\": \"object\",
@@ -403,11 +425,13 @@ Basic example of fieldset
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Based on\",
+      \"title\": \"Reference to data based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
     },
     \"id\": {
+      \"title\": \"Additional HTML id\",
       \"type\": \"string\"
     },
     \"classes\": {

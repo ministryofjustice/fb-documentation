@@ -11,33 +11,19 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
 
 
 
 
 
-{{ govukTable({
-  "caption": "Schema properties",
-  "firstCellIsHeader": true,
-  "head": [
-    {
-      "text": "Property"
-    },
-    {
-      "text": "Type"
-    },
-    {
-      "text": "Required"
-    },
-    {
-      "text": "Description"
-    },
-    {
-      "text": "Default"
-    }
-  ],
-  "rows": []
-}) }}
+
+
+
+
+
+
+### Schema
 
 {{ govukDetails({
   "summaryText": "Raw schema",

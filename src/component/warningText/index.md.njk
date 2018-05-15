@@ -11,15 +11,16 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
 
+Use the Warning text component when you need to warn users about something important, such as legal consequences of an action, or lack of action, that they might take.
 
+[Read more about when to use the warning text component on the GOV.UK Design System]({{ $DesignSystem }}/components/warning-text)
 
+### Properties
 
-Basic example of warning text
-{{ specExample({group: 'component', item: 'warningText', example: 'exampleWarningText', html: true, json: true, open: true}) }}
 
 {{ govukTable({
-  "caption": "Schema properties",
   "firstCellIsHeader": true,
   "head": [
     {
@@ -84,7 +85,7 @@ Basic example of warning text
       "text": "no"
     },
     {
-      "html": "Based on"
+      "html": "Reference to data based on"
     },
     {
       "html": "-"
@@ -168,7 +169,9 @@ Basic example of warning text
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Additional HTML id"
+    },
     {
       "html": "-"
     }
@@ -190,6 +193,15 @@ Basic example of warning text
   ]
 ]
 }) }}
+
+
+### Examples
+
+
+Basic example of warning text
+{{ specExample({group: 'component', item: 'warningText', example: 'exampleWarningText', html: true, json: true, open: true}) }}
+
+### Schema
 
 {{ govukDetails({
   "summaryText": "Raw schema",
@@ -266,11 +278,13 @@ Basic example of warning text
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Based on\",
+      \"title\": \"Reference to data based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
     },
     \"id\": {
+      \"title\": \"Additional HTML id\",
       \"type\": \"string\"
     },
     \"classes\": {

@@ -11,15 +11,16 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
 
+Make a page easier to scan by letting users reveal more detailed information only if they need it.
 
+[Read more about when to use the details component on the GOV.UK Design System]({{ $DesignSystem }}/components/details)
 
+### Properties
 
-Basic example of details
-{{ specExample({group: 'component', item: 'details', example: 'exampleDetails', html: true, json: true, open: true}) }}
 
 {{ govukTable({
-  "caption": "Schema properties",
   "firstCellIsHeader": true,
   "head": [
     {
@@ -84,7 +85,7 @@ Basic example of details
       "text": "no"
     },
     {
-      "html": "Based on"
+      "html": "Reference to data based on"
     },
     {
       "html": "-"
@@ -151,7 +152,9 @@ Basic example of details
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Additional HTML id"
+    },
     {
       "html": "-"
     }
@@ -207,6 +210,15 @@ Basic example of details
   ]
 ]
 }) }}
+
+
+### Examples
+
+
+Basic example of details
+{{ specExample({group: 'component', item: 'details', example: 'exampleDetails', html: true, json: true, open: true}) }}
+
+### Schema
 
 {{ govukDetails({
   "summaryText": "Raw schema",
@@ -295,11 +307,13 @@ Basic example of details
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Based on\",
+      \"title\": \"Reference to data based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
     },
     \"id\": {
+      \"title\": \"Additional HTML id\",
       \"type\": \"string\"
     },
     \"classes\": {

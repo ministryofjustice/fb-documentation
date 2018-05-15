@@ -11,15 +11,16 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
 
+Use the Table component to let users to compare information in rows and columns.
 
+[Read more about when to use the table component on the GOV.UK Design System]({{ $DesignSystem }}/components/table)
 
+### Properties
 
-Basic table example
-{{ specExample({group: 'component', item: 'table', example: 'exampleTable', html: true, json: true, open: true}) }}
 
 {{ govukTable({
-  "caption": "Schema properties",
   "firstCellIsHeader": true,
   "head": [
     {
@@ -99,7 +100,7 @@ Basic table example
       "text": "no"
     },
     {
-      "html": "Based on"
+      "html": "Reference to data based on"
     },
     {
       "html": "-"
@@ -209,7 +210,9 @@ Basic table example
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Additional HTML id"
+    },
     {
       "html": "-"
     }
@@ -231,6 +234,15 @@ Basic table example
   ]
 ]
 }) }}
+
+
+### Examples
+
+
+Basic table example
+{{ specExample({group: 'component', item: 'table', example: 'exampleTable', html: true, json: true, open: true}) }}
+
+### Schema
 
 {{ govukDetails({
   "summaryText": "Raw schema",
@@ -375,7 +387,8 @@ Basic table example
             \"type\": \"string\"
           },
           \"_isa\": {
-            \"title\": \"Based on\",
+            \"title\": \"Reference to data based on\",
+            \"description\": \"Id of referenced data current data inherits property values from\",
             \"type\": \"string\",
             \"blockReference\": true
           }
@@ -414,7 +427,8 @@ Basic table example
             \"type\": \"string\"
           },
           \"_isa\": {
-            \"title\": \"Based on\",
+            \"title\": \"Reference to data based on\",
+            \"description\": \"Id of referenced data current data inherits property values from\",
             \"type\": \"string\",
             \"blockReference\": true
           }
@@ -435,11 +449,13 @@ Basic table example
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Based on\",
+      \"title\": \"Reference to data based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
     },
     \"id\": {
+      \"title\": \"Additional HTML id\",
       \"type\": \"string\"
     },
     \"classes\": {
@@ -487,7 +503,8 @@ Basic table example
           \"type\": \"string\"
         },
         \"_isa\": {
-          \"title\": \"Based on\",
+          \"title\": \"Reference to data based on\",
+          \"description\": \"Id of referenced data current data inherits property values from\",
           \"type\": \"string\",
           \"blockReference\": true
         }

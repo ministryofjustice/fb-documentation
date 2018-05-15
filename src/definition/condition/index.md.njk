@@ -11,6 +11,7 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
 
 Conditions are a fundamental building block
 
@@ -34,10 +35,10 @@ Whether a condition evaluates to true or not can be seen in the following diagra
 
 ![Condition diagram](condition.schema.svg)
 
+### Properties
 
 
 {{ govukTable({
-  "caption": "Schema properties",
   "firstCellIsHeader": true,
   "head": [
     {
@@ -127,6 +128,13 @@ Whether a condition evaluates to true or not can be seen in the following diagra
   ]
 ]
 }) }}
+
+
+
+
+
+
+### Schema
 
 {{ govukDetails({
   "summaryText": "Raw schema",

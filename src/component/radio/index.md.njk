@@ -11,13 +11,14 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
 
 This component can only be used as a [radios](../radios) option item and has no template of its own.
 
+### Properties
 
 
 {{ govukTable({
-  "caption": "Schema properties",
   "firstCellIsHeader": true,
   "head": [
     {
@@ -116,7 +117,7 @@ This component can only be used as a [radios](../radios) option item and has no 
       "text": "no"
     },
     {
-      "html": "Based on"
+      "html": "Reference to data based on"
     },
     {
       "html": "-"
@@ -156,6 +157,13 @@ This component can only be used as a [radios](../radios) option item and has no 
   ]
 ]
 }) }}
+
+
+
+
+
+
+### Schema
 
 {{ govukDetails({
   "summaryText": "Raw schema",
@@ -217,7 +225,8 @@ This component can only be used as a [radios](../radios) option item and has no 
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Based on\",
+      \"title\": \"Reference to data based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
     },

@@ -11,15 +11,18 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
+
+**The Select component should only be used as a last resort in citizen-facing services because research shows that some users find selects very difficult to use.**
 
 Options for select must be valid [options](../option)
 
+[Read more about when to use the select component on the GOV.UK Design System]({{ $DesignSystem }}/components/select)
 
-Basic select example
-{{ specExample({group: 'component', item: 'select', example: 'exampleSelect', html: true, json: true, open: true}) }}
+### Properties
+
 
 {{ govukTable({
-  "caption": "Schema properties",
   "firstCellIsHeader": true,
   "head": [
     {
@@ -118,7 +121,7 @@ Basic select example
       "text": "no"
     },
     {
-      "html": "Based on"
+      "html": "Reference to data based on"
     },
     {
       "html": "-"
@@ -213,7 +216,9 @@ Basic select example
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Additional HTML id"
+    },
     {
       "html": "-"
     }
@@ -260,7 +265,9 @@ Basic select example
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Whether to prevent the block’s model being overridden or appended "
+    },
     {
       "html": false
     }
@@ -310,6 +317,15 @@ Basic select example
   ]
 ]
 }) }}
+
+
+### Examples
+
+
+Basic select example
+{{ specExample({group: 'component', item: 'select', example: 'exampleSelect', html: true, json: true, open: true}) }}
+
+### Schema
 
 {{ govukDetails({
   "summaryText": "Raw schema",
@@ -420,7 +436,8 @@ Basic select example
               \"type\": \"string\"
             },
             \"_isa\": {
-              \"title\": \"Based on\",
+              \"title\": \"Reference to data based on\",
+              \"description\": \"Id of referenced data current data inherits property values from\",
               \"type\": \"string\",
               \"blockReference\": true
             }
@@ -455,11 +472,13 @@ Basic select example
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Based on\",
+      \"title\": \"Reference to data based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
     },
     \"id\": {
+      \"title\": \"Additional HTML id\",
       \"type\": \"string\"
     },
     \"classes\": {
@@ -475,6 +494,7 @@ Basic select example
       \"type\": \"string\"
     },
     \"modelProtect\": {
+      \"title\": \"Whether to prevent the block’s model being overridden or appended \",
       \"type\": \"boolean\",
       \"default\": false
     },

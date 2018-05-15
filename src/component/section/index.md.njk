@@ -11,17 +11,20 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
 
-A section is a group of elements that represent a standalone section. This enables the automatic creation of headings with the right level and other markup for accessibility purposes.
+Use the Section component to group blocks together with semantic intent, ie. to represent a standalone section of a page.
 
-A section may contain other sections.
+This enables the automatic creation of headings with the right level and other markup for accessibility purposes.
 
+A section may contain any other type of blocks including other sections.
 
-Basic section example
-{{ specExample({group: 'component', item: 'section', example: 'exampleSection', html: true, json: true, open: true}) }}
+Typically the section component should be used on content pages.
+
+### Properties
+
 
 {{ govukTable({
-  "caption": "Schema properties",
   "firstCellIsHeader": true,
   "head": [
     {
@@ -86,7 +89,7 @@ Basic section example
       "text": "no"
     },
     {
-      "html": "Based on"
+      "html": "Reference to data based on"
     },
     {
       "html": "-"
@@ -166,7 +169,9 @@ Basic section example
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Additional HTML id"
+    },
     {
       "html": "-"
     }
@@ -181,7 +186,9 @@ Basic section example
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Items"
+    },
     {
       "html": "-"
     }
@@ -218,6 +225,15 @@ Basic section example
   ]
 ]
 }) }}
+
+
+### Examples
+
+
+Basic section example
+{{ specExample({group: 'component', item: 'section', example: 'exampleSection', html: true, json: true, open: true}) }}
+
+### Schema
 
 {{ govukDetails({
   "summaryText": "Raw schema",
@@ -291,6 +307,7 @@ Basic section example
       \"multiline\": true
     },
     \"items\": {
+      \"title\": \"Items\",
       \"type\": \"array\",
       \"items\": {
         \"type\": \"object\",
@@ -321,7 +338,8 @@ Basic section example
             \"type\": \"string\"
           },
           \"_isa\": {
-            \"title\": \"Based on\",
+            \"title\": \"Reference to data based on\",
+            \"description\": \"Id of referenced data current data inherits property values from\",
             \"type\": \"string\",
             \"blockReference\": true
           }
@@ -342,11 +360,13 @@ Basic section example
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Based on\",
+      \"title\": \"Reference to data based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
     },
     \"id\": {
+      \"title\": \"Additional HTML id\",
       \"type\": \"string\"
     },
     \"classes\": {

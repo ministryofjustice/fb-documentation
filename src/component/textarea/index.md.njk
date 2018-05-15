@@ -11,15 +11,16 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
 
+Use the Textarea component when you need to let users enter text that can be longer than a single line.
 
+[Read more about when to use the textarea component on the GOV.UK Design System]({{ $DesignSystem }}/components/textarea)
 
+### Properties
 
-Basic textarea example
-{{ specExample({group: 'component', item: 'textarea', example: 'exampleTextarea', html: true, json: true, open: true}) }}
 
 {{ govukTable({
-  "caption": "Schema properties",
   "firstCellIsHeader": true,
   "head": [
     {
@@ -118,7 +119,7 @@ Basic textarea example
       "text": "no"
     },
     {
-      "html": "Based on"
+      "html": "Reference to data based on"
     },
     {
       "html": "-"
@@ -213,7 +214,9 @@ Basic textarea example
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Additional HTML id"
+    },
     {
       "html": "-"
     }
@@ -245,7 +248,9 @@ Basic textarea example
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Whether to prevent the block’s model being overridden or appended "
+    },
     {
       "html": false
     }
@@ -280,6 +285,15 @@ Basic textarea example
   ]
 ]
 }) }}
+
+
+### Examples
+
+
+Basic textarea example
+{{ specExample({group: 'component', item: 'textarea', example: 'exampleTextarea', html: true, json: true, open: true}) }}
+
+### Schema
 
 {{ govukDetails({
   "summaryText": "Raw schema",
@@ -350,11 +364,13 @@ Basic textarea example
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Based on\",
+      \"title\": \"Reference to data based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
     },
     \"id\": {
+      \"title\": \"Additional HTML id\",
       \"type\": \"string\"
     },
     \"classes\": {
@@ -370,6 +386,7 @@ Basic textarea example
       \"type\": \"string\"
     },
     \"modelProtect\": {
+      \"title\": \"Whether to prevent the block’s model being overridden or appended \",
       \"type\": \"boolean\",
       \"default\": false
     },

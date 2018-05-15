@@ -11,15 +11,18 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
+
+Use the Radios component when users can only select one option from a list.
 
 Options for radios must be valid [radio options](../radio)
 
+[Read more about when to use the radios component on the GOV.UK Design System]({{ $DesignSystem }}/components/radios)
 
-Yes/No radios example
-{{ specExample({group: 'component', item: 'radios', example: 'exampleRadiosYesNo', html: true, json: true, open: true}) }}
+### Properties
+
 
 {{ govukTable({
-  "caption": "Schema properties",
   "firstCellIsHeader": true,
   "head": [
     {
@@ -118,7 +121,7 @@ Yes/No radios example
       "text": "no"
     },
     {
-      "html": "Based on"
+      "html": "Reference to data based on"
     },
     {
       "html": "-"
@@ -213,7 +216,9 @@ Yes/No radios example
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Additional HTML id"
+    },
     {
       "html": "-"
     }
@@ -260,7 +265,9 @@ Yes/No radios example
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Whether to prevent the block’s model being overridden or appended "
+    },
     {
       "html": false
     }
@@ -295,6 +302,15 @@ Yes/No radios example
   ]
 ]
 }) }}
+
+
+### Examples
+
+
+Yes/No radios example
+{{ specExample({group: 'component', item: 'radios', example: 'exampleRadiosYesNo', html: true, json: true, open: true}) }}
+
+### Schema
 
 {{ govukDetails({
   "summaryText": "Raw schema",
@@ -395,7 +411,8 @@ Yes/No radios example
               \"type\": \"string\"
             },
             \"_isa\": {
-              \"title\": \"Based on\",
+              \"title\": \"Reference to data based on\",
+              \"description\": \"Id of referenced data current data inherits property values from\",
               \"type\": \"string\",
               \"blockReference\": true
             },
@@ -442,11 +459,13 @@ Yes/No radios example
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Based on\",
+      \"title\": \"Reference to data based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
     },
     \"id\": {
+      \"title\": \"Additional HTML id\",
       \"type\": \"string\"
     },
     \"classes\": {
@@ -462,6 +481,7 @@ Yes/No radios example
       \"type\": \"string\"
     },
     \"modelProtect\": {
+      \"title\": \"Whether to prevent the block’s model being overridden or appended \",
       \"type\": \"boolean\",
       \"default\": false
     },

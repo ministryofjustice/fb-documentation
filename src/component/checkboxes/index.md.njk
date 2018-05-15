@@ -11,15 +11,20 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
+
+Let users select one or more options by using the Checkboxes component.
 
 Options for checkboxes must be valid [checkbox options](../checkbox)
 
+[Read more about when to use checkboxes on the GOV.UK Design System]({{ $DesignSystem }}/components/checkboxes)
 
-Basic checkboxes example
-{{ specExample({group: 'component', item: 'checkboxes', example: 'exampleCheckboxes', html: true, json: true, open: true}) }}
+
+
+### Properties
+
 
 {{ govukTable({
-  "caption": "Schema properties",
   "firstCellIsHeader": true,
   "head": [
     {
@@ -101,7 +106,7 @@ Basic checkboxes example
       "text": "no"
     },
     {
-      "html": "Based on"
+      "html": "Reference to data based on"
     },
     {
       "html": "-"
@@ -196,7 +201,9 @@ Basic checkboxes example
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Additional HTML id"
+    },
     {
       "html": "-"
     }
@@ -243,7 +250,9 @@ Basic checkboxes example
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Whether to prevent the block’s model being overridden or appended "
+    },
     {
       "html": false
     }
@@ -295,6 +304,15 @@ Basic checkboxes example
   ]
 ]
 }) }}
+
+
+### Examples
+
+
+Basic checkboxes example
+{{ specExample({group: 'component', item: 'checkboxes', example: 'exampleCheckboxes', html: true, json: true, open: true}) }}
+
+### Schema
 
 {{ govukDetails({
   "summaryText": "Raw schema",
@@ -383,6 +401,7 @@ Basic checkboxes example
               \"type\": \"string\"
             },
             \"modelProtect\": {
+              \"title\": \"Whether to prevent the block’s model being overridden or appended \",
               \"type\": \"boolean\",
               \"default\": false
             },
@@ -404,7 +423,8 @@ Basic checkboxes example
               \"type\": \"string\"
             },
             \"_isa\": {
-              \"title\": \"Based on\",
+              \"title\": \"Reference to data based on\",
+              \"description\": \"Id of referenced data current data inherits property values from\",
               \"type\": \"string\",
               \"blockReference\": true
             },
@@ -451,11 +471,13 @@ Basic checkboxes example
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Based on\",
+      \"title\": \"Reference to data based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
     },
     \"id\": {
+      \"title\": \"Additional HTML id\",
       \"type\": \"string\"
     },
     \"classes\": {
@@ -471,6 +493,7 @@ Basic checkboxes example
       \"type\": \"string\"
     },
     \"modelProtect\": {
+      \"title\": \"Whether to prevent the block’s model being overridden or appended \",
       \"type\": \"boolean\",
       \"default\": false
     },

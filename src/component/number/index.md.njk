@@ -11,19 +11,16 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
 
+Use the Number component when you need to let users enter a number.
 
+The number component is essentially an enhanced version of the [Text component](../text).
 
+### Properties
 
-Basic number example
-{{ specExample({group: 'component', item: 'number', example: 'exampleNumber', html: true, json: true, open: true}) }}
-Number example set to 20 width
-{{ specExample({group: 'component', item: 'number', example: 'exampleNumberWidthClassInput20', html: true, json: true, open: true}) }}
-Number example set to half width
-{{ specExample({group: 'component', item: 'number', example: 'exampleNumberWidthClassInputOne-half', html: true, json: true, open: true}) }}
 
 {{ govukTable({
-  "caption": "Schema properties",
   "firstCellIsHeader": true,
   "head": [
     {
@@ -122,7 +119,7 @@ Number example set to half width
       "text": "no"
     },
     {
-      "html": "Based on"
+      "html": "Reference to data based on"
     },
     {
       "html": "-"
@@ -217,7 +214,9 @@ Number example set to half width
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Additional HTML id"
+    },
     {
       "html": "-"
     }
@@ -249,7 +248,9 @@ Number example set to half width
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Whether to prevent the block’s model being overridden or appended "
+    },
     {
       "html": false
     }
@@ -299,6 +300,19 @@ Number example set to half width
   ]
 ]
 }) }}
+
+
+### Examples
+
+
+Basic number example
+{{ specExample({group: 'component', item: 'number', example: 'exampleNumber', html: true, json: true, open: true}) }}
+Number example set to 20 width
+{{ specExample({group: 'component', item: 'number', example: 'exampleNumberWidthClassInput20', html: true, json: true, open: true}) }}
+Number example set to half width
+{{ specExample({group: 'component', item: 'number', example: 'exampleNumberWidthClassInputOne-half', html: true, json: true, open: true}) }}
+
+### Schema
 
 {{ govukDetails({
   "summaryText": "Raw schema",
@@ -392,11 +406,13 @@ Number example set to half width
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Based on\",
+      \"title\": \"Reference to data based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
     },
     \"id\": {
+      \"title\": \"Additional HTML id\",
       \"type\": \"string\"
     },
     \"classes\": {
@@ -412,6 +428,7 @@ Number example set to half width
       \"type\": \"string\"
     },
     \"modelProtect\": {
+      \"title\": \"Whether to prevent the block’s model being overridden or appended \",
       \"type\": \"boolean\",
       \"default\": false
     },

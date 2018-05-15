@@ -11,15 +11,16 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
 
-A group is a container for when elements need to be grouped together but without imparting any semantic intent (as opposed to [fieldset](../fieldset) and [section](../section))
+Use the Group component when elements need to be grouped together but without imparting any semantic intent (as opposed to [fieldset](../fieldset) or [section](../section))
 
+A group may contain any other type of blocks including other groups.
 
-Basic group example
-{{ specExample({group: 'component', item: 'group', example: 'exampleGroup', html: true, json: true, open: true}) }}
+### Properties
+
 
 {{ govukTable({
-  "caption": "Schema properties",
   "firstCellIsHeader": true,
   "head": [
     {
@@ -84,7 +85,7 @@ Basic group example
       "text": "no"
     },
     {
-      "html": "Based on"
+      "html": "Reference to data based on"
     },
     {
       "html": "-"
@@ -134,7 +135,9 @@ Basic group example
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Additional HTML id"
+    },
     {
       "html": "-"
     }
@@ -149,7 +152,9 @@ Basic group example
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Items"
+    },
     {
       "html": "-"
     }
@@ -181,7 +186,9 @@ Basic group example
     {
       "text": "no"
     },
-    {},
+    {
+      "html": "Whether to prevent the block’s model being overridden or appended "
+    },
     {
       "html": false
     }
@@ -203,6 +210,15 @@ Basic group example
   ]
 ]
 }) }}
+
+
+### Examples
+
+
+Basic group example
+{{ specExample({group: 'component', item: 'group', example: 'exampleGroup', html: true, json: true, open: true}) }}
+
+### Schema
 
 {{ govukDetails({
   "summaryText": "Raw schema",
@@ -244,6 +260,7 @@ Basic group example
       \"type\": \"string\"
     },
     \"items\": {
+      \"title\": \"Items\",
       \"type\": \"array\",
       \"items\": {
         \"type\": \"object\",
@@ -267,7 +284,8 @@ Basic group example
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Based on\",
+      \"title\": \"Reference to data based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
     },
@@ -276,10 +294,12 @@ Basic group example
       \"type\": \"string\"
     },
     \"modelProtect\": {
+      \"title\": \"Whether to prevent the block’s model being overridden or appended \",
       \"type\": \"boolean\",
       \"default\": false
     },
     \"id\": {
+      \"title\": \"Additional HTML id\",
       \"type\": \"string\"
     },
     \"classes\": {

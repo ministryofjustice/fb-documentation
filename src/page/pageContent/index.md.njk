@@ -11,13 +11,14 @@ layout: layout-pane.njk
 {% from "_specExample.njk" import specExample %}
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
 
 
 
+### Properties
 
 
 {{ govukTable({
-  "caption": "Schema properties",
   "firstCellIsHeader": true,
   "head": [
     {
@@ -116,7 +117,7 @@ layout: layout-pane.njk
       "text": "no"
     },
     {
-      "html": "Based on"
+      "html": "Reference to data based on"
     },
     {
       "html": "-"
@@ -207,6 +208,13 @@ layout: layout-pane.njk
   ]
 ]
 }) }}
+
+
+
+
+
+
+### Schema
 
 {{ govukDetails({
   "summaryText": "Raw schema",
@@ -309,7 +317,8 @@ layout: layout-pane.njk
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Based on\",
+      \"title\": \"Reference to data based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
     }
