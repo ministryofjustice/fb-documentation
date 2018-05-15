@@ -12,7 +12,10 @@ layout: layout-pane.njk
 {% from "table/macro.njk" import govukTable %}
 {% from "details/macro.njk" import govukDetails %}
 
+Service provides standard configuration properties for the service
 
+- name
+- phase
 
 
 
@@ -146,6 +149,9 @@ layout: layout-pane.njk
   \"description\": \"Service configuration\",
   \"type\": \"object\",
   \"properties\": {
+    \"_id\": {
+      \"const\": \"Service\"
+    },
     \"_type\": {
       \"const\": \"Service\"
     },
@@ -192,6 +198,11 @@ layout: layout-pane.njk
   \"description\": \"Service configuration\",
   \"type\": \"object\",
   \"properties\": {
+    \"_id\": {
+      \"const\": \"Service\",
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
+    },
     \"_type\": {
       \"const\": \"Service\",
       \"title\": \"Data type\",
@@ -209,10 +220,6 @@ layout: layout-pane.njk
       ]
     },
     \"phaseText\": {
-      \"type\": \"string\"
-    },
-    \"_id\": {
-      \"title\": \"Data ID\",
       \"type\": \"string\"
     },
     \"_isa\": {
