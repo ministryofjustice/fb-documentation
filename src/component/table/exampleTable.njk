@@ -123,29 +123,64 @@ text: text,
 textarea: textarea,
 warningText: warningText
 } %}
-{%- macro group(data) %}
-<div class="fb-group">
-{%- for item in data.items %}
-{{ blocks[item._type](item) }}
-{% endfor -%}
-</div>
+{%- macro table(data) %}
+{% from "table/macro.njk" import govukTable %}
+{{ govukTable(data) }}
 {% endmacro -%}
 {% set data = {
-  "_id": "componentId",
-  "_type": "group",
-  "items": [
+  "_id": "amounts",
+  "_type": "table",
+  "caption": "Dates and amounts",
+  "firstCellIsHeader": true,
+  "head": [
     {
-      "_id": "componentId--name",
-      "_type": "text",
-      "name": "name",
-      "label": "What is your name?"
+      "_id": "amountsDate",
+      "_type": "cell",
+      "html": "Date"
     },
     {
-      "_id": "componentId--colour",
-      "_type": "text",
-      "name": "colour",
-      "label": "What is your favourite colour?"
+      "_id": "amountsAmount",
+      "_type": "cell",
+      "html": "Amount"
     }
+  ],
+  "rows": [
+    [
+      {
+        "_id": "amountsDate1",
+        "_type": "cell",
+        "html": "First 6 weeks"
+      },
+      {
+        "_id": "amountsAmount",
+        "_type": "cell",
+        "html": "£109.80 per week"
+      }
+    ],
+    [
+      {
+        "_id": "amountsDate2",
+        "_type": "cell",
+        "html": "Next 33 weeks"
+      },
+      {
+        "_id": "amountsAmount2",
+        "_type": "cell",
+        "html": "£109.80 per week"
+      }
+    ],
+    [
+      {
+        "_id": "amountsDate3",
+        "_type": "cell",
+        "html": "Total estimated pay"
+      },
+      {
+        "_id": "amountsAmount3",
+        "_type": "cell",
+        "html": "£4,282.20"
+      }
+    ]
   ]
 } %}
-{{ group(data) }}
+{{ table(data) }}

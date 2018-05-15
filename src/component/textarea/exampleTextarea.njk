@@ -88,6 +88,9 @@ layout: layout-specification.njk
 {% set params = setItemsLabel(params) %}
 {% set params = setInputWidthClass(params) %}
 {{ govukSelect(params) }}
+{% endmacro -%}{%- macro table(data) %}
+{% from "table/macro.njk" import govukTable %}
+{{ govukTable(data) }}
 {% endmacro -%}{%- macro text(data) %}
 {% from "input/macro.njk" import govukInput %}
 {% set params = setError(data) %}
@@ -115,6 +118,7 @@ number: number,
 radios: radios,
 section: section,
 select: select,
+table: table,
 text: text,
 textarea: textarea,
 warningText: warningText

@@ -1,0 +1,502 @@
+---
+title: Table
+description: Component that provides a table
+section: Components
+theme: content
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+
+
+
+
+Basic table example
+{{ specExample({group: 'component', item: 'table', example: 'exampleTable', html: true, json: true, open: true}) }}
+
+{{ govukTable({
+  "caption": "Schema properties",
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "_id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data ID"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_type"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data type"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "rows"
+    },
+    {
+      "text": "array"
+    },
+    {
+      "text": "yes"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_isa"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "attributes"
+    },
+    {
+      "text": "object"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML attributes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "caption"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "captionClasses"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "classes"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML classes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "firstCellIsHeader"
+    },
+    {
+      "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "head"
+    },
+    {
+      "text": "array"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "show"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Whether to show block or not"
+    },
+    {
+      "html": true
+    }
+  ]
+]
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/table\",
+  \"title\": \"Table\",
+  \"description\": \"Component that provides a table\",
+  \"type\": \"object\",
+  \"category\": [
+    \"content\"
+  ],
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"table\"
+    },
+    \"caption\": {
+      \"type\": \"string\"
+    },
+    \"captionClasses\": {
+      \"type\": \"string\"
+    },
+    \"firstCellIsHeader\": {
+      \"type\": \"boolean\"
+    },
+    \"head\": {
+      \"type\": \"array\",
+      \"items\": {
+        \"$ref\": \"#/definitions/cell\"
+      }
+    },
+    \"rows\": {
+      \"type\": \"array\",
+      \"items\": {
+        \"$ref\": \"#/definitions/cell\"
+      }
+    }
+  },
+  \"allOf\": [
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definitions#/definitions/block\"
+    },
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definitions#/definitions/propsAttributes\"
+    }
+  ],
+  \"required\": [
+    \"rows\"
+  ],
+  \"definitions\": {
+    \"cell\": {
+      \"properties\": {
+        \"_type\": {
+          \"const\": \"cell\"
+        },
+        \"html\": {
+          \"type\": \"string\"
+        },
+        \"format\": {
+          \"type\": \"string\"
+        },
+        \"colspan\": {
+          \"type\": \"number\",
+          \"minimum\": 1
+        },
+        \"rowspan\": {
+          \"type\": \"number\",
+          \"minimum\": 1
+        }
+      },
+      \"allOf\": [
+        {
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/definitions#/definitions/data\"
+        }
+      ]
+    }
+  }
+}
+```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/table\",
+  \"title\": \"Table\",
+  \"description\": \"Component that provides a table\",
+  \"type\": \"object\",
+  \"category\": [
+    \"block\",
+    \"component\",
+    \"content\"
+  ],
+  \"properties\": {
+    \"_type\": {
+      \"const\": \"table\",
+      \"title\": \"Data type\",
+      \"type\": \"string\"
+    },
+    \"caption\": {
+      \"type\": \"string\"
+    },
+    \"captionClasses\": {
+      \"type\": \"string\"
+    },
+    \"firstCellIsHeader\": {
+      \"type\": \"boolean\"
+    },
+    \"head\": {
+      \"type\": \"array\",
+      \"items\": {
+        \"required\": [
+          \"_id\",
+          \"_type\"
+        ],
+        \"properties\": {
+          \"_type\": {
+            \"const\": \"cell\",
+            \"title\": \"Data type\",
+            \"type\": \"string\"
+          },
+          \"html\": {
+            \"type\": \"string\"
+          },
+          \"format\": {
+            \"type\": \"string\"
+          },
+          \"colspan\": {
+            \"type\": \"number\",
+            \"minimum\": 1
+          },
+          \"rowspan\": {
+            \"type\": \"number\",
+            \"minimum\": 1
+          },
+          \"_id\": {
+            \"title\": \"Data ID\",
+            \"type\": \"string\"
+          },
+          \"_isa\": {
+            \"title\": \"Based on\",
+            \"type\": \"string\",
+            \"blockReference\": true
+          }
+        }
+      }
+    },
+    \"rows\": {
+      \"type\": \"array\",
+      \"items\": {
+        \"required\": [
+          \"_id\",
+          \"_type\"
+        ],
+        \"properties\": {
+          \"_type\": {
+            \"const\": \"cell\",
+            \"title\": \"Data type\",
+            \"type\": \"string\"
+          },
+          \"html\": {
+            \"type\": \"string\"
+          },
+          \"format\": {
+            \"type\": \"string\"
+          },
+          \"colspan\": {
+            \"type\": \"number\",
+            \"minimum\": 1
+          },
+          \"rowspan\": {
+            \"type\": \"number\",
+            \"minimum\": 1
+          },
+          \"_id\": {
+            \"title\": \"Data ID\",
+            \"type\": \"string\"
+          },
+          \"_isa\": {
+            \"title\": \"Based on\",
+            \"type\": \"string\",
+            \"blockReference\": true
+          }
+        }
+      }
+    },
+    \"show\": {
+      \"title\": \"Whether to show block or not\",
+      \"oneOf\": [
+        {
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
+        }
+      ],
+      \"default\": true
+    },
+    \"_id\": {
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
+    },
+    \"_isa\": {
+      \"title\": \"Based on\",
+      \"type\": \"string\",
+      \"blockReference\": true
+    },
+    \"id\": {
+      \"type\": \"string\"
+    },
+    \"classes\": {
+      \"title\": \"Additional HTML classes\",
+      \"type\": \"string\"
+    },
+    \"attributes\": {
+      \"title\": \"Additional HTML attributes\",
+      \"type\": \"object\"
+    }
+  },
+  \"required\": [
+    \"_id\",
+    \"_type\",
+    \"rows\"
+  ],
+  \"definitions\": {
+    \"cell\": {
+      \"required\": [
+        \"_id\",
+        \"_type\"
+      ],
+      \"properties\": {
+        \"_type\": {
+          \"const\": \"cell\",
+          \"title\": \"Data type\",
+          \"type\": \"string\"
+        },
+        \"html\": {
+          \"type\": \"string\"
+        },
+        \"format\": {
+          \"type\": \"string\"
+        },
+        \"colspan\": {
+          \"type\": \"number\",
+          \"minimum\": 1
+        },
+        \"rowspan\": {
+          \"type\": \"number\",
+          \"minimum\": 1
+        },
+        \"_id\": {
+          \"title\": \"Data ID\",
+          \"type\": \"string\"
+        },
+        \"_isa\": {
+          \"title\": \"Based on\",
+          \"type\": \"string\",
+          \"blockReference\": true
+        }
+      }
+    }
+  }
+}
+```
+"
+}) }}
+
+        
