@@ -13,7 +13,9 @@ layout: layout-pane.njk
 {% from "details/macro.njk" import govukDetails %}
 {% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
 
+Let users know they’ve completed a transaction.
 
+[Read more about when to use confirmation pages on the GOV.UK Design System]({{ $DesignSystem }}/patterns/confirmation-pages)
 
 ### Properties
 
@@ -100,7 +102,24 @@ layout: layout-pane.njk
       "text": "no"
     },
     {
-      "html": "Reference to data based on"
+      "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "components"
+    },
+    {
+      "text": "array"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Components"
     },
     {
       "html": "-"
@@ -138,7 +157,7 @@ layout: layout-pane.njk
   ],
   [
     {
-      "text": "extraItems"
+      "text": "extraComponents"
     },
     {
       "text": "array"
@@ -147,7 +166,7 @@ layout: layout-pane.njk
       "text": "no"
     },
     {
-      "html": "Additional items following continue button"
+      "html": "Additional components following continue button"
     },
     {
       "html": "-"
@@ -165,23 +184,6 @@ layout: layout-pane.njk
     },
     {
       "html": "Heading"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "items"
-    },
-    {
-      "text": "array"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Items"
     },
     {
       "html": "-"
@@ -287,12 +289,14 @@ layout: layout-pane.njk
     {
       "text": "nextPage"
     },
-    {},
+    {
+      "text": "object"
+    },
     {
       "text": "no"
     },
     {
-      "html": "What page (if any), and under what condtions, to go to next"
+      "html": "Next page definition"
     },
     {
       "html": "-"
@@ -363,10 +367,10 @@ layout: layout-pane.njk
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/pageConfirmation\",
+  \"_name\": \"pageConfirmation\",
   \"title\": \"Confirmation page\",
   \"description\": \"Confirmation page\",
   \"type\": \"object\",
-  \"category\": [],
   \"properties\": {
     \"_type\": {
       \"const\": \"pageConfirmation\"
@@ -377,7 +381,7 @@ layout: layout-pane.njk
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/formPage\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/pageForm\"
     }
   ]
 }
@@ -391,13 +395,10 @@ layout: layout-pane.njk
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/pageConfirmation\",
+  \"_name\": \"pageConfirmation\",
   \"title\": \"Confirmation page\",
   \"description\": \"Confirmation page\",
   \"type\": \"object\",
-  \"category\": [
-    \"formPage\",
-    \"page\"
-  ],
   \"properties\": {
     \"_type\": {
       \"const\": \"pageConfirmation\",
@@ -407,14 +408,20 @@ layout: layout-pane.njk
     \"continue\": {
       \"const\": \"makes no sense\"
     },
-    \"extraItems\": {
-      \"title\": \"Additional items following continue button\",
+    \"extraComponents\": {
+      \"title\": \"Additional components following continue button\",
       \"type\": \"array\",
       \"items\": {
-        \"type\": \"object\",
+        \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
+        \"_name\": \"component.definition\",
+        \"title\": \"Component definition\",
         \"category\": [
           \"component\",
-          \"block\"
+          \"definition\"
+        ],
+        \"required\": [
+          \"_id\",
+          \"_type\"
         ],
         \"properties\": {
           \"show\": {
@@ -425,6 +432,20 @@ layout: layout-pane.njk
               }
             ],
             \"default\": true
+          },
+          \"_id\": {
+            \"title\": \"Data ID\",
+            \"type\": \"string\"
+          },
+          \"_type\": {
+            \"title\": \"Data type\",
+            \"type\": \"string\"
+          },
+          \"_isa\": {
+            \"title\": \"Based on\",
+            \"description\": \"Id of referenced data current data inherits property values from\",
+            \"type\": \"string\",
+            \"blockReference\": true
           }
         }
       }
@@ -437,7 +458,11 @@ layout: layout-pane.njk
       }
     },
     \"nextPage\": {
-      \"title\": \"What page (if any), and under what condtions, to go to next\",
+      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/nextPage\",
+      \"_name\": \"nextPage.definition\",
+      \"title\": \"Next page definition\",
+      \"description\": \"What page (if any), and under what condtions, to go to next\",
+      \"type\": \"object\",
       \"oneOf\": [
         {
           \"type\": \"string\"
@@ -467,6 +492,9 @@ layout: layout-pane.njk
             ]
           }
         }
+      ],
+      \"category\": [
+        \"definition\"
       ]
     },
     \"url\": {
@@ -490,28 +518,6 @@ layout: layout-pane.njk
       \"type\": \"string\",
       \"multiline\": true
     },
-    \"items\": {
-      \"title\": \"Items\",
-      \"type\": \"array\",
-      \"items\": {
-        \"type\": \"object\",
-        \"category\": [
-          \"component\",
-          \"block\"
-        ],
-        \"properties\": {
-          \"show\": {
-            \"title\": \"Whether to show block or not\",
-            \"oneOf\": [
-              {
-                \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
-              }
-            ],
-            \"default\": true
-          }
-        }
-      }
-    },
     \"show\": {
       \"title\": \"Whether to show block or not\",
       \"oneOf\": [
@@ -526,10 +532,52 @@ layout: layout-pane.njk
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Reference to data based on\",
+      \"title\": \"Based on\",
       \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
+    },
+    \"components\": {
+      \"title\": \"Components\",
+      \"type\": \"array\",
+      \"items\": {
+        \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
+        \"_name\": \"component.definition\",
+        \"title\": \"Component definition\",
+        \"category\": [
+          \"component\",
+          \"definition\"
+        ],
+        \"required\": [
+          \"_id\",
+          \"_type\"
+        ],
+        \"properties\": {
+          \"show\": {
+            \"title\": \"Whether to show block or not\",
+            \"oneOf\": [
+              {
+                \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
+              }
+            ],
+            \"default\": true
+          },
+          \"_id\": {
+            \"title\": \"Data ID\",
+            \"type\": \"string\"
+          },
+          \"_type\": {
+            \"title\": \"Data type\",
+            \"type\": \"string\"
+          },
+          \"_isa\": {
+            \"title\": \"Based on\",
+            \"description\": \"Id of referenced data current data inherits property values from\",
+            \"type\": \"string\",
+            \"blockReference\": true
+          }
+        }
+      }
     },
     \"multiple\": {
       \"type\": \"boolean\"
@@ -553,6 +601,11 @@ layout: layout-pane.njk
       \"default\": false
     }
   },
+  \"category\": [
+    \"definition\",
+    \"formPage\",
+    \"page\"
+  ],
   \"required\": [
     \"_id\",
     \"_type\",
@@ -562,5 +615,17 @@ layout: layout-pane.njk
 ```
 "
 }) }}
+
+
+
+
+
+### Schema uses
+
+- [Form page definition](/definition/pageForm)
+
+### Categories
+
+formPage, page
 
         

@@ -106,7 +106,7 @@ Options for checkboxes must be valid [checkbox options](../checkbox)
       "text": "no"
     },
     {
-      "html": "Reference to data based on"
+      "html": "Based on"
     },
     {
       "html": "-"
@@ -320,15 +320,13 @@ Basic checkboxes example
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/checkboxes\",
+  \"_name\": \"checkboxes\",
   \"title\": \"Checkboxes\",
   \"description\": \"Component that provides a checkbox fieldset\",
   \"type\": \"object\",
   \"properties\": {
     \"_type\": {
       \"const\": \"checkboxes\"
-    },
-    \"name\": {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/name\"
     },
     \"items\": {
       \"type\": \"array\",
@@ -341,7 +339,10 @@ Basic checkboxes example
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/fieldset\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/fieldset\"
+    },
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/name\"
     }
   ]
 }
@@ -355,6 +356,7 @@ Basic checkboxes example
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/checkboxes\",
+  \"_name\": \"checkboxes\",
   \"title\": \"Checkboxes\",
   \"description\": \"Component that provides a checkbox fieldset\",
   \"type\": \"object\",
@@ -364,36 +366,32 @@ Basic checkboxes example
       \"title\": \"Data type\",
       \"type\": \"string\"
     },
-    \"name\": {
-      \"title\": \"Input name\",
-      \"type\": \"string\"
-    },
     \"items\": {
       \"type\": \"array\",
       \"items\": [
         {
           \"$id\": \"http://gov.uk/schema/v1.0.0/checkbox\",
+          \"_name\": \"checkbox\",
           \"title\": \"Checkbox option\",
           \"description\": \"Component that provides a radio option\",
           \"type\": \"object\",
           \"required\": [
             \"_id\",
             \"_type\",
+            \"legend\",
             \"name\",
             \"value\"
           ],
           \"category\": [
             \"component\",
+            \"control\",
+            \"definition\",
             \"option\"
           ],
           \"properties\": {
             \"_type\": {
               \"const\": \"checkbox\",
               \"title\": \"Data type\",
-              \"type\": \"string\"
-            },
-            \"name\": {
-              \"title\": \"Input name\",
               \"type\": \"string\"
             },
             \"model\": {
@@ -405,9 +403,22 @@ Basic checkboxes example
               \"type\": \"boolean\",
               \"default\": false
             },
-            \"value\": {
-              \"title\": \"Option value\",
+            \"legend\": {
+              \"title\": \"Legend\",
               \"type\": \"string\"
+            },
+            \"hint\": {
+              \"title\": \"Hint text\",
+              \"type\": \"string\"
+            },
+            \"disabled\": {
+              \"title\": \"Disabled\",
+              \"oneOf\": [
+                {
+                  \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
+                }
+              ],
+              \"default\": false
             },
             \"show\": {
               \"title\": \"Whether to show block or not\",
@@ -423,18 +434,71 @@ Basic checkboxes example
               \"type\": \"string\"
             },
             \"_isa\": {
-              \"title\": \"Reference to data based on\",
+              \"title\": \"Based on\",
               \"description\": \"Id of referenced data current data inherits property values from\",
               \"type\": \"string\",
               \"blockReference\": true
             },
-            \"label\": {
-              \"title\": \"Label\",
+            \"id\": {
+              \"title\": \"Additional HTML id\",
               \"type\": \"string\"
             },
-            \"hint\": {
-              \"title\": \"Hint text\",
+            \"classes\": {
+              \"title\": \"Additional HTML classes\",
               \"type\": \"string\"
+            },
+            \"attributes\": {
+              \"title\": \"Additional HTML attributes\",
+              \"type\": \"object\"
+            },
+            \"validation\": {
+              \"role\": \"validation\",
+              \"properties\": {
+                \"required\": {
+                  \"title\": \"Required\",
+                  \"oneOf\": [
+                    {
+                      \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
+                    }
+                  ],
+                  \"default\": true
+                }
+              }
+            },
+            \"errors\": {
+              \"role\": \"errorStrings\",
+              \"properties\": {
+                \"required\": {
+                  \"title\": \"Error strings for required\",
+                  \"type\": \"object\",
+                  \"properties\": {
+                    \"inline\": {
+                      \"type\": \"string\",
+                      \"role\": \"errorString\"
+                    },
+                    \"summary\": {
+                      \"type\": \"string\",
+                      \"role\": \"errorString\"
+                    }
+                  }
+                }
+              }
+            },
+            \"value\": {
+              \"title\": \"Option value\",
+              \"type\": \"string\"
+            },
+            \"multiple\": {
+              \"type\": \"boolean\"
+            },
+            \"multipleMinimum\": {
+              \"type\": \"number\",
+              \"minimum\": 0,
+              \"default\": 1
+            },
+            \"multipleMaximum\": {
+              \"type\": \"number\",
+              \"minimum\": 0
             }
           }
         }
@@ -471,7 +535,7 @@ Basic checkboxes example
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Reference to data based on\",
+      \"title\": \"Based on\",
       \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
@@ -529,6 +593,10 @@ Basic checkboxes example
           }
         }
       }
+    },
+    \"name\": {
+      \"title\": \"Input name\",
+      \"type\": \"string\"
     }
   },
   \"required\": [
@@ -537,13 +605,26 @@ Basic checkboxes example
     \"legend\"
   ],
   \"category\": [
-    \"block\",
     \"component\",
-    \"control\"
+    \"control\",
+    \"definition\"
   ]
 }
 ```
 "
 }) }}
+
+
+
+
+
+### Schema uses
+
+- [Fieldset definition](/definition/fieldset)
+- [Name definition](/definition/name)
+
+### Categories
+
+component, control
 
         

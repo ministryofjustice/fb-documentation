@@ -76,23 +76,6 @@ Use the Date component to help users enter a date.
   ],
   [
     {
-      "text": "label"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "yes"
-    },
-    {
-      "html": "Label"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
       "text": "name"
     },
     {
@@ -119,7 +102,7 @@ Use the Date component to help users enter a date.
       "text": "no"
     },
     {
-      "html": "Reference to data based on"
+      "html": "Based on"
     },
     {
       "html": "-"
@@ -206,23 +189,6 @@ Use the Date component to help users enter a date.
   ],
   [
     {
-      "text": "hint"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Hint text"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
       "text": "id"
     },
     {
@@ -274,6 +240,51 @@ Use the Date component to help users enter a date.
   ],
   [
     {
+      "text": "multiple"
+    },
+    {
+      "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleMaximum"
+    },
+    {
+      "text": "number"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleMinimum"
+    },
+    {
+      "text": "number"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": 1
+    }
+  ],
+  [
+    {
       "text": "show"
     },
     {},
@@ -318,6 +329,7 @@ Basic date example
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/date\",
+  \"_name\": \"date\",
   \"title\": \"Date\",
   \"description\": \"Component that provides a composite date input field\",
   \"type\": \"object\",
@@ -349,7 +361,7 @@ Basic date example
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/field\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/field\"
     }
   ],
   \"definitions\": {
@@ -383,6 +395,7 @@ Basic date example
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/date\",
+  \"_name\": \"date\",
   \"title\": \"Date\",
   \"description\": \"Component that provides a composite date input field\",
   \"type\": \"object\",
@@ -441,10 +454,6 @@ Basic date example
         }
       }
     },
-    \"name\": {
-      \"title\": \"Input name\",
-      \"type\": \"string\"
-    },
     \"disabled\": {
       \"title\": \"Disabled\",
       \"oneOf\": [
@@ -468,7 +477,7 @@ Basic date example
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Reference to data based on\",
+      \"title\": \"Based on\",
       \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
@@ -513,12 +522,20 @@ Basic date example
         }
       }
     },
-    \"label\": {
-      \"title\": \"Label\",
-      \"type\": \"string\"
+    \"multiple\": {
+      \"type\": \"boolean\"
     },
-    \"hint\": {
-      \"title\": \"Hint text\",
+    \"multipleMinimum\": {
+      \"type\": \"number\",
+      \"minimum\": 0,
+      \"default\": 1
+    },
+    \"multipleMaximum\": {
+      \"type\": \"number\",
+      \"minimum\": 0
+    },
+    \"name\": {
+      \"title\": \"Input name\",
       \"type\": \"string\"
     }
   },
@@ -542,21 +559,33 @@ Basic date example
       ]
     }
   },
-  \"category\": [
-    \"block\",
-    \"component\",
-    \"control\",
-    \"field\"
-  ],
   \"required\": [
     \"_id\",
     \"_type\",
     \"label\",
     \"name\"
+  ],
+  \"category\": [
+    \"component\",
+    \"control\",
+    \"definition\",
+    \"field\"
   ]
 }
 ```
 "
 }) }}
+
+
+
+
+
+### Schema uses
+
+- [Field definition](/definition/field)
+
+### Categories
+
+component, control, field
 
         

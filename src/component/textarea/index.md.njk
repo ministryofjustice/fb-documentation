@@ -76,23 +76,6 @@ Use the Textarea component when you need to let users enter text that can be lon
   ],
   [
     {
-      "text": "label"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "yes"
-    },
-    {
-      "html": "Label"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
       "text": "name"
     },
     {
@@ -119,7 +102,7 @@ Use the Textarea component when you need to let users enter text that can be lon
       "text": "no"
     },
     {
-      "html": "Reference to data based on"
+      "html": "Based on"
     },
     {
       "html": "-"
@@ -189,23 +172,6 @@ Use the Textarea component when you need to let users enter text that can be lon
   ],
   [
     {
-      "text": "hint"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Hint text"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
       "text": "id"
     },
     {
@@ -257,6 +223,51 @@ Use the Textarea component when you need to let users enter text that can be lon
   ],
   [
     {
+      "text": "multiple"
+    },
+    {
+      "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleMaximum"
+    },
+    {
+      "text": "number"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleMinimum"
+    },
+    {
+      "text": "number"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": 1
+    }
+  ],
+  [
+    {
       "text": "show"
     },
     {},
@@ -301,6 +312,7 @@ Basic textarea example
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/textarea\",
+  \"_name\": \"textarea\",
   \"title\": \"Textarea\",
   \"description\": \"Component that provides a textarea field\",
   \"type\": \"object\",
@@ -311,7 +323,7 @@ Basic textarea example
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/field\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/field\"
     },
     {
       \"$ref\": \"/schema/v1.0.0/validations#/definitions/stringBundle\"
@@ -328,6 +340,7 @@ Basic textarea example
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/textarea\",
+  \"_name\": \"textarea\",
   \"title\": \"Textarea\",
   \"description\": \"Component that provides a textarea field\",
   \"type\": \"object\",
@@ -335,10 +348,6 @@ Basic textarea example
     \"_type\": {
       \"const\": \"textarea\",
       \"title\": \"Data type\",
-      \"type\": \"string\"
-    },
-    \"name\": {
-      \"title\": \"Input name\",
       \"type\": \"string\"
     },
     \"disabled\": {
@@ -364,7 +373,7 @@ Basic textarea example
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Reference to data based on\",
+      \"title\": \"Based on\",
       \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
@@ -479,30 +488,51 @@ Basic textarea example
         }
       }
     },
-    \"label\": {
-      \"title\": \"Label\",
-      \"type\": \"string\"
+    \"multiple\": {
+      \"type\": \"boolean\"
     },
-    \"hint\": {
-      \"title\": \"Hint text\",
+    \"multipleMinimum\": {
+      \"type\": \"number\",
+      \"minimum\": 0,
+      \"default\": 1
+    },
+    \"multipleMaximum\": {
+      \"type\": \"number\",
+      \"minimum\": 0
+    },
+    \"name\": {
+      \"title\": \"Input name\",
       \"type\": \"string\"
     }
   },
-  \"category\": [
-    \"block\",
-    \"component\",
-    \"control\",
-    \"field\"
-  ],
   \"required\": [
     \"_id\",
     \"_type\",
     \"label\",
     \"name\"
+  ],
+  \"category\": [
+    \"component\",
+    \"control\",
+    \"definition\",
+    \"field\"
   ]
 }
 ```
 "
 }) }}
+
+
+
+
+
+### Schema uses
+
+- [Field definition](/definition/field)
+- [Validations](/definition/validations)
+
+### Categories
+
+component, control, field
 
         

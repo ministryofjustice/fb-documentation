@@ -13,7 +13,9 @@ layout: layout-pane.njk
 {% from "details/macro.njk" import govukDetails %}
 {% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
 
+Preferred approach for asking users questions within a service, one question at a time.
 
+[Read more about how to ask users questions on the GOV.UK Design System]({{ $DesignSystem }}/patterns/question-pages)
 
 ### Properties
 
@@ -74,7 +76,7 @@ layout: layout-pane.njk
   ],
   [
     {
-      "text": "items"
+      "text": "components"
     },
     {
       "text": "array"
@@ -83,7 +85,7 @@ layout: layout-pane.njk
       "text": "yes"
     },
     {
-      "html": "Items"
+      "html": "Components"
     },
     {
       "html": "-"
@@ -117,7 +119,7 @@ layout: layout-pane.njk
       "text": "no"
     },
     {
-      "html": "Reference to data based on"
+      "html": "Based on"
     },
     {
       "html": "-"
@@ -142,7 +144,7 @@ layout: layout-pane.njk
   ],
   [
     {
-      "text": "extraItems"
+      "text": "extraComponents"
     },
     {
       "text": "array"
@@ -151,7 +153,7 @@ layout: layout-pane.njk
       "text": "no"
     },
     {
-      "html": "Additional items following continue button"
+      "html": "Additional components following continue button"
     },
     {
       "html": "-"
@@ -274,12 +276,14 @@ layout: layout-pane.njk
     {
       "text": "nextPage"
     },
-    {},
+    {
+      "text": "object"
+    },
     {
       "text": "no"
     },
     {
-      "html": "What page (if any), and under what condtions, to go to next"
+      "html": "Next page definition"
     },
     {
       "html": "-"
@@ -350,25 +354,25 @@ layout: layout-pane.njk
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/pageSingleQuestion\",
+  \"_name\": \"pageSingleQuestion\",
   \"title\": \"Single question page\",
   \"description\": \"Single question page\",
   \"type\": \"object\",
-  \"category\": [],
   \"properties\": {
     \"_type\": {
       \"const\": \"pageSingleQuestion\"
     },
-    \"items\": {
+    \"components\": {
       \"maxItems\": 1
     }
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/formPage\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/pageForm\"
     }
   ],
   \"required\": [
-    \"items\"
+    \"components\"
   ]
 }
 ```
@@ -381,28 +385,31 @@ layout: layout-pane.njk
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/pageSingleQuestion\",
+  \"_name\": \"pageSingleQuestion\",
   \"title\": \"Single question page\",
   \"description\": \"Single question page\",
   \"type\": \"object\",
-  \"category\": [
-    \"formPage\",
-    \"page\"
-  ],
   \"properties\": {
     \"_type\": {
       \"const\": \"pageSingleQuestion\",
       \"title\": \"Data type\",
       \"type\": \"string\"
     },
-    \"items\": {
+    \"components\": {
       \"maxItems\": 1,
-      \"title\": \"Items\",
+      \"title\": \"Components\",
       \"type\": \"array\",
       \"items\": {
-        \"type\": \"object\",
+        \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
+        \"_name\": \"component.definition\",
+        \"title\": \"Component definition\",
         \"category\": [
           \"component\",
-          \"block\"
+          \"definition\"
+        ],
+        \"required\": [
+          \"_id\",
+          \"_type\"
         ],
         \"properties\": {
           \"show\": {
@@ -413,18 +420,38 @@ layout: layout-pane.njk
               }
             ],
             \"default\": true
+          },
+          \"_id\": {
+            \"title\": \"Data ID\",
+            \"type\": \"string\"
+          },
+          \"_type\": {
+            \"title\": \"Data type\",
+            \"type\": \"string\"
+          },
+          \"_isa\": {
+            \"title\": \"Based on\",
+            \"description\": \"Id of referenced data current data inherits property values from\",
+            \"type\": \"string\",
+            \"blockReference\": true
           }
         }
       }
     },
-    \"extraItems\": {
-      \"title\": \"Additional items following continue button\",
+    \"extraComponents\": {
+      \"title\": \"Additional components following continue button\",
       \"type\": \"array\",
       \"items\": {
-        \"type\": \"object\",
+        \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
+        \"_name\": \"component.definition\",
+        \"title\": \"Component definition\",
         \"category\": [
           \"component\",
-          \"block\"
+          \"definition\"
+        ],
+        \"required\": [
+          \"_id\",
+          \"_type\"
         ],
         \"properties\": {
           \"show\": {
@@ -435,6 +462,20 @@ layout: layout-pane.njk
               }
             ],
             \"default\": true
+          },
+          \"_id\": {
+            \"title\": \"Data ID\",
+            \"type\": \"string\"
+          },
+          \"_type\": {
+            \"title\": \"Data type\",
+            \"type\": \"string\"
+          },
+          \"_isa\": {
+            \"title\": \"Based on\",
+            \"description\": \"Id of referenced data current data inherits property values from\",
+            \"type\": \"string\",
+            \"blockReference\": true
           }
         }
       }
@@ -447,7 +488,11 @@ layout: layout-pane.njk
       }
     },
     \"nextPage\": {
-      \"title\": \"What page (if any), and under what condtions, to go to next\",
+      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/nextPage\",
+      \"_name\": \"nextPage.definition\",
+      \"title\": \"Next page definition\",
+      \"description\": \"What page (if any), and under what condtions, to go to next\",
+      \"type\": \"object\",
       \"oneOf\": [
         {
           \"type\": \"string\"
@@ -477,6 +522,9 @@ layout: layout-pane.njk
             ]
           }
         }
+      ],
+      \"category\": [
+        \"definition\"
       ]
     },
     \"url\": {
@@ -514,7 +562,7 @@ layout: layout-pane.njk
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Reference to data based on\",
+      \"title\": \"Based on\",
       \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
@@ -544,12 +592,29 @@ layout: layout-pane.njk
   \"required\": [
     \"_id\",
     \"_type\",
-    \"items\",
+    \"components\",
     \"url\"
+  ],
+  \"category\": [
+    \"definition\",
+    \"formPage\",
+    \"page\"
   ]
 }
 ```
 "
 }) }}
+
+
+
+
+
+### Schema uses
+
+- [Form page definition](/definition/pageForm)
+
+### Categories
+
+formPage, page
 
         

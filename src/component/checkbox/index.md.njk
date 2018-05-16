@@ -74,7 +74,7 @@ This component can only be used as a [checkboxes](../checkboxes) option item and
   ],
   [
     {
-      "text": "name"
+      "text": "legend"
     },
     {
       "text": "string"
@@ -83,7 +83,7 @@ This component can only be used as a [checkboxes](../checkboxes) option item and
       "text": "yes"
     },
     {
-      "html": "Input name"
+      "html": "Legend"
     },
     {
       "html": "-"
@@ -117,8 +117,70 @@ This component can only be used as a [checkboxes](../checkboxes) option item and
       "text": "no"
     },
     {
-      "html": "Reference to data based on"
+      "html": "Based on"
     },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "attributes"
+    },
+    {
+      "text": "object"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML attributes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "classes"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML classes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "disabled"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Disabled"
+    },
+    {
+      "html": false
+    }
+  ],
+  [
+    {
+      "text": "errors"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {},
     {
       "html": "-"
     }
@@ -142,7 +204,7 @@ This component can only be used as a [checkboxes](../checkboxes) option item and
   ],
   [
     {
-      "text": "label"
+      "text": "id"
     },
     {
       "text": "string"
@@ -151,7 +213,7 @@ This component can only be used as a [checkboxes](../checkboxes) option item and
       "text": "no"
     },
     {
-      "html": "Label"
+      "html": "Additional HTML id"
     },
     {
       "html": "-"
@@ -193,6 +255,51 @@ This component can only be used as a [checkboxes](../checkboxes) option item and
   ],
   [
     {
+      "text": "multiple"
+    },
+    {
+      "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleMaximum"
+    },
+    {
+      "text": "number"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleMinimum"
+    },
+    {
+      "text": "number"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": 1
+    }
+  ],
+  [
+    {
       "text": "show"
     },
     {},
@@ -204,6 +311,19 @@ This component can only be used as a [checkboxes](../checkboxes) option item and
     },
     {
       "html": true
+    }
+  ],
+  [
+    {
+      "text": "validation"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
     }
   ]
 ]
@@ -222,23 +342,24 @@ This component can only be used as a [checkboxes](../checkboxes) option item and
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/checkbox\",
+  \"_name\": \"checkbox\",
   \"title\": \"Checkbox option\",
   \"description\": \"Component that provides a radio option\",
   \"type\": \"object\",
   \"properties\": {
     \"_type\": {
       \"const\": \"checkbox\"
-    },
-    \"name\": {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/name\"
     }
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/modelProperties\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/model\"
     },
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/option\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/fieldset\"
+    },
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/option\"
     }
   ],
   \"required\": [
@@ -255,6 +376,7 @@ This component can only be used as a [checkboxes](../checkboxes) option item and
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/checkbox\",
+  \"_name\": \"checkbox\",
   \"title\": \"Checkbox option\",
   \"description\": \"Component that provides a radio option\",
   \"type\": \"object\",
@@ -262,10 +384,6 @@ This component can only be used as a [checkboxes](../checkboxes) option item and
     \"_type\": {
       \"const\": \"checkbox\",
       \"title\": \"Data type\",
-      \"type\": \"string\"
-    },
-    \"name\": {
-      \"title\": \"Input name\",
       \"type\": \"string\"
     },
     \"model\": {
@@ -277,9 +395,22 @@ This component can only be used as a [checkboxes](../checkboxes) option item and
       \"type\": \"boolean\",
       \"default\": false
     },
-    \"value\": {
-      \"title\": \"Option value\",
+    \"legend\": {
+      \"title\": \"Legend\",
       \"type\": \"string\"
+    },
+    \"hint\": {
+      \"title\": \"Hint text\",
+      \"type\": \"string\"
+    },
+    \"disabled\": {
+      \"title\": \"Disabled\",
+      \"oneOf\": [
+        {
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
+        }
+      ],
+      \"default\": false
     },
     \"show\": {
       \"title\": \"Whether to show block or not\",
@@ -295,33 +426,103 @@ This component can only be used as a [checkboxes](../checkboxes) option item and
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Reference to data based on\",
+      \"title\": \"Based on\",
       \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
     },
-    \"label\": {
-      \"title\": \"Label\",
+    \"id\": {
+      \"title\": \"Additional HTML id\",
       \"type\": \"string\"
     },
-    \"hint\": {
-      \"title\": \"Hint text\",
+    \"classes\": {
+      \"title\": \"Additional HTML classes\",
       \"type\": \"string\"
+    },
+    \"attributes\": {
+      \"title\": \"Additional HTML attributes\",
+      \"type\": \"object\"
+    },
+    \"validation\": {
+      \"role\": \"validation\",
+      \"properties\": {
+        \"required\": {
+          \"title\": \"Required\",
+          \"oneOf\": [
+            {
+              \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
+            }
+          ],
+          \"default\": true
+        }
+      }
+    },
+    \"errors\": {
+      \"role\": \"errorStrings\",
+      \"properties\": {
+        \"required\": {
+          \"title\": \"Error strings for required\",
+          \"type\": \"object\",
+          \"properties\": {
+            \"inline\": {
+              \"type\": \"string\",
+              \"role\": \"errorString\"
+            },
+            \"summary\": {
+              \"type\": \"string\",
+              \"role\": \"errorString\"
+            }
+          }
+        }
+      }
+    },
+    \"value\": {
+      \"title\": \"Option value\",
+      \"type\": \"string\"
+    },
+    \"multiple\": {
+      \"type\": \"boolean\"
+    },
+    \"multipleMinimum\": {
+      \"type\": \"number\",
+      \"minimum\": 0,
+      \"default\": 1
+    },
+    \"multipleMaximum\": {
+      \"type\": \"number\",
+      \"minimum\": 0
     }
   },
   \"required\": [
     \"_id\",
     \"_type\",
+    \"legend\",
     \"name\",
     \"value\"
   ],
   \"category\": [
     \"component\",
+    \"control\",
+    \"definition\",
     \"option\"
   ]
 }
 ```
 "
 }) }}
+
+
+
+
+
+### Schema uses
+
+- [Model definition](/definition/model)
+- [Fieldset definition](/definition/fieldset)
+- [Option definition](/definition/option)
+
+### Categories
+
+component, control, option
 
         

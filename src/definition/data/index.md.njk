@@ -1,0 +1,188 @@
+---
+title: Data definition
+description: undefined
+section: Definitions
+theme: 
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
+
+
+
+### Properties
+
+
+{{ govukTable({
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "_id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data ID"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_type"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data type"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_isa"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ]
+]
+}) }}
+
+
+
+
+
+
+### Schema
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/data\",
+  \"_name\": \"data.definition\",
+  \"title\": \"Data definition\",
+  \"properties\": {
+    \"_id\": {
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
+    },
+    \"_type\": {
+      \"title\": \"Data type\",
+      \"type\": \"string\"
+    },
+    \"_isa\": {
+      \"title\": \"Based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
+      \"type\": \"string\",
+      \"blockReference\": true
+    }
+  },
+  \"required\": [
+    \"_id\",
+    \"_type\"
+  ],
+  \"category\": [
+    \"definition\"
+  ]
+}
+```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/data\",
+  \"_name\": \"data.definition\",
+  \"title\": \"Data definition\",
+  \"properties\": {
+    \"_id\": {
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
+    },
+    \"_type\": {
+      \"title\": \"Data type\",
+      \"type\": \"string\"
+    },
+    \"_isa\": {
+      \"title\": \"Based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
+      \"type\": \"string\",
+      \"blockReference\": true
+    }
+  },
+  \"required\": [
+    \"_id\",
+    \"_type\"
+  ],
+  \"category\": [
+    \"definition\"
+  ]
+}
+```
+"
+}) }}
+
+### Schema used by
+
+- [Block definition](/definition/block)
+- [Service](/component/Service)
+- [Table](/component/table)
+
+
+
+
+
+### Categories
+
+definition
+
+        

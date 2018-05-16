@@ -131,7 +131,7 @@ Service provides standard configuration properties for the service
       "text": "no"
     },
     {
-      "html": "Reference to data based on"
+      "html": "Based on"
     },
     {
       "html": "-"
@@ -154,6 +154,7 @@ Service provides standard configuration properties for the service
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/Service\",
   \"title\": \"Service\",
+  \"_name\": \"Service\",
   \"description\": \"Service configuration\",
   \"type\": \"object\",
   \"properties\": {
@@ -180,7 +181,7 @@ Service provides standard configuration properties for the service
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/data\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/data\"
     }
   ],
   \"category\": [
@@ -203,6 +204,7 @@ Service provides standard configuration properties for the service
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/Service\",
   \"title\": \"Service\",
+  \"_name\": \"Service\",
   \"description\": \"Service configuration\",
   \"type\": \"object\",
   \"properties\": {
@@ -231,14 +233,15 @@ Service provides standard configuration properties for the service
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Reference to data based on\",
+      \"title\": \"Based on\",
       \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
     }
   },
   \"category\": [
-    \"configuration\"
+    \"configuration\",
+    \"definition\"
   ],
   \"required\": [
     \"_id\",
@@ -251,5 +254,17 @@ Service provides standard configuration properties for the service
 ```
 "
 }) }}
+
+
+
+
+
+### Schema uses
+
+- [Data definition](/definition/data)
+
+### Categories
+
+configuration
 
         

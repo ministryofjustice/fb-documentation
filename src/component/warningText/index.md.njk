@@ -2,7 +2,7 @@
 title: Warning text
 description: Component that provides warning text
 section: Components
-theme: content
+theme: 
 aliases:
 backlog_issue_id:
 layout: layout-pane.njk
@@ -85,41 +85,7 @@ Use the Warning text component when you need to warn users about something impor
       "text": "no"
     },
     {
-      "html": "Reference to data based on"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "attributes"
-    },
-    {
-      "text": "object"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Additional HTML attributes"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "classes"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Additional HTML classes"
+      "html": "Based on"
     },
     {
       "html": "-"
@@ -161,23 +127,6 @@ Use the Warning text component when you need to warn users about something impor
   ],
   [
     {
-      "text": "id"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Additional HTML id"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
       "text": "show"
     },
     {},
@@ -209,6 +158,7 @@ Basic example of warning text
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/warningText\",
+  \"_name\": \"warningText\",
   \"title\": \"Warning text\",
   \"description\": \"Component that provides warning text\",
   \"usage\": \"Use when there are consequences - for example, a fine or prison sentence\",
@@ -230,7 +180,7 @@ Basic example of warning text
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/content\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/component\"
     }
   ]
 }
@@ -244,6 +194,7 @@ Basic example of warning text
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/warningText\",
+  \"_name\": \"warningText\",
   \"title\": \"Warning text\",
   \"description\": \"Component that provides warning text\",
   \"usage\": \"Use when there are consequences - for example, a fine or prison sentence\",
@@ -278,28 +229,15 @@ Basic example of warning text
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Reference to data based on\",
+      \"title\": \"Based on\",
       \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
-    },
-    \"id\": {
-      \"title\": \"Additional HTML id\",
-      \"type\": \"string\"
-    },
-    \"classes\": {
-      \"title\": \"Additional HTML classes\",
-      \"type\": \"string\"
-    },
-    \"attributes\": {
-      \"title\": \"Additional HTML attributes\",
-      \"type\": \"object\"
     }
   },
   \"category\": [
-    \"block\",
     \"component\",
-    \"content\"
+    \"definition\"
   ],
   \"required\": [
     \"_id\",
@@ -309,5 +247,17 @@ Basic example of warning text
 ```
 "
 }) }}
+
+
+
+
+
+### Schema uses
+
+- [Component definition](/definition/component)
+
+### Categories
+
+component
 
         

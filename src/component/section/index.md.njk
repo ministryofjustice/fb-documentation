@@ -89,7 +89,7 @@ Typically the section component should be used on content pages.
       "text": "no"
     },
     {
-      "html": "Reference to data based on"
+      "html": "Based on"
     },
     {
       "html": "-"
@@ -97,33 +97,16 @@ Typically the section component should be used on content pages.
   ],
   [
     {
-      "text": "attributes"
+      "text": "components"
     },
     {
-      "text": "object"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Additional HTML attributes"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "classes"
-    },
-    {
-      "text": "string"
+      "text": "array"
     },
     {
       "text": "no"
     },
     {
-      "html": "Additional HTML classes"
+      "html": "Components"
     },
     {
       "html": "-"
@@ -155,40 +138,6 @@ Typically the section component should be used on content pages.
       "text": "no"
     },
     {},
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "id"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Additional HTML id"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "items"
-    },
-    {
-      "text": "array"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Items"
-    },
     {
       "html": "-"
     }
@@ -241,6 +190,7 @@ Basic section example
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/section\",
+  \"_name\": \"section\",
   \"title\": \"Section\",
   \"description\": \"Component for creating sections within a page\",
   \"type\": \"object\",
@@ -260,14 +210,14 @@ Basic section example
     \"content\": {
       \"type\": \"string\",
       \"multiline\": true
-    },
-    \"items\": {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/items\"
     }
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/content\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/component\"
+    },
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/components\"
     }
   ]
 }
@@ -281,13 +231,13 @@ Basic section example
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/section\",
+  \"_name\": \"section\",
   \"title\": \"Section\",
   \"description\": \"Component for creating sections within a page\",
   \"type\": \"object\",
   \"category\": [
-    \"block\",
     \"component\",
-    \"content\",
+    \"definition\",
     \"grouping\"
   ],
   \"properties\": {
@@ -306,14 +256,35 @@ Basic section example
       \"type\": \"string\",
       \"multiline\": true
     },
-    \"items\": {
-      \"title\": \"Items\",
+    \"show\": {
+      \"title\": \"Whether to show block or not\",
+      \"oneOf\": [
+        {
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
+        }
+      ],
+      \"default\": true
+    },
+    \"_id\": {
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
+    },
+    \"_isa\": {
+      \"title\": \"Based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
+      \"type\": \"string\",
+      \"blockReference\": true
+    },
+    \"components\": {
+      \"title\": \"Components\",
       \"type\": \"array\",
       \"items\": {
-        \"type\": \"object\",
+        \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
+        \"_name\": \"component.definition\",
+        \"title\": \"Component definition\",
         \"category\": [
           \"component\",
-          \"block\"
+          \"definition\"
         ],
         \"required\": [
           \"_id\",
@@ -338,44 +309,13 @@ Basic section example
             \"type\": \"string\"
           },
           \"_isa\": {
-            \"title\": \"Reference to data based on\",
+            \"title\": \"Based on\",
             \"description\": \"Id of referenced data current data inherits property values from\",
             \"type\": \"string\",
             \"blockReference\": true
           }
         }
       }
-    },
-    \"show\": {
-      \"title\": \"Whether to show block or not\",
-      \"oneOf\": [
-        {
-          \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
-        }
-      ],
-      \"default\": true
-    },
-    \"_id\": {
-      \"title\": \"Data ID\",
-      \"type\": \"string\"
-    },
-    \"_isa\": {
-      \"title\": \"Reference to data based on\",
-      \"description\": \"Id of referenced data current data inherits property values from\",
-      \"type\": \"string\",
-      \"blockReference\": true
-    },
-    \"id\": {
-      \"title\": \"Additional HTML id\",
-      \"type\": \"string\"
-    },
-    \"classes\": {
-      \"title\": \"Additional HTML classes\",
-      \"type\": \"string\"
-    },
-    \"attributes\": {
-      \"title\": \"Additional HTML attributes\",
-      \"type\": \"object\"
     }
   },
   \"required\": [
@@ -386,5 +326,18 @@ Basic section example
 ```
 "
 }) }}
+
+
+
+
+
+### Schema uses
+
+- [Component definition](/definition/component)
+- [Components definition](/definition/components)
+
+### Categories
+
+component, grouping
 
         

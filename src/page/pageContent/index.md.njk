@@ -13,7 +13,7 @@ layout: layout-pane.njk
 {% from "details/macro.njk" import govukDetails %}
 {% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
 
-
+A generic content page to provide users with guidance during the service flow or as standalone pages.
 
 ### Properties
 
@@ -117,7 +117,24 @@ layout: layout-pane.njk
       "text": "no"
     },
     {
-      "html": "Reference to data based on"
+      "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "components"
+    },
+    {
+      "text": "array"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Components"
     },
     {
       "html": "-"
@@ -135,23 +152,6 @@ layout: layout-pane.njk
     },
     {
       "html": "Content"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "items"
-    },
-    {
-      "text": "array"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Items"
     },
     {
       "html": "-"
@@ -222,10 +222,10 @@ layout: layout-pane.njk
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/pageContent\",
+  \"_name\": \"pageContent\",
   \"title\": \"Content page\",
   \"description\": \"Content page\",
   \"type\": \"object\",
-  \"category\": [],
   \"properties\": {
     \"_type\": {
       \"const\": \"pageContent\"
@@ -233,7 +233,7 @@ layout: layout-pane.njk
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/contentPage\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/pageContent\"
     }
   ]
 }
@@ -247,13 +247,10 @@ layout: layout-pane.njk
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/pageContent\",
+  \"_name\": \"pageContent\",
   \"title\": \"Content page\",
   \"description\": \"Content page\",
   \"type\": \"object\",
-  \"category\": [
-    \"contentPage\",
-    \"page\"
-  ],
   \"properties\": {
     \"_type\": {
       \"const\": \"pageContent\",
@@ -281,28 +278,6 @@ layout: layout-pane.njk
       \"type\": \"string\",
       \"multiline\": true
     },
-    \"items\": {
-      \"title\": \"Items\",
-      \"type\": \"array\",
-      \"items\": {
-        \"type\": \"object\",
-        \"category\": [
-          \"component\",
-          \"block\"
-        ],
-        \"properties\": {
-          \"show\": {
-            \"title\": \"Whether to show block or not\",
-            \"oneOf\": [
-              {
-                \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
-              }
-            ],
-            \"default\": true
-          }
-        }
-      }
-    },
     \"show\": {
       \"title\": \"Whether to show block or not\",
       \"oneOf\": [
@@ -317,10 +292,52 @@ layout: layout-pane.njk
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Reference to data based on\",
+      \"title\": \"Based on\",
       \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
+    },
+    \"components\": {
+      \"title\": \"Components\",
+      \"type\": \"array\",
+      \"items\": {
+        \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
+        \"_name\": \"component.definition\",
+        \"title\": \"Component definition\",
+        \"category\": [
+          \"component\",
+          \"definition\"
+        ],
+        \"required\": [
+          \"_id\",
+          \"_type\"
+        ],
+        \"properties\": {
+          \"show\": {
+            \"title\": \"Whether to show block or not\",
+            \"oneOf\": [
+              {
+                \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
+              }
+            ],
+            \"default\": true
+          },
+          \"_id\": {
+            \"title\": \"Data ID\",
+            \"type\": \"string\"
+          },
+          \"_type\": {
+            \"title\": \"Data type\",
+            \"type\": \"string\"
+          },
+          \"_isa\": {
+            \"title\": \"Based on\",
+            \"description\": \"Id of referenced data current data inherits property values from\",
+            \"type\": \"string\",
+            \"blockReference\": true
+          }
+        }
+      }
     }
   },
   \"required\": [
@@ -328,10 +345,27 @@ layout: layout-pane.njk
     \"_type\",
     \"heading\",
     \"url\"
+  ],
+  \"category\": [
+    \"contentPage\",
+    \"definition\",
+    \"page\"
   ]
 }
 ```
 "
 }) }}
+
+
+
+
+
+### Schema uses
+
+- [Content page definition](/definition/pageContent)
+
+### Categories
+
+contentPage, page
 
         

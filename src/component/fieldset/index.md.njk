@@ -80,7 +80,7 @@ The fieldset component should only be used on form pages.
   ],
   [
     {
-      "text": "legendHtml"
+      "text": "legend"
     },
     {
       "text": "string"
@@ -106,7 +106,7 @@ The fieldset component should only be used on form pages.
       "text": "no"
     },
     {
-      "html": "Reference to data based on"
+      "html": "Based on"
     },
     {
       "html": "-"
@@ -148,6 +148,40 @@ The fieldset component should only be used on form pages.
   ],
   [
     {
+      "text": "components"
+    },
+    {
+      "text": "array"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Components"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "hint"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Hint"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
       "text": "id"
     },
     {
@@ -158,40 +192,6 @@ The fieldset component should only be used on form pages.
     },
     {
       "html": "Additional HTML id"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "items"
-    },
-    {
-      "text": "array"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Items"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "legendHintHtml"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Hint"
     },
     {
       "html": "-"
@@ -309,6 +309,7 @@ Basic example of fieldset
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/fieldset\",
+  \"_name\": \"fieldset\",
   \"title\": \"Fieldset\",
   \"description\": \"Component for fieldset\",
   \"type\": \"object\",
@@ -320,27 +321,27 @@ Basic example of fieldset
     \"_type\": {
       \"const\": \"fieldset\"
     },
-    \"legendHtml\": {
+    \"legend\": {
       \"title\": \"Legend\",
-      \"description\": \"Text to use in fieldset legend\",
+      \"description\": \"Text to use in fieldset legend (legendHtml)\",
       \"type\": \"string\"
     },
-    \"legendHintHtml\": {
+    \"hint\": {
       \"title\": \"Hint\",
-      \"description\": \"Hint text to use in fieldset legend\",
+      \"description\": \"Hint text to use in fieldset legend (legendHintHtml)\",
       \"type\": \"string\"
     }
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/multipleProperties\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/multiple\"
     },
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/grouping\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/grouping\"
     }
   ],
   \"required\": [
-    \"legendHtml\"
+    \"legend\"
   ]
 }
 ```
@@ -353,13 +354,14 @@ Basic example of fieldset
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/fieldset\",
+  \"_name\": \"fieldset\",
   \"title\": \"Fieldset\",
   \"description\": \"Component for fieldset\",
   \"type\": \"object\",
   \"category\": [
-    \"block\",
     \"component\",
     \"control\",
+    \"definition\",
     \"fieldset\",
     \"grouping\"
   ],
@@ -369,14 +371,14 @@ Basic example of fieldset
       \"title\": \"Data type\",
       \"type\": \"string\"
     },
-    \"legendHtml\": {
+    \"legend\": {
       \"title\": \"Legend\",
-      \"description\": \"Text to use in fieldset legend\",
+      \"description\": \"Text to use in fieldset legend (legendHtml)\",
       \"type\": \"string\"
     },
-    \"legendHintHtml\": {
+    \"hint\": {
       \"title\": \"Hint\",
-      \"description\": \"Hint text to use in fieldset legend\",
+      \"description\": \"Hint text to use in fieldset legend (legendHintHtml)\",
       \"type\": \"string\"
     },
     \"multiple\": {
@@ -400,17 +402,6 @@ Basic example of fieldset
       \"type\": \"boolean\",
       \"default\": false
     },
-    \"items\": {
-      \"title\": \"Items\",
-      \"type\": \"array\",
-      \"items\": {
-        \"type\": \"object\",
-        \"category\": [
-          \"component\",
-          \"block\"
-        ]
-      }
-    },
     \"show\": {
       \"title\": \"Whether to show block or not\",
       \"oneOf\": [
@@ -425,10 +416,52 @@ Basic example of fieldset
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Reference to data based on\",
+      \"title\": \"Based on\",
       \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
+    },
+    \"components\": {
+      \"title\": \"Components\",
+      \"type\": \"array\",
+      \"items\": {
+        \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
+        \"_name\": \"component.definition\",
+        \"title\": \"Component definition\",
+        \"category\": [
+          \"component\",
+          \"definition\"
+        ],
+        \"required\": [
+          \"_id\",
+          \"_type\"
+        ],
+        \"properties\": {
+          \"show\": {
+            \"title\": \"Whether to show block or not\",
+            \"oneOf\": [
+              {
+                \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
+              }
+            ],
+            \"default\": true
+          },
+          \"_id\": {
+            \"title\": \"Data ID\",
+            \"type\": \"string\"
+          },
+          \"_type\": {
+            \"title\": \"Data type\",
+            \"type\": \"string\"
+          },
+          \"_isa\": {
+            \"title\": \"Based on\",
+            \"description\": \"Id of referenced data current data inherits property values from\",
+            \"type\": \"string\",
+            \"blockReference\": true
+          }
+        }
+      }
     },
     \"id\": {
       \"title\": \"Additional HTML id\",
@@ -446,11 +479,24 @@ Basic example of fieldset
   \"required\": [
     \"_id\",
     \"_type\",
-    \"legendHtml\"
+    \"legend\"
   ]
 }
 ```
 "
 }) }}
+
+
+
+
+
+### Schema uses
+
+- [Multiple definition](/definition/multiple)
+- [Grouping definition](/definition/grouping)
+
+### Categories
+
+component, control, fieldset, grouping
 
         

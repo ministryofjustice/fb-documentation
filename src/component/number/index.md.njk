@@ -76,23 +76,6 @@ The number component is essentially an enhanced version of the [Text component](
   ],
   [
     {
-      "text": "label"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "yes"
-    },
-    {
-      "html": "Label"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
       "text": "name"
     },
     {
@@ -119,7 +102,7 @@ The number component is essentially an enhanced version of the [Text component](
       "text": "no"
     },
     {
-      "html": "Reference to data based on"
+      "html": "Based on"
     },
     {
       "html": "-"
@@ -189,23 +172,6 @@ The number component is essentially an enhanced version of the [Text component](
   ],
   [
     {
-      "text": "hint"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Hint text"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
       "text": "id"
     },
     {
@@ -253,6 +219,51 @@ The number component is essentially an enhanced version of the [Text component](
     },
     {
       "html": false
+    }
+  ],
+  [
+    {
+      "text": "multiple"
+    },
+    {
+      "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleMaximum"
+    },
+    {
+      "text": "number"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleMinimum"
+    },
+    {
+      "text": "number"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": 1
     }
   ],
   [
@@ -320,6 +331,7 @@ Number example set to half width
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/number\",
+  \"_name\": \"number\",
   \"title\": \"Number\",
   \"description\": \"Component that provides a number input field\",
   \"type\": \"object\",
@@ -328,20 +340,18 @@ Number example set to half width
       \"const\": \"number\"
     },
     \"widthClassInput\": {
-      \"allOf\": [
-        {
-          \"$ref\": \"/schema/v1.0.0/definitions#/definitions/widthClassInput\"
-        }
-      ],
       \"default\": \"10\"
     }
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/field\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/field\"
     },
     {
       \"$ref\": \"/schema/v1.0.0/validations#/definitions/numberBundle\"
+    },
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/widthClassInput\"
     }
   ]
 }
@@ -355,6 +365,7 @@ Number example set to half width
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/number\",
+  \"_name\": \"number\",
   \"title\": \"Number\",
   \"description\": \"Component that provides a number input field\",
   \"type\": \"object\",
@@ -379,10 +390,6 @@ Number example set to half width
         \"one-quarter\"
       ]
     },
-    \"name\": {
-      \"title\": \"Input name\",
-      \"type\": \"string\"
-    },
     \"disabled\": {
       \"title\": \"Disabled\",
       \"oneOf\": [
@@ -406,7 +413,7 @@ Number example set to half width
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Reference to data based on\",
+      \"title\": \"Based on\",
       \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
@@ -560,30 +567,52 @@ Number example set to half width
         }
       }
     },
-    \"label\": {
-      \"title\": \"Label\",
-      \"type\": \"string\"
+    \"multiple\": {
+      \"type\": \"boolean\"
     },
-    \"hint\": {
-      \"title\": \"Hint text\",
+    \"multipleMinimum\": {
+      \"type\": \"number\",
+      \"minimum\": 0,
+      \"default\": 1
+    },
+    \"multipleMaximum\": {
+      \"type\": \"number\",
+      \"minimum\": 0
+    },
+    \"name\": {
+      \"title\": \"Input name\",
       \"type\": \"string\"
     }
   },
-  \"category\": [
-    \"block\",
-    \"component\",
-    \"control\",
-    \"field\"
-  ],
   \"required\": [
     \"_id\",
     \"_type\",
     \"label\",
     \"name\"
+  ],
+  \"category\": [
+    \"component\",
+    \"control\",
+    \"definition\",
+    \"field\"
   ]
 }
 ```
 "
 }) }}
+
+
+
+
+
+### Schema uses
+
+- [Field definition](/definition/field)
+- [Validations](/definition/validations)
+- [Input width class definition](/definition/widthClassInput)
+
+### Categories
+
+component, control, field
 
         

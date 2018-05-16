@@ -113,7 +113,7 @@ This component can only be used as a [select](../select) option item and has no 
       "text": "no"
     },
     {
-      "html": "Reference to data based on"
+      "html": "Based on"
     },
     {
       "html": "-"
@@ -150,6 +150,7 @@ This component can only be used as a [select](../select) option item and has no 
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/option\",
+  \"_name\": \"option\",
   \"title\": \"Select option\",
   \"description\": \"Component that provides a select option\",
   \"type\": \"object\",
@@ -166,7 +167,7 @@ This component can only be used as a [select](../select) option item and has no 
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/block\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/component\"
     }
   ],
   \"required\": [
@@ -187,6 +188,7 @@ This component can only be used as a [select](../select) option item and has no 
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/option\",
+  \"_name\": \"option\",
   \"title\": \"Select option\",
   \"description\": \"Component that provides a select option\",
   \"type\": \"object\",
@@ -216,7 +218,7 @@ This component can only be used as a [select](../select) option item and has no 
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Reference to data based on\",
+      \"title\": \"Based on\",
       \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
@@ -229,13 +231,25 @@ This component can only be used as a [select](../select) option item and has no 
     \"value\"
   ],
   \"category\": [
-    \"block\",
     \"component\",
+    \"definition\",
     \"option\"
   ]
 }
 ```
 "
 }) }}
+
+
+
+
+
+### Schema uses
+
+- [Component definition](/definition/component)
+
+### Categories
+
+component, option
 
         

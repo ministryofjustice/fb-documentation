@@ -101,58 +101,7 @@ Content is entered using the [Markdown format](https://guides.github.com/feature
       "text": "no"
     },
     {
-      "html": "Reference to data based on"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "attributes"
-    },
-    {
-      "text": "object"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Additional HTML attributes"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "classes"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Additional HTML classes"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "id"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Additional HTML id"
+      "html": "Based on"
     },
     {
       "html": "-"
@@ -191,6 +140,7 @@ Basic example of content
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/content\",
+  \"_name\": \"content\",
   \"title\": \"Content\",
   \"description\": \"Component for creating content\",
   \"type\": \"object\",
@@ -208,7 +158,7 @@ Basic example of content
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/content\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/component\"
     }
   ],
   \"required\": [
@@ -225,13 +175,14 @@ Basic example of content
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/content\",
+  \"_name\": \"content\",
   \"title\": \"Content\",
   \"description\": \"Component for creating content\",
   \"type\": \"object\",
   \"category\": [
-    \"block\",
     \"component\",
-    \"content\"
+    \"content\",
+    \"definition\"
   ],
   \"properties\": {
     \"_type\": {
@@ -257,22 +208,10 @@ Basic example of content
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Reference to data based on\",
+      \"title\": \"Based on\",
       \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
-    },
-    \"id\": {
-      \"title\": \"Additional HTML id\",
-      \"type\": \"string\"
-    },
-    \"classes\": {
-      \"title\": \"Additional HTML classes\",
-      \"type\": \"string\"
-    },
-    \"attributes\": {
-      \"title\": \"Additional HTML attributes\",
-      \"type\": \"object\"
     }
   },
   \"required\": [
@@ -284,5 +223,17 @@ Basic example of content
 ```
 "
 }) }}
+
+
+
+
+
+### Schema uses
+
+- [Component definition](/definition/component)
+
+### Categories
+
+component, content
 
         

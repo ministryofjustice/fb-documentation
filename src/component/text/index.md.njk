@@ -76,23 +76,6 @@ Use the Text component when you need to let users enter text that’s no longer 
   ],
   [
     {
-      "text": "label"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "yes"
-    },
-    {
-      "html": "Label"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
       "text": "name"
     },
     {
@@ -119,7 +102,7 @@ Use the Text component when you need to let users enter text that’s no longer 
       "text": "no"
     },
     {
-      "html": "Reference to data based on"
+      "html": "Based on"
     },
     {
       "html": "-"
@@ -189,23 +172,6 @@ Use the Text component when you need to let users enter text that’s no longer 
   ],
   [
     {
-      "text": "hint"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Hint text"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
       "text": "id"
     },
     {
@@ -253,6 +219,51 @@ Use the Text component when you need to let users enter text that’s no longer 
     },
     {
       "html": false
+    }
+  ],
+  [
+    {
+      "text": "multiple"
+    },
+    {
+      "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleMaximum"
+    },
+    {
+      "text": "number"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleMinimum"
+    },
+    {
+      "text": "number"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": 1
     }
   ],
   [
@@ -316,23 +327,24 @@ Basic text example
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/text\",
+  \"_name\": \"text\",
   \"title\": \"Text\",
   \"description\": \"Component that provides a text input field\",
   \"type\": \"object\",
   \"properties\": {
     \"_type\": {
       \"const\": \"text\"
-    },
-    \"widthClassInput\": {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/widthClassInput\"
     }
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/field\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/field\"
     },
     {
       \"$ref\": \"/schema/v1.0.0/validations#/definitions/stringBundle\"
+    },
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/widthClassInput\"
     }
   ]
 }
@@ -346,6 +358,7 @@ Basic text example
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/text\",
+  \"_name\": \"text\",
   \"title\": \"Text\",
   \"description\": \"Component that provides a text input field\",
   \"type\": \"object\",
@@ -353,24 +366,6 @@ Basic text example
     \"_type\": {
       \"const\": \"text\",
       \"title\": \"Data type\",
-      \"type\": \"string\"
-    },
-    \"widthClassInput\": {
-      \"type\": \"string\",
-      \"enumMap\": \"widthClassMap\",
-      \"enum\": [
-        \"10\",
-        \"20\",
-        \"30\",
-        \"three-quarters\",
-        \"two-thirds\",
-        \"one-half\",
-        \"one-third\",
-        \"one-quarter\"
-      ]
-    },
-    \"name\": {
-      \"title\": \"Input name\",
       \"type\": \"string\"
     },
     \"disabled\": {
@@ -396,7 +391,7 @@ Basic text example
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Reference to data based on\",
+      \"title\": \"Based on\",
       \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
@@ -511,30 +506,66 @@ Basic text example
         }
       }
     },
-    \"label\": {
-      \"title\": \"Label\",
+    \"multiple\": {
+      \"type\": \"boolean\"
+    },
+    \"multipleMinimum\": {
+      \"type\": \"number\",
+      \"minimum\": 0,
+      \"default\": 1
+    },
+    \"multipleMaximum\": {
+      \"type\": \"number\",
+      \"minimum\": 0
+    },
+    \"name\": {
+      \"title\": \"Input name\",
       \"type\": \"string\"
     },
-    \"hint\": {
-      \"title\": \"Hint text\",
-      \"type\": \"string\"
+    \"widthClassInput\": {
+      \"type\": \"string\",
+      \"enumMap\": \"widthClassMap\",
+      \"enum\": [
+        \"10\",
+        \"20\",
+        \"30\",
+        \"three-quarters\",
+        \"two-thirds\",
+        \"one-half\",
+        \"one-third\",
+        \"one-quarter\"
+      ]
     }
   },
-  \"category\": [
-    \"block\",
-    \"component\",
-    \"control\",
-    \"field\"
-  ],
   \"required\": [
     \"_id\",
     \"_type\",
     \"label\",
     \"name\"
+  ],
+  \"category\": [
+    \"component\",
+    \"control\",
+    \"definition\",
+    \"field\"
   ]
 }
 ```
 "
 }) }}
+
+
+
+
+
+### Schema uses
+
+- [Field definition](/definition/field)
+- [Validations](/definition/validations)
+- [Input width class definition](/definition/widthClassInput)
+
+### Categories
+
+component, control, field
 
         

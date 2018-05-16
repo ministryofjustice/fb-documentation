@@ -1,0 +1,156 @@
+---
+title: Model definition
+description: undefined
+section: Definitions
+theme: 
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
+
+
+
+### Properties
+
+
+{{ govukTable({
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "model"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Model to store field in"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "modelProtect"
+    },
+    {
+      "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Whether to prevent the block’s model being overridden or appended "
+    },
+    {
+      "html": false
+    }
+  ]
+]
+}) }}
+
+
+
+
+
+
+### Schema
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/model\",
+  \"_name\": \"model.definition\",
+  \"title\": \"Model definition\",
+  \"type\": \"object\",
+  \"properties\": {
+    \"model\": {
+      \"title\": \"Model to store field in\",
+      \"type\": \"string\"
+    },
+    \"modelProtect\": {
+      \"title\": \"Whether to prevent the block’s model being overridden or appended \",
+      \"type\": \"boolean\",
+      \"default\": false
+    }
+  },
+  \"category\": [
+    \"definition\"
+  ]
+}
+```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/model\",
+  \"_name\": \"model.definition\",
+  \"title\": \"Model definition\",
+  \"type\": \"object\",
+  \"properties\": {
+    \"model\": {
+      \"title\": \"Model to store field in\",
+      \"type\": \"string\"
+    },
+    \"modelProtect\": {
+      \"title\": \"Whether to prevent the block’s model being overridden or appended \",
+      \"type\": \"boolean\",
+      \"default\": false
+    }
+  },
+  \"category\": [
+    \"definition\"
+  ]
+}
+```
+"
+}) }}
+
+### Schema used by
+
+- [Checkbox option](/component/checkbox)
+- [Control definition](/definition/control)
+- [Grouping definition](/definition/grouping)
+- [Multiple definition](/definition/multiple)
+
+
+
+
+
+### Categories
+
+definition
+
+        

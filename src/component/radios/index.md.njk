@@ -121,7 +121,7 @@ Options for radios must be valid [radio options](../radio)
       "text": "no"
     },
     {
-      "html": "Reference to data based on"
+      "html": "Based on"
     },
     {
       "html": "-"
@@ -318,15 +318,13 @@ Yes/No radios example
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/radios\",
+  \"_name\": \"radios\",
   \"title\": \"Radios\",
   \"description\": \"Component that provides a radio fieldset\",
   \"type\": \"object\",
   \"properties\": {
     \"_type\": {
       \"const\": \"radios\"
-    },
-    \"name\": {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/name\"
     },
     \"items\": {
       \"type\": \"array\",
@@ -339,7 +337,10 @@ Yes/No radios example
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/fieldset\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/fieldset\"
+    },
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/name\"
     }
   ],
   \"required\": [
@@ -356,6 +357,7 @@ Yes/No radios example
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/radios\",
+  \"_name\": \"radios\",
   \"title\": \"Radios\",
   \"description\": \"Component that provides a radio fieldset\",
   \"type\": \"object\",
@@ -365,15 +367,12 @@ Yes/No radios example
       \"title\": \"Data type\",
       \"type\": \"string\"
     },
-    \"name\": {
-      \"title\": \"Input name\",
-      \"type\": \"string\"
-    },
     \"items\": {
       \"type\": \"array\",
       \"items\": [
         {
           \"$id\": \"http://gov.uk/schema/v1.0.0/radio\",
+          \"_name\": \"radio\",
           \"title\": \"Radio option\",
           \"description\": \"Component that provides a radio option\",
           \"type\": \"object\",
@@ -385,6 +384,7 @@ Yes/No radios example
           ],
           \"category\": [
             \"component\",
+            \"definition\",
             \"option\"
           ],
           \"properties\": {
@@ -411,18 +411,31 @@ Yes/No radios example
               \"type\": \"string\"
             },
             \"_isa\": {
-              \"title\": \"Reference to data based on\",
+              \"title\": \"Based on\",
               \"description\": \"Id of referenced data current data inherits property values from\",
               \"type\": \"string\",
               \"blockReference\": true
             },
-            \"label\": {
-              \"title\": \"Label\",
+            \"multiple\": {
+              \"type\": \"boolean\"
+            },
+            \"multipleMinimum\": {
+              \"type\": \"number\",
+              \"minimum\": 0,
+              \"default\": 1
+            },
+            \"multipleMaximum\": {
+              \"type\": \"number\",
+              \"minimum\": 0
+            },
+            \"model\": {
+              \"title\": \"Model to store field in\",
               \"type\": \"string\"
             },
-            \"hint\": {
-              \"title\": \"Hint text\",
-              \"type\": \"string\"
+            \"modelProtect\": {
+              \"title\": \"Whether to prevent the block’s model being overridden or appended \",
+              \"type\": \"boolean\",
+              \"default\": false
             }
           }
         }
@@ -459,7 +472,7 @@ Yes/No radios example
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Reference to data based on\",
+      \"title\": \"Based on\",
       \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
@@ -517,6 +530,10 @@ Yes/No radios example
           }
         }
       }
+    },
+    \"name\": {
+      \"title\": \"Input name\",
+      \"type\": \"string\"
     }
   },
   \"required\": [
@@ -526,13 +543,26 @@ Yes/No radios example
     \"name\"
   ],
   \"category\": [
-    \"block\",
     \"component\",
-    \"control\"
+    \"control\",
+    \"definition\"
   ]
 }
 ```
 "
 }) }}
+
+
+
+
+
+### Schema uses
+
+- [Fieldset definition](/definition/fieldset)
+- [Name definition](/definition/name)
+
+### Categories
+
+component, control
 
         

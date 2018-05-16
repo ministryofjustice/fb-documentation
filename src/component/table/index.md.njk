@@ -100,7 +100,7 @@ Use the Table component to let users to compare information in rows and columns.
       "text": "no"
     },
     {
-      "html": "Reference to data based on"
+      "html": "Based on"
     },
     {
       "html": "-"
@@ -250,6 +250,7 @@ Basic table example
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/table\",
+  \"_name\": \"table\",
   \"title\": \"Table\",
   \"description\": \"Component that provides a table\",
   \"type\": \"object\",
@@ -284,10 +285,10 @@ Basic table example
   },
   \"allOf\": [
     {
-      \"$ref\": \"http://gov.uk/schema/v1.0.0/definitions#/definitions/block\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/component\"
     },
     {
-      \"$ref\": \"http://gov.uk/schema/v1.0.0/definitions#/definitions/propsAttributes\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/htmlAttributes\"
     }
   ],
   \"required\": [
@@ -316,7 +317,7 @@ Basic table example
       },
       \"allOf\": [
         {
-          \"$ref\": \"http://gov.uk/schema/v1.0.0/definitions#/definitions/data\"
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/data\"
         }
       ]
     }
@@ -332,13 +333,14 @@ Basic table example
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/table\",
+  \"_name\": \"table\",
   \"title\": \"Table\",
   \"description\": \"Component that provides a table\",
   \"type\": \"object\",
   \"category\": [
-    \"block\",
     \"component\",
-    \"content\"
+    \"content\",
+    \"definition\"
   ],
   \"properties\": {
     \"_type\": {
@@ -358,9 +360,15 @@ Basic table example
     \"head\": {
       \"type\": \"array\",
       \"items\": {
+        \"$id\": \"http://gov.uk/schema/v1.0.0/definition/data\",
+        \"_name\": \"data.definition\",
+        \"title\": \"Data definition\",
         \"required\": [
           \"_id\",
           \"_type\"
+        ],
+        \"category\": [
+          \"definition\"
         ],
         \"properties\": {
           \"_type\": {
@@ -387,7 +395,7 @@ Basic table example
             \"type\": \"string\"
           },
           \"_isa\": {
-            \"title\": \"Reference to data based on\",
+            \"title\": \"Based on\",
             \"description\": \"Id of referenced data current data inherits property values from\",
             \"type\": \"string\",
             \"blockReference\": true
@@ -398,9 +406,15 @@ Basic table example
     \"rows\": {
       \"type\": \"array\",
       \"items\": {
+        \"$id\": \"http://gov.uk/schema/v1.0.0/definition/data\",
+        \"_name\": \"data.definition\",
+        \"title\": \"Data definition\",
         \"required\": [
           \"_id\",
           \"_type\"
+        ],
+        \"category\": [
+          \"definition\"
         ],
         \"properties\": {
           \"_type\": {
@@ -427,7 +441,7 @@ Basic table example
             \"type\": \"string\"
           },
           \"_isa\": {
-            \"title\": \"Reference to data based on\",
+            \"title\": \"Based on\",
             \"description\": \"Id of referenced data current data inherits property values from\",
             \"type\": \"string\",
             \"blockReference\": true
@@ -449,7 +463,7 @@ Basic table example
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Reference to data based on\",
+      \"title\": \"Based on\",
       \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
@@ -474,9 +488,15 @@ Basic table example
   ],
   \"definitions\": {
     \"cell\": {
+      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/data\",
+      \"_name\": \"data.definition\",
+      \"title\": \"Data definition\",
       \"required\": [
         \"_id\",
         \"_type\"
+      ],
+      \"category\": [
+        \"definition\"
       ],
       \"properties\": {
         \"_type\": {
@@ -503,7 +523,7 @@ Basic table example
           \"type\": \"string\"
         },
         \"_isa\": {
-          \"title\": \"Reference to data based on\",
+          \"title\": \"Based on\",
           \"description\": \"Id of referenced data current data inherits property values from\",
           \"type\": \"string\",
           \"blockReference\": true
@@ -515,5 +535,18 @@ Basic table example
 ```
 "
 }) }}
+
+
+
+
+
+### Schema uses
+
+- [Component definition](/definition/component)
+- [HTML attributes definition](/definition/htmlAttributes)
+
+### Categories
+
+component, content
 
         

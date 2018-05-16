@@ -2,7 +2,7 @@
 title: Details
 description: Component for revealing content on user demand (progressive disclosure)
 section: Components
-theme: content
+theme: 
 aliases:
 backlog_issue_id:
 layout: layout-pane.njk
@@ -85,41 +85,7 @@ Make a page easier to scan by letting users reveal more detailed information onl
       "text": "no"
     },
     {
-      "html": "Reference to data based on"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "attributes"
-    },
-    {
-      "text": "object"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Additional HTML attributes"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "classes"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Additional HTML classes"
+      "html": "Based on"
     },
     {
       "html": "-"
@@ -137,23 +103,6 @@ Make a page easier to scan by letting users reveal more detailed information onl
     },
     {
       "html": "Content"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "id"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "no"
-    },
-    {
-      "html": "Additional HTML id"
     },
     {
       "html": "-"
@@ -226,6 +175,7 @@ Basic example of details
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/details\",
+  \"_name\": \"details\",
   \"title\": \"Details\",
   \"description\": \"Component for revealing content on user demand (progressive disclosure)\",
   \"type\": \"object\",
@@ -253,7 +203,7 @@ Basic example of details
   },
   \"allOf\": [
     {
-      \"$ref\": \"/schema/v1.0.0/definitions#/definitions/content\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/component\"
     }
   ]
 }
@@ -267,6 +217,7 @@ Basic example of details
 ```
 {
   \"$id\": \"http://gov.uk/schema/v1.0.0/details\",
+  \"_name\": \"details\",
   \"title\": \"Details\",
   \"description\": \"Component for revealing content on user demand (progressive disclosure)\",
   \"type\": \"object\",
@@ -307,28 +258,15 @@ Basic example of details
       \"type\": \"string\"
     },
     \"_isa\": {
-      \"title\": \"Reference to data based on\",
+      \"title\": \"Based on\",
       \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
-    },
-    \"id\": {
-      \"title\": \"Additional HTML id\",
-      \"type\": \"string\"
-    },
-    \"classes\": {
-      \"title\": \"Additional HTML classes\",
-      \"type\": \"string\"
-    },
-    \"attributes\": {
-      \"title\": \"Additional HTML attributes\",
-      \"type\": \"object\"
     }
   },
   \"category\": [
-    \"block\",
     \"component\",
-    \"content\"
+    \"definition\"
   ],
   \"required\": [
     \"_id\",
@@ -338,5 +276,17 @@ Basic example of details
 ```
 "
 }) }}
+
+
+
+
+
+### Schema uses
+
+- [Component definition](/definition/component)
+
+### Categories
+
+component
 
         
