@@ -44,14 +44,14 @@ layout: layout-specification.njk
 {% set params = setError(data) %}
 {% set params = setItemsLabel(params) %}
 {%- call govukFieldset(params) %}
-{%- for item in data.items %}
-{{ blocks[item._type](item) }}
+{%- for component in data.components %}
+{{ blocks[component._type](component) }}
 {% endfor -%}
 {% endcall -%}
 {% endmacro -%}{%- macro group(data) %}
 <div class="fb-group">
-{%- for item in data.items %}
-{{ blocks[item._type](item) }}
+{%- for component in data.components %}
+{{ blocks[component._type](component) }}
 {% endfor -%}
 </div>
 {% endmacro -%}{%- macro number(data) %}
@@ -77,8 +77,8 @@ layout: layout-specification.njk
 {%- if data.content %}
 <div class="fb-section--content">{{ data.content }}</div>
 {% endif -%}
-{%- for item in data.items %}
-{{ blocks[item._type](item) }}
+{%- for component in data.components %}
+{{ blocks[component._type](component) }}
 {% endfor -%}
 </section>
 {% endmacro -%}{%- macro select(data) %}
@@ -134,8 +134,8 @@ warningText: warningText
 {%- if data.content %}
 <div class="fb-section--content">{{ data.content }}</div>
 {% endif -%}
-{%- for item in data.items %}
-{{ blocks[item._type](item) }}
+{%- for component in data.components %}
+{{ blocks[component._type](component) }}
 {% endfor -%}
 </section>
 {% endmacro -%}
