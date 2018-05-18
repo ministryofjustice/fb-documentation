@@ -142,51 +142,6 @@ layout: layout-pane.njk
   ],
   [
     {
-      "text": "multiple"
-    },
-    {
-      "text": "boolean"
-    },
-    {
-      "text": "no"
-    },
-    {},
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "multipleMaximum"
-    },
-    {
-      "text": "number"
-    },
-    {
-      "text": "no"
-    },
-    {},
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "multipleMinimum"
-    },
-    {
-      "text": "number"
-    },
-    {
-      "text": "no"
-    },
-    {},
-    {
-      "html": 1
-    }
-  ],
-  [
-    {
       "text": "show"
     },
     {},
@@ -229,7 +184,7 @@ layout: layout-pane.njk
       \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/block\"
     },
     {
-      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/multiple\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/model\"
     }
   ],
   \"required\": [
@@ -280,18 +235,6 @@ layout: layout-pane.njk
       \"type\": \"string\",
       \"blockReference\": true
     },
-    \"multiple\": {
-      \"type\": \"boolean\"
-    },
-    \"multipleMinimum\": {
-      \"type\": \"number\",
-      \"minimum\": 0,
-      \"default\": 1
-    },
-    \"multipleMaximum\": {
-      \"type\": \"number\",
-      \"minimum\": 0
-    },
     \"model\": {
       \"title\": \"Model to store field in\",
       \"type\": \"string\"
@@ -320,13 +263,13 @@ layout: layout-pane.njk
 
 ### Schema used by
 
-- [Checkbox option](/component/checkbox)
+- [Checkbox item](/component/checkbox)
 - [Radio option](/component/radio)
 
 ### Schema uses
 
 - [Block definition](/definition/block)
-- [Multiple definition](/definition/multiple)
+- [Model definition](/definition/model)
 
 ### Categories
 

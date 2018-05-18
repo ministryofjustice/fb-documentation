@@ -372,19 +372,17 @@ Basic checkboxes example
         {
           \"$id\": \"http://gov.uk/schema/v1.0.0/checkbox\",
           \"_name\": \"checkbox\",
-          \"title\": \"Checkbox option\",
-          \"description\": \"Component that provides a radio option\",
+          \"title\": \"Checkbox item\",
+          \"description\": \"Component that provides a checkbox item\",
           \"type\": \"object\",
           \"required\": [
             \"_id\",
             \"_type\",
-            \"legend\",
             \"name\",
             \"value\"
           ],
           \"category\": [
             \"component\",
-            \"control\",
             \"definition\",
             \"option\"
           ],
@@ -403,22 +401,9 @@ Basic checkboxes example
               \"type\": \"boolean\",
               \"default\": false
             },
-            \"legend\": {
-              \"title\": \"Legend\",
+            \"value\": {
+              \"title\": \"Option value\",
               \"type\": \"string\"
-            },
-            \"hint\": {
-              \"title\": \"Hint text\",
-              \"type\": \"string\"
-            },
-            \"disabled\": {
-              \"title\": \"Disabled\",
-              \"oneOf\": [
-                {
-                  \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
-                }
-              ],
-              \"default\": false
             },
             \"show\": {
               \"title\": \"Whether to show block or not\",
@@ -438,67 +423,6 @@ Basic checkboxes example
               \"description\": \"Id of referenced data current data inherits property values from\",
               \"type\": \"string\",
               \"blockReference\": true
-            },
-            \"id\": {
-              \"title\": \"Additional HTML id\",
-              \"type\": \"string\"
-            },
-            \"classes\": {
-              \"title\": \"Additional HTML classes\",
-              \"type\": \"string\"
-            },
-            \"attributes\": {
-              \"title\": \"Additional HTML attributes\",
-              \"type\": \"object\"
-            },
-            \"validation\": {
-              \"role\": \"validation\",
-              \"properties\": {
-                \"required\": {
-                  \"title\": \"Required\",
-                  \"oneOf\": [
-                    {
-                      \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
-                    }
-                  ],
-                  \"default\": true
-                }
-              }
-            },
-            \"errors\": {
-              \"role\": \"errorStrings\",
-              \"properties\": {
-                \"required\": {
-                  \"title\": \"Error strings for required\",
-                  \"type\": \"object\",
-                  \"properties\": {
-                    \"inline\": {
-                      \"type\": \"string\",
-                      \"role\": \"errorString\"
-                    },
-                    \"summary\": {
-                      \"type\": \"string\",
-                      \"role\": \"errorString\"
-                    }
-                  }
-                }
-              }
-            },
-            \"value\": {
-              \"title\": \"Option value\",
-              \"type\": \"string\"
-            },
-            \"multiple\": {
-              \"type\": \"boolean\"
-            },
-            \"multipleMinimum\": {
-              \"type\": \"number\",
-              \"minimum\": 0,
-              \"default\": 1
-            },
-            \"multipleMaximum\": {
-              \"type\": \"number\",
-              \"minimum\": 0
             }
           }
         }

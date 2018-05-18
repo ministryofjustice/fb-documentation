@@ -15,7 +15,7 @@ layout: layout-pane.njk
 
 Use the Text component when you need to let users enter text that’s no longer than a single line.
 
-[Read more about when to use the text component on the GOV.UK Design System]({{ $DesignSystem }}/components/text)
+[Read more about when to use the text component on the GOV.UK Design System]({{ $DesignSystem }}/components/text-input)
 
 ### Properties
 
@@ -227,6 +227,36 @@ Use the Text component when you need to let users enter text that’s no longer 
     },
     {
       "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleAdd"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleDelete"
+    },
+    {
+      "text": "string"
     },
     {
       "text": "no"
@@ -517,6 +547,12 @@ Basic text example
     \"multipleMaximum\": {
       \"type\": \"number\",
       \"minimum\": 0
+    },
+    \"multipleAdd\": {
+      \"type\": \"string\"
+    },
+    \"multipleDelete\": {
+      \"type\": \"string\"
     },
     \"name\": {
       \"title\": \"Input name\",

@@ -110,6 +110,21 @@ Generic form page to handle situations when one question per page approach is no
   ],
   [
     {
+      "text": "actionType"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "continue"
+    }
+  ],
+  [
+    {
       "text": "components"
     },
     {
@@ -140,21 +155,6 @@ Generic form page to handle situations when one question per page approach is no
     },
     {
       "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "continue"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "no"
-    },
-    {},
-    {
-      "html": "continue"
     }
   ],
   [
@@ -248,6 +248,36 @@ Generic form page to handle situations when one question per page approach is no
     },
     {
       "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleAdd"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleDelete"
+    },
+    {
+      "text": "string"
     },
     {
       "text": "no"
@@ -377,7 +407,7 @@ Generic form page to handle situations when one question per page approach is no
     \"_type\": {
       \"const\": \"pageForm\"
     },
-    \"continue\": {
+    \"actionType\": {
       \"type\": \"string\",
       \"enum\": [
         \"continue\",
@@ -414,7 +444,7 @@ Generic form page to handle situations when one question per page approach is no
       \"title\": \"Data type\",
       \"type\": \"string\"
     },
-    \"continue\": {
+    \"actionType\": {
       \"type\": \"string\",
       \"enum\": [
         \"continue\",
@@ -606,6 +636,12 @@ Generic form page to handle situations when one question per page approach is no
     \"multipleMaximum\": {
       \"type\": \"number\",
       \"minimum\": 0
+    },
+    \"multipleAdd\": {
+      \"type\": \"string\"
+    },
+    \"multipleDelete\": {
+      \"type\": \"string\"
     },
     \"model\": {
       \"title\": \"Model to store field in\",
