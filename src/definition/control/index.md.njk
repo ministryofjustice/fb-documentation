@@ -267,7 +267,7 @@ layout: layout-pane.njk
       \"title\": \"Disabled\",
       \"oneOf\": [
         {
-          \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\"
         }
       ],
       \"default\": false
@@ -294,7 +294,24 @@ layout: layout-pane.njk
       \"title\": \"Disabled\",
       \"oneOf\": [
         {
-          \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
+          \"_name\": \"conditional.boolean.definition\",
+          \"title\": \"Boolean or condition\",
+          \"type\": [
+            \"boolean\",
+            \"object\"
+          ],
+          \"oneOf\": [
+            {
+              \"type\": \"boolean\"
+            },
+            {
+              \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/condition\"
+            }
+          ],
+          \"category\": [
+            \"definition\"
+          ]
         }
       ],
       \"default\": false
@@ -303,7 +320,24 @@ layout: layout-pane.njk
       \"title\": \"Whether to show block or not\",
       \"oneOf\": [
         {
-          \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
+          \"_name\": \"conditional.boolean.definition\",
+          \"title\": \"Boolean or condition\",
+          \"type\": [
+            \"boolean\",
+            \"object\"
+          ],
+          \"oneOf\": [
+            {
+              \"type\": \"boolean\"
+            },
+            {
+              \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/condition\"
+            }
+          ],
+          \"category\": [
+            \"definition\"
+          ]
         }
       ],
       \"default\": true
@@ -350,7 +384,24 @@ layout: layout-pane.njk
           \"title\": \"Required\",
           \"oneOf\": [
             {
-              \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
+              \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
+              \"_name\": \"conditional.boolean.definition\",
+              \"title\": \"Boolean or condition\",
+              \"type\": [
+                \"boolean\",
+                \"object\"
+              ],
+              \"oneOf\": [
+                {
+                  \"type\": \"boolean\"
+                },
+                {
+                  \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/condition\"
+                }
+              ],
+              \"category\": [
+                \"definition\"
+              ]
             }
           ],
           \"default\": true

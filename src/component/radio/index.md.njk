@@ -217,7 +217,24 @@ This component can only be used as a [radios](../radios) option item and has no 
       \"title\": \"Whether to show block or not\",
       \"oneOf\": [
         {
-          \"$ref\": \"http://gov.uk/schema/v1.0.0/condition#/definitions/booleanOrCondition\"
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
+          \"_name\": \"conditional.boolean.definition\",
+          \"title\": \"Boolean or condition\",
+          \"type\": [
+            \"boolean\",
+            \"object\"
+          ],
+          \"oneOf\": [
+            {
+              \"type\": \"boolean\"
+            },
+            {
+              \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/condition\"
+            }
+          ],
+          \"category\": [
+            \"definition\"
+          ]
         }
       ],
       \"default\": true

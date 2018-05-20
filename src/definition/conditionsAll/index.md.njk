@@ -1,0 +1,136 @@
+---
+title: All conditions met properties
+description: undefined
+section: Definitions
+theme: 
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
+
+
+
+### Properties
+
+
+{{ govukTable({
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "allOfConditions"
+    },
+    {
+      "text": "array"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "All Conditions Met"
+    },
+    {
+      "html": "-"
+    }
+  ]
+]
+}) }}
+
+
+
+
+
+
+### Schema
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditions.all\",
+  \"_name\": \"conditions.all.definition\",
+  \"title\": \"All conditions met properties\",
+  \"properties\": {
+    \"allOfConditions\": {
+      \"title\": \"All Conditions Met\",
+      \"type\": \"array\",
+      \"items\": {
+        \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/condition\"
+      }
+    }
+  },
+  \"required\": [
+    \"allOfConditions\"
+  ],
+  \"category\": [
+    \"definition\"
+  ]
+}
+```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditions.all\",
+  \"_name\": \"conditions.all.definition\",
+  \"title\": \"All conditions met properties\",
+  \"properties\": {
+    \"allOfConditions\": {
+      \"title\": \"All Conditions Met\",
+      \"type\": \"array\",
+      \"items\": {
+        \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/condition\"
+      }
+    }
+  },
+  \"required\": [
+    \"allOfConditions\"
+  ],
+  \"category\": [
+    \"definition\"
+  ]
+}
+```
+"
+}) }}
+
+### Schema used by
+
+- [Condition](/definition/condition)
+
+
+
+
+
+### Categories
+
+definition
+
+        
