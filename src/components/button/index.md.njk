@@ -1,0 +1,42 @@
+---
+title: Button
+description: GOV.UK Button
+section: Components
+aliases:
+backlog_issue_id: 34
+layout: layout-pane.njk
+---
+
+{% from "_example.njk" import example %}
+
+{{ example({group: 'components', item: 'button', example: 'default', html: true, nunjucks: true, open: false}) }}
+
+## When to use this component
+
+Use the Button component to help users carry out an action on a GOV.UK page like starting an application or saving their progress.
+
+## How it works
+
+Write button text in sentence case, describing the action it performs. For example ‘Save and continue’ or ‘Start now’.
+
+Align the primary action button to the left edge of your form.
+
+There are 2 ways to use the Button component. You can use HTML or, if you are using [Nunjucks](https://mozilla.github.io/nunjucks/) or the [GOV.UK Prototype Kit](https://govuk-prototype-kit-beta.herokuapp.com), you can use the Nunjucks macro.
+
+### Disabled buttons
+
+Disabled buttons have poor contrast and can confuse some users, so avoid them if&nbsp;possible.
+
+Only use disabled buttons if research shows it makes the user interface easier to&nbsp;understand.
+
+{{ example({group: 'components', item: 'button', example: 'disabled', html: true, nunjucks: true, open: true}) }}
+
+### Start buttons
+
+Use a start button as the main call to action on your service’s start page.
+
+{{ example({group: 'components', item: 'button', example: 'start', html: true, nunjucks: true, open: true}) }}
+
+## Research on this component
+
+If you’ve used this component, get in touch to share your user research findings.

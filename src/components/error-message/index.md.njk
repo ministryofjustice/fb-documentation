@@ -1,0 +1,41 @@
+---
+title: Error message
+description:
+section: Components
+aliases:
+backlog_issue_id: 47
+layout: layout-pane.njk
+---
+
+{% from "_example.njk" import example %}
+
+{{ example({group: 'components', item: 'error-message', example: 'default'}) }}
+
+## When to use this component
+
+Show an error message next to the form input when there is a validation error with the information a user has entered.
+
+## How it works
+
+For each error:
+
+- write a message that helps the user to understand why the error occurred and how to correct it
+- put the message in red inside the question’s `<label>` or `<legend>`, after the question&nbsp;text
+- use a red border to visually connect the message and the question it belongs to
+- if the error relates to specific text fields within the question, give these a red border as&nbsp;well
+
+You must also summarise all errors at the top of the page the user is on using an [Error summary](../error-summary).
+
+There are 2 ways to use the Error message component. You can use HTML or, if you are using [Nunjucks](https://mozilla.github.io/nunjucks/) or the [GOV.UK Prototype Kit](https://govuk-prototype-kit-beta.herokuapp.com), you can use the Nunjucks macro.
+
+### Legend
+
+{{ example({group: 'components', item: 'error-message', example: 'legend', html: true, nunjucks: true, open: true}) }}
+
+### Label
+
+{{ example({group: 'components', item: 'error-message', example: 'label', html: true, nunjucks: true, open: true}) }}
+
+## Research on this component
+
+If you’ve used this component, get in touch to share your user research findings.

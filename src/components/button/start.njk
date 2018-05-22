@@ -1,0 +1,10 @@
+---
+layout: layout-example.njk
+---
+{% from "button/macro.njk" import govukButton %}
+
+{{ govukButton({
+  "text": "Start now",
+  "href": "#",
+  "classes": "govuk-button--start"
+}) }}

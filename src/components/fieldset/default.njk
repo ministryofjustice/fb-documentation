@@ -1,0 +1,13 @@
+---
+layout: layout-example.njk
+---
+
+{% from "fieldset/macro.njk" import govukFieldset %}
+
+{{ govukFieldset({
+  "legend": {
+    "text": "Legend text goes here",
+    "classes": "govuk-fieldset__legend--xl",
+    "isPageHeading": true
+  }
+}) }}

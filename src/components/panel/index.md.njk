@@ -1,0 +1,34 @@
+---
+title: Panel
+description: The Panel component is a visible container used on confirmation or results pages.
+section: Components
+aliases:
+backlog_issue_id: 55
+layout: layout-pane.njk
+---
+
+{% from "_example.njk" import example %}
+
+The Panel component is a visible container used on confirmation or results pages to highlight important content.
+
+{{ example({group: 'components', item: 'panel', example: 'default', html: true, nunjucks: true, open: false}) }}
+
+## When to use this component
+
+Use the Panel component to display important information when a transaction has been&nbsp;completed.
+
+In most cases, the Panel component is used on [Confirmation pages](../../patterns/confirmation-pages), to tell the user they have successfully completed the transaction.
+
+## When not to use this component
+
+Don’t use the Panel component to highlight important information within body content.
+
+## How it works
+
+There are 2 ways to use the Panel component. You can use HTML or, if you are using [Nunjucks](https://mozilla.github.io/nunjucks/) or the [GOV.UK Prototype Kit](https://govuk-prototype-kit-beta.herokuapp.com), you can use the Nunjucks macro.
+
+{{ example({group: 'components', item: 'panel', example: 'default', html: true, nunjucks: true, open: true}) }}
+
+## Research on this component
+
+If you’ve used this component, get in touch to share your user research findings.
