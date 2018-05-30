@@ -29,7 +29,7 @@
   "dependencies": {
     "@govuk-frontend/frontend": "0.0.29-alpha",
     "clipboard": "^2.0.0",
-    "fb-nunjucks-helpers": "git+https://github.com/ministryofjustice/fb-nunjucks-helpers.git#d1e57498fe268f23a250af71214a8d17f5af2b7a",
+    "fb-nunjucks-helpers": "git+https://github.com/ministryofjustice/fb-nunjucks-helpers.git#decab33",
     "html5shiv": "^3.7.3",
     "jquery": "^1.12.4",
     "modernizr": "^3.6.0",
