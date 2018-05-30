@@ -1,0 +1,411 @@
+---
+title: Grouping definition
+description: Additional HTML attributes
+section: Definitions
+theme: 
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
+
+
+
+### Properties
+
+
+{{ govukTable({
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "_id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data ID"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_type"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data type"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_isa"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "attributes"
+    },
+    {
+      "text": "object"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML attributes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "classes"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML classes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "components"
+    },
+    {
+      "text": "array"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Components"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML id"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "model"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Model to store field in"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "modelProtect"
+    },
+    {
+      "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Whether to prevent the block’s model being overridden or appended "
+    },
+    {
+      "html": false
+    }
+  ],
+  [
+    {
+      "text": "show"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Whether to show block or not"
+    },
+    {
+      "html": true
+    }
+  ]
+]
+}) }}
+
+
+
+
+
+
+### Schema
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/grouping\",
+  \"_name\": \"definition.grouping\",
+  \"title\": \"Grouping definition\",
+  \"allOf\": [
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/component\"
+    },
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/components\"
+    },
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/model\"
+    },
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/htmlattributes\"
+    }
+  ],
+  \"category\": [
+    \"grouping\"
+  ]
+}
+```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/grouping\",
+  \"_name\": \"definition.grouping\",
+  \"title\": \"Grouping definition\",
+  \"category\": [
+    \"component\",
+    \"definition\",
+    \"grouping\"
+  ],
+  \"required\": [
+    \"_id\",
+    \"_type\"
+  ],
+  \"type\": \"object\",
+  \"description\": \"Additional HTML attributes\",
+  \"properties\": {
+    \"show\": {
+      \"title\": \"Whether to show block or not\",
+      \"oneOf\": [
+        {
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+          \"_name\": \"definition.conditional.boolean\",
+          \"title\": \"Boolean or condition\",
+          \"type\": [
+            \"boolean\",
+            \"object\"
+          ],
+          \"oneOf\": [
+            {
+              \"type\": \"boolean\"
+            },
+            {
+              \"$ref\": \"http://gov.uk/schema/v1.0.0/condition\"
+            }
+          ],
+          \"category\": [
+            \"definition\"
+          ]
+        }
+      ],
+      \"default\": true
+    },
+    \"_id\": {
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
+    },
+    \"_type\": {
+      \"title\": \"Data type\",
+      \"type\": \"string\"
+    },
+    \"_isa\": {
+      \"title\": \"Based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
+      \"type\": \"string\",
+      \"blockReference\": true
+    },
+    \"components\": {
+      \"title\": \"Components\",
+      \"type\": \"array\",
+      \"items\": {
+        \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
+        \"_name\": \"definition.component\",
+        \"title\": \"Component definition\",
+        \"category\": [
+          \"component\",
+          \"definition\"
+        ],
+        \"required\": [
+          \"_id\",
+          \"_type\"
+        ],
+        \"properties\": {
+          \"show\": {
+            \"title\": \"Whether to show block or not\",
+            \"oneOf\": [
+              {
+                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                \"_name\": \"definition.conditional.boolean\",
+                \"title\": \"Boolean or condition\",
+                \"type\": [
+                  \"boolean\",
+                  \"object\"
+                ],
+                \"oneOf\": [
+                  {
+                    \"type\": \"boolean\"
+                  },
+                  {
+                    \"$ref\": \"http://gov.uk/schema/v1.0.0/condition\"
+                  }
+                ],
+                \"category\": [
+                  \"definition\"
+                ]
+              }
+            ],
+            \"default\": true
+          },
+          \"_id\": {
+            \"title\": \"Data ID\",
+            \"type\": \"string\"
+          },
+          \"_type\": {
+            \"title\": \"Data type\",
+            \"type\": \"string\"
+          },
+          \"_isa\": {
+            \"title\": \"Based on\",
+            \"description\": \"Id of referenced data current data inherits property values from\",
+            \"type\": \"string\",
+            \"blockReference\": true
+          }
+        }
+      }
+    },
+    \"model\": {
+      \"title\": \"Model to store field in\",
+      \"type\": \"string\"
+    },
+    \"modelProtect\": {
+      \"title\": \"Whether to prevent the block’s model being overridden or appended \",
+      \"type\": \"boolean\",
+      \"default\": false
+    },
+    \"id\": {
+      \"title\": \"Additional HTML id\",
+      \"type\": \"string\"
+    },
+    \"classes\": {
+      \"title\": \"Additional HTML classes\",
+      \"type\": \"string\"
+    },
+    \"attributes\": {
+      \"title\": \"Additional HTML attributes\",
+      \"type\": \"object\"
+    }
+  }
+}
+```
+"
+}) }}
+
+### Schema used by
+
+- [Fieldset](/component/fieldset)
+- [Group](/component/group)
+
+### Schema uses
+
+- [Component definition](/definition/component)
+- [Components definition](/definition/components)
+- [Model definition](/definition/model)
+- [HTML attributes definition](/definition/htmlattributes)
+
+### Categories
+
+component, definition, grouping
+
+        

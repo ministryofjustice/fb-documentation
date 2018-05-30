@@ -383,19 +383,19 @@ Provide users with a summary of what information they have entered - especially 
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/pageSummary\",
-  \"_name\": \"pageSummary\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/page/summary\",
+  \"_name\": \"page.summary\",
   \"title\": \"Summary page\",
   \"description\": \"Check your answers page\",
   \"type\": \"object\",
   \"properties\": {
     \"_type\": {
-      \"const\": \"pageSummary\"
+      \"const\": \"page.summary\"
     }
   },
   \"allOf\": [
     {
-      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/pageForm\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/page/form\"
     }
   ]
 }
@@ -408,14 +408,14 @@ Provide users with a summary of what information they have entered - especially 
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/pageSummary\",
-  \"_name\": \"pageSummary\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/page/summary\",
+  \"_name\": \"page.summary\",
   \"title\": \"Summary page\",
   \"description\": \"Check your answers page\",
   \"type\": \"object\",
   \"properties\": {
     \"_type\": {
-      \"const\": \"pageSummary\",
+      \"const\": \"page.summary\",
       \"title\": \"Data type\",
       \"type\": \"string\"
     },
@@ -424,7 +424,7 @@ Provide users with a summary of what information they have entered - especially 
       \"type\": \"array\",
       \"items\": {
         \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
-        \"_name\": \"component.definition\",
+        \"_name\": \"definition.component\",
         \"title\": \"Component definition\",
         \"category\": [
           \"component\",
@@ -439,8 +439,8 @@ Provide users with a summary of what information they have entered - especially 
             \"title\": \"Whether to show block or not\",
             \"oneOf\": [
               {
-                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-                \"_name\": \"conditional.boolean.definition\",
+                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                \"_name\": \"definition.conditional.boolean\",
                 \"title\": \"Boolean or condition\",
                 \"type\": [
                   \"boolean\",
@@ -486,8 +486,8 @@ Provide users with a summary of what information they have entered - especially 
       }
     },
     \"nextPage\": {
-      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/nextPage\",
-      \"_name\": \"nextPage.definition\",
+      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/nextpage\",
+      \"_name\": \"definition.nextpage\",
       \"title\": \"Next page definition\",
       \"description\": \"What page (if any), and under what condtions, to go to next\",
       \"type\": \"object\",
@@ -506,8 +506,8 @@ Provide users with a summary of what information they have entered - especially 
                     \"type\": \"string\"
                   },
                   \"condition\": {
-                    \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-                    \"_name\": \"conditional.boolean.definition\",
+                    \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                    \"_name\": \"definition.conditional.boolean\",
                     \"title\": \"Boolean or condition\",
                     \"type\": [
                       \"boolean\",
@@ -567,8 +567,8 @@ Provide users with a summary of what information they have entered - especially 
       \"title\": \"Whether to show block or not\",
       \"oneOf\": [
         {
-          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-          \"_name\": \"conditional.boolean.definition\",
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+          \"_name\": \"definition.conditional.boolean\",
           \"title\": \"Boolean or condition\",
           \"type\": [
             \"boolean\",
@@ -604,7 +604,7 @@ Provide users with a summary of what information they have entered - especially 
       \"type\": \"array\",
       \"items\": {
         \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
-        \"_name\": \"component.definition\",
+        \"_name\": \"definition.component\",
         \"title\": \"Component definition\",
         \"category\": [
           \"component\",
@@ -619,8 +619,8 @@ Provide users with a summary of what information they have entered - especially 
             \"title\": \"Whether to show block or not\",
             \"oneOf\": [
               {
-                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-                \"_name\": \"conditional.boolean.definition\",
+                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                \"_name\": \"definition.conditional.boolean\",
                 \"title\": \"Boolean or condition\",
                 \"type\": [
                   \"boolean\",
@@ -707,7 +707,7 @@ Provide users with a summary of what information they have entered - especially 
 
 ### Schema uses
 
-- [Form page definition](/definition/pageForm)
+- [Form page definition](/definition/page/form)
 
 ### Categories
 

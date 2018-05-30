@@ -398,14 +398,14 @@ Generic form page to handle situations when one question per page approach is no
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/pageForm\",
-  \"_name\": \"pageForm\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/page/form\",
+  \"_name\": \"page.form\",
   \"title\": \"Form page\",
   \"description\": \"Form page\",
   \"type\": \"object\",
   \"properties\": {
     \"_type\": {
-      \"const\": \"pageForm\"
+      \"const\": \"page.form\"
     },
     \"actionType\": {
       \"type\": \"string\",
@@ -420,7 +420,7 @@ Generic form page to handle situations when one question per page approach is no
   },
   \"allOf\": [
     {
-      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/pageForm\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/page/form\"
     }
   ]
 }
@@ -433,14 +433,14 @@ Generic form page to handle situations when one question per page approach is no
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/pageForm\",
-  \"_name\": \"pageForm\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/page/form\",
+  \"_name\": \"page.form\",
   \"title\": \"Form page\",
   \"description\": \"Form page\",
   \"type\": \"object\",
   \"properties\": {
     \"_type\": {
-      \"const\": \"pageForm\",
+      \"const\": \"page.form\",
       \"title\": \"Data type\",
       \"type\": \"string\"
     },
@@ -459,7 +459,7 @@ Generic form page to handle situations when one question per page approach is no
       \"type\": \"array\",
       \"items\": {
         \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
-        \"_name\": \"component.definition\",
+        \"_name\": \"definition.component\",
         \"title\": \"Component definition\",
         \"category\": [
           \"component\",
@@ -474,8 +474,8 @@ Generic form page to handle situations when one question per page approach is no
             \"title\": \"Whether to show block or not\",
             \"oneOf\": [
               {
-                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-                \"_name\": \"conditional.boolean.definition\",
+                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                \"_name\": \"definition.conditional.boolean\",
                 \"title\": \"Boolean or condition\",
                 \"type\": [
                   \"boolean\",
@@ -521,8 +521,8 @@ Generic form page to handle situations when one question per page approach is no
       }
     },
     \"nextPage\": {
-      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/nextPage\",
-      \"_name\": \"nextPage.definition\",
+      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/nextpage\",
+      \"_name\": \"definition.nextpage\",
       \"title\": \"Next page definition\",
       \"description\": \"What page (if any), and under what condtions, to go to next\",
       \"type\": \"object\",
@@ -541,8 +541,8 @@ Generic form page to handle situations when one question per page approach is no
                     \"type\": \"string\"
                   },
                   \"condition\": {
-                    \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-                    \"_name\": \"conditional.boolean.definition\",
+                    \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                    \"_name\": \"definition.conditional.boolean\",
                     \"title\": \"Boolean or condition\",
                     \"type\": [
                       \"boolean\",
@@ -602,8 +602,8 @@ Generic form page to handle situations when one question per page approach is no
       \"title\": \"Whether to show block or not\",
       \"oneOf\": [
         {
-          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-          \"_name\": \"conditional.boolean.definition\",
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+          \"_name\": \"definition.conditional.boolean\",
           \"title\": \"Boolean or condition\",
           \"type\": [
             \"boolean\",
@@ -639,7 +639,7 @@ Generic form page to handle situations when one question per page approach is no
       \"type\": \"array\",
       \"items\": {
         \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
-        \"_name\": \"component.definition\",
+        \"_name\": \"definition.component\",
         \"title\": \"Component definition\",
         \"category\": [
           \"component\",
@@ -654,8 +654,8 @@ Generic form page to handle situations when one question per page approach is no
             \"title\": \"Whether to show block or not\",
             \"oneOf\": [
               {
-                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-                \"_name\": \"conditional.boolean.definition\",
+                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                \"_name\": \"definition.conditional.boolean\",
                 \"title\": \"Boolean or condition\",
                 \"type\": [
                   \"boolean\",
@@ -742,7 +742,7 @@ Generic form page to handle situations when one question per page approach is no
 
 ### Schema uses
 
-- [Form page definition](/definition/pageForm)
+- [Form page definition](/definition/page/form)
 
 ### Categories
 

@@ -150,16 +150,16 @@ layout: layout-pane.njk
     {
       \"oneOf\": [
         {
-          \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/condition.expression\"
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/condition/expression\"
         },
         {
-          \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/conditions.all\"
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/conditions/all\"
         },
         {
-          \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/conditions.any\"
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/conditions/any\"
         },
         {
-          \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/conditions.one\"
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/conditions/one\"
         }
       ]
     }
@@ -194,13 +194,13 @@ layout: layout-pane.njk
   ],
   \"oneOf\": [
     {
-      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition.expression\",
-      \"_name\": \"condition.expression.definition\",
+      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition/expression\",
+      \"_name\": \"definition.condition.expression\",
       \"title\": \"Single expression condition properties\",
       \"oneOf\": [
         {
-          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition.defined\",
-          \"_name\": \"condition.defined.definition\",
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition/defined\",
+          \"_name\": \"definition.condition.defined\",
           \"title\": \"Defined condition properties\",
           \"properties\": {
             \"operator\": {
@@ -232,8 +232,8 @@ layout: layout-pane.njk
           ]
         },
         {
-          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition.text\",
-          \"_name\": \"condition.text.definition\",
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition/text\",
+          \"_name\": \"definition.condition.text\",
           \"title\": \"Text condition properties\",
           \"properties\": {
             \"operator\": {
@@ -273,8 +273,8 @@ layout: layout-pane.njk
           ]
         },
         {
-          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition.number\",
-          \"_name\": \"condition.number.definition\",
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition/number\",
+          \"_name\": \"definition.condition.number\",
           \"title\": \"Number condition properties\",
           \"properties\": {
             \"operator\": {
@@ -316,8 +316,8 @@ layout: layout-pane.njk
           ]
         },
         {
-          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition.boolean\",
-          \"_name\": \"condition.boolean.definition\",
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition/boolean\",
+          \"_name\": \"definition.condition.boolean\",
           \"title\": \"Boolean condition properties\",
           \"properties\": {
             \"operator\": {
@@ -354,8 +354,8 @@ layout: layout-pane.njk
       ]
     },
     {
-      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditions.all\",
-      \"_name\": \"conditions.all.definition\",
+      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditions/all\",
+      \"_name\": \"definition.conditions.all\",
       \"title\": \"All conditions met properties\",
       \"properties\": {
         \"allOfConditions\": {
@@ -374,8 +374,8 @@ layout: layout-pane.njk
       ]
     },
     {
-      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditions.any\",
-      \"_name\": \"conditions.any.definition\",
+      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditions/any\",
+      \"_name\": \"definition.conditions.any\",
       \"title\": \"At least conditions met properties\",
       \"properties\": {
         \"anyOfConditions\": {
@@ -394,8 +394,8 @@ layout: layout-pane.njk
       ]
     },
     {
-      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditions.one\",
-      \"_name\": \"conditions.one.definition\",
+      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditions/one\",
+      \"_name\": \"definition.conditions.one\",
       \"title\": \"Exactly conditions met properties\",
       \"properties\": {
         \"oneOfConditions\": {
@@ -440,10 +440,13 @@ layout: layout-pane.njk
 
 ### Schema used by
 
-- [Boolean or condition](/definition/conditional.boolean)
-- [All conditions met properties](/definition/conditions.all)
-- [At least conditions met properties](/definition/conditions.any)
-- [Exactly conditions met properties](/definition/conditions.one)
+- [All conditions met properties](/definition/condition/conditions)
+- [At least conditions met properties](/definition/condition/conditions)
+- [Exactly conditions met properties](/definition/condition/conditions)
+- [Boolean or condition](/definition/conditional/boolean)
+- [All conditions met properties](/definition/conditions/all)
+- [At least conditions met properties](/definition/conditions/any)
+- [Exactly conditions met properties](/definition/conditions/one)
 
 
 

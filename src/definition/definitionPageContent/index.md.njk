@@ -1,0 +1,401 @@
+---
+title: Content page definition
+description: undefined
+section: Definitions
+theme: 
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
+
+
+
+### Properties
+
+
+{{ govukTable({
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "_id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data ID"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_type"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data type"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "heading"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Heading"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "url"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "URL"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_isa"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "components"
+    },
+    {
+      "text": "array"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Components"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "content"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Content"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "lede"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Lede"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "show"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Whether to show block or not"
+    },
+    {
+      "html": true
+    }
+  ],
+  [
+    {
+      "text": "title"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Title"
+    },
+    {
+      "html": "-"
+    }
+  ]
+]
+}) }}
+
+
+
+
+
+
+### Schema
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/page/content\",
+  \"_name\": \"definition.page.content\",
+  \"title\": \"Content page definition\",
+  \"allOf\": [
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/page\"
+    }
+  ],
+  \"required\": [
+    \"heading\"
+  ],
+  \"category\": [
+    \"contentPage\"
+  ]
+}
+```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/page/content\",
+  \"_name\": \"definition.page.content\",
+  \"title\": \"Content page definition\",
+  \"required\": [
+    \"_id\",
+    \"_type\",
+    \"heading\",
+    \"url\"
+  ],
+  \"category\": [
+    \"contentPage\",
+    \"definition\",
+    \"page\"
+  ],
+  \"properties\": {
+    \"url\": {
+      \"title\": \"URL\",
+      \"type\": \"string\"
+    },
+    \"heading\": {
+      \"title\": \"Heading\",
+      \"type\": \"string\"
+    },
+    \"title\": {
+      \"title\": \"Title\",
+      \"type\": \"string\"
+    },
+    \"lede\": {
+      \"title\": \"Lede\",
+      \"type\": \"string\"
+    },
+    \"content\": {
+      \"title\": \"Content\",
+      \"type\": \"string\",
+      \"multiline\": true
+    },
+    \"show\": {
+      \"title\": \"Whether to show block or not\",
+      \"oneOf\": [
+        {
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+          \"_name\": \"definition.conditional.boolean\",
+          \"title\": \"Boolean or condition\",
+          \"type\": [
+            \"boolean\",
+            \"object\"
+          ],
+          \"oneOf\": [
+            {
+              \"type\": \"boolean\"
+            },
+            {
+              \"$ref\": \"http://gov.uk/schema/v1.0.0/condition\"
+            }
+          ],
+          \"category\": [
+            \"definition\"
+          ]
+        }
+      ],
+      \"default\": true
+    },
+    \"_id\": {
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
+    },
+    \"_type\": {
+      \"title\": \"Data type\",
+      \"type\": \"string\"
+    },
+    \"_isa\": {
+      \"title\": \"Based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
+      \"type\": \"string\",
+      \"blockReference\": true
+    },
+    \"components\": {
+      \"title\": \"Components\",
+      \"type\": \"array\",
+      \"items\": {
+        \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
+        \"_name\": \"definition.component\",
+        \"title\": \"Component definition\",
+        \"category\": [
+          \"component\",
+          \"definition\"
+        ],
+        \"required\": [
+          \"_id\",
+          \"_type\"
+        ],
+        \"properties\": {
+          \"show\": {
+            \"title\": \"Whether to show block or not\",
+            \"oneOf\": [
+              {
+                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                \"_name\": \"definition.conditional.boolean\",
+                \"title\": \"Boolean or condition\",
+                \"type\": [
+                  \"boolean\",
+                  \"object\"
+                ],
+                \"oneOf\": [
+                  {
+                    \"type\": \"boolean\"
+                  },
+                  {
+                    \"$ref\": \"http://gov.uk/schema/v1.0.0/condition\"
+                  }
+                ],
+                \"category\": [
+                  \"definition\"
+                ]
+              }
+            ],
+            \"default\": true
+          },
+          \"_id\": {
+            \"title\": \"Data ID\",
+            \"type\": \"string\"
+          },
+          \"_type\": {
+            \"title\": \"Data type\",
+            \"type\": \"string\"
+          },
+          \"_isa\": {
+            \"title\": \"Based on\",
+            \"description\": \"Id of referenced data current data inherits property values from\",
+            \"type\": \"string\",
+            \"blockReference\": true
+          }
+        }
+      }
+    }
+  }
+}
+```
+"
+}) }}
+
+### Schema used by
+
+- [Content page](/page/page/content)
+
+### Schema uses
+
+- [Page definition](/definition/page)
+
+### Categories
+
+contentPage, definition, page
+
+        

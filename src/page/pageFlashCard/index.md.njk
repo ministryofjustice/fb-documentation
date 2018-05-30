@@ -388,19 +388,19 @@ This page type is adapted from approach used by the Home Office Passport Renewal
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/pageFlashCard\",
-  \"_name\": \"pageFlashCard\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/page/flashcard\",
+  \"_name\": \"page.flashcard\",
   \"title\": \"Flash card page\",
   \"description\": \"Flash card page\",
   \"type\": \"object\",
   \"properties\": {
     \"_type\": {
-      \"const\": \"pageFlashCard\"
+      \"const\": \"page.flashcard\"
     }
   },
   \"allOf\": [
     {
-      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/pageForm\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/page/form\"
     }
   ]
 }
@@ -413,14 +413,14 @@ This page type is adapted from approach used by the Home Office Passport Renewal
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/pageFlashCard\",
-  \"_name\": \"pageFlashCard\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/page/flashcard\",
+  \"_name\": \"page.flashcard\",
   \"title\": \"Flash card page\",
   \"description\": \"Flash card page\",
   \"type\": \"object\",
   \"properties\": {
     \"_type\": {
-      \"const\": \"pageFlashCard\",
+      \"const\": \"page.flashcard\",
       \"title\": \"Data type\",
       \"type\": \"string\"
     },
@@ -429,7 +429,7 @@ This page type is adapted from approach used by the Home Office Passport Renewal
       \"type\": \"array\",
       \"items\": {
         \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
-        \"_name\": \"component.definition\",
+        \"_name\": \"definition.component\",
         \"title\": \"Component definition\",
         \"category\": [
           \"component\",
@@ -444,8 +444,8 @@ This page type is adapted from approach used by the Home Office Passport Renewal
             \"title\": \"Whether to show block or not\",
             \"oneOf\": [
               {
-                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-                \"_name\": \"conditional.boolean.definition\",
+                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                \"_name\": \"definition.conditional.boolean\",
                 \"title\": \"Boolean or condition\",
                 \"type\": [
                   \"boolean\",
@@ -491,8 +491,8 @@ This page type is adapted from approach used by the Home Office Passport Renewal
       }
     },
     \"nextPage\": {
-      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/nextPage\",
-      \"_name\": \"nextPage.definition\",
+      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/nextpage\",
+      \"_name\": \"definition.nextpage\",
       \"title\": \"Next page definition\",
       \"description\": \"What page (if any), and under what condtions, to go to next\",
       \"type\": \"object\",
@@ -511,8 +511,8 @@ This page type is adapted from approach used by the Home Office Passport Renewal
                     \"type\": \"string\"
                   },
                   \"condition\": {
-                    \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-                    \"_name\": \"conditional.boolean.definition\",
+                    \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                    \"_name\": \"definition.conditional.boolean\",
                     \"title\": \"Boolean or condition\",
                     \"type\": [
                       \"boolean\",
@@ -572,8 +572,8 @@ This page type is adapted from approach used by the Home Office Passport Renewal
       \"title\": \"Whether to show block or not\",
       \"oneOf\": [
         {
-          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-          \"_name\": \"conditional.boolean.definition\",
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+          \"_name\": \"definition.conditional.boolean\",
           \"title\": \"Boolean or condition\",
           \"type\": [
             \"boolean\",
@@ -609,7 +609,7 @@ This page type is adapted from approach used by the Home Office Passport Renewal
       \"type\": \"array\",
       \"items\": {
         \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
-        \"_name\": \"component.definition\",
+        \"_name\": \"definition.component\",
         \"title\": \"Component definition\",
         \"category\": [
           \"component\",
@@ -624,8 +624,8 @@ This page type is adapted from approach used by the Home Office Passport Renewal
             \"title\": \"Whether to show block or not\",
             \"oneOf\": [
               {
-                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-                \"_name\": \"conditional.boolean.definition\",
+                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                \"_name\": \"definition.conditional.boolean\",
                 \"title\": \"Boolean or condition\",
                 \"type\": [
                   \"boolean\",
@@ -712,7 +712,7 @@ This page type is adapted from approach used by the Home Office Passport Renewal
 
 ### Schema uses
 
-- [Form page definition](/definition/pageForm)
+- [Form page definition](/definition/page/form)
 
 ### Categories
 

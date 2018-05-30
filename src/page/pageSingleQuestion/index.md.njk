@@ -383,14 +383,14 @@ Preferred approach for asking users questions within a service, one question at 
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/pageSingleQuestion\",
-  \"_name\": \"pageSingleQuestion\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/page/singlequestion\",
+  \"_name\": \"page.singlequestion\",
   \"title\": \"Single question page\",
   \"description\": \"Single question page\",
   \"type\": \"object\",
   \"properties\": {
     \"_type\": {
-      \"const\": \"pageSingleQuestion\"
+      \"const\": \"page.singlequestion\"
     },
     \"components\": {
       \"maxItems\": 1
@@ -398,7 +398,7 @@ Preferred approach for asking users questions within a service, one question at 
   },
   \"allOf\": [
     {
-      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/pageForm\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/page/form\"
     }
   ],
   \"required\": [
@@ -414,14 +414,14 @@ Preferred approach for asking users questions within a service, one question at 
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/pageSingleQuestion\",
-  \"_name\": \"pageSingleQuestion\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/page/singlequestion\",
+  \"_name\": \"page.singlequestion\",
   \"title\": \"Single question page\",
   \"description\": \"Single question page\",
   \"type\": \"object\",
   \"properties\": {
     \"_type\": {
-      \"const\": \"pageSingleQuestion\",
+      \"const\": \"page.singlequestion\",
       \"title\": \"Data type\",
       \"type\": \"string\"
     },
@@ -431,7 +431,7 @@ Preferred approach for asking users questions within a service, one question at 
       \"type\": \"array\",
       \"items\": {
         \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
-        \"_name\": \"component.definition\",
+        \"_name\": \"definition.component\",
         \"title\": \"Component definition\",
         \"category\": [
           \"component\",
@@ -446,8 +446,8 @@ Preferred approach for asking users questions within a service, one question at 
             \"title\": \"Whether to show block or not\",
             \"oneOf\": [
               {
-                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-                \"_name\": \"conditional.boolean.definition\",
+                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                \"_name\": \"definition.conditional.boolean\",
                 \"title\": \"Boolean or condition\",
                 \"type\": [
                   \"boolean\",
@@ -490,7 +490,7 @@ Preferred approach for asking users questions within a service, one question at 
       \"type\": \"array\",
       \"items\": {
         \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
-        \"_name\": \"component.definition\",
+        \"_name\": \"definition.component\",
         \"title\": \"Component definition\",
         \"category\": [
           \"component\",
@@ -505,8 +505,8 @@ Preferred approach for asking users questions within a service, one question at 
             \"title\": \"Whether to show block or not\",
             \"oneOf\": [
               {
-                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-                \"_name\": \"conditional.boolean.definition\",
+                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                \"_name\": \"definition.conditional.boolean\",
                 \"title\": \"Boolean or condition\",
                 \"type\": [
                   \"boolean\",
@@ -552,8 +552,8 @@ Preferred approach for asking users questions within a service, one question at 
       }
     },
     \"nextPage\": {
-      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/nextPage\",
-      \"_name\": \"nextPage.definition\",
+      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/nextpage\",
+      \"_name\": \"definition.nextpage\",
       \"title\": \"Next page definition\",
       \"description\": \"What page (if any), and under what condtions, to go to next\",
       \"type\": \"object\",
@@ -572,8 +572,8 @@ Preferred approach for asking users questions within a service, one question at 
                     \"type\": \"string\"
                   },
                   \"condition\": {
-                    \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-                    \"_name\": \"conditional.boolean.definition\",
+                    \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                    \"_name\": \"definition.conditional.boolean\",
                     \"title\": \"Boolean or condition\",
                     \"type\": [
                       \"boolean\",
@@ -633,8 +633,8 @@ Preferred approach for asking users questions within a service, one question at 
       \"title\": \"Whether to show block or not\",
       \"oneOf\": [
         {
-          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-          \"_name\": \"conditional.boolean.definition\",
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+          \"_name\": \"definition.conditional.boolean\",
           \"title\": \"Boolean or condition\",
           \"type\": [
             \"boolean\",
@@ -715,7 +715,7 @@ Preferred approach for asking users questions within a service, one question at 
 
 ### Schema uses
 
-- [Form page definition](/definition/pageForm)
+- [Form page definition](/definition/page/form)
 
 ### Categories
 

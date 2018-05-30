@@ -221,19 +221,19 @@ A generic content page to provide users with guidance during the service flow or
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/pageContent\",
-  \"_name\": \"pageContent\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/page/content\",
+  \"_name\": \"page.content\",
   \"title\": \"Content page\",
   \"description\": \"Content page\",
   \"type\": \"object\",
   \"properties\": {
     \"_type\": {
-      \"const\": \"pageContent\"
+      \"const\": \"page.content\"
     }
   },
   \"allOf\": [
     {
-      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/pageContent\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/page/content\"
     }
   ]
 }
@@ -246,14 +246,14 @@ A generic content page to provide users with guidance during the service flow or
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/pageContent\",
-  \"_name\": \"pageContent\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/page/content\",
+  \"_name\": \"page.content\",
   \"title\": \"Content page\",
   \"description\": \"Content page\",
   \"type\": \"object\",
   \"properties\": {
     \"_type\": {
-      \"const\": \"pageContent\",
+      \"const\": \"page.content\",
       \"title\": \"Data type\",
       \"type\": \"string\"
     },
@@ -282,8 +282,8 @@ A generic content page to provide users with guidance during the service flow or
       \"title\": \"Whether to show block or not\",
       \"oneOf\": [
         {
-          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-          \"_name\": \"conditional.boolean.definition\",
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+          \"_name\": \"definition.conditional.boolean\",
           \"title\": \"Boolean or condition\",
           \"type\": [
             \"boolean\",
@@ -319,7 +319,7 @@ A generic content page to provide users with guidance during the service flow or
       \"type\": \"array\",
       \"items\": {
         \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
-        \"_name\": \"component.definition\",
+        \"_name\": \"definition.component\",
         \"title\": \"Component definition\",
         \"category\": [
           \"component\",
@@ -334,8 +334,8 @@ A generic content page to provide users with guidance during the service flow or
             \"title\": \"Whether to show block or not\",
             \"oneOf\": [
               {
-                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-                \"_name\": \"conditional.boolean.definition\",
+                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                \"_name\": \"definition.conditional.boolean\",
                 \"title\": \"Boolean or condition\",
                 \"type\": [
                   \"boolean\",
@@ -396,7 +396,7 @@ A generic content page to provide users with guidance during the service flow or
 
 ### Schema uses
 
-- [Content page definition](/definition/pageContent)
+- [Content page definition](/definition/page/content)
 
 ### Categories
 

@@ -396,14 +396,14 @@ Let users know they’ve completed a transaction.
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/pageConfirmation\",
-  \"_name\": \"pageConfirmation\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/page/confirmation\",
+  \"_name\": \"page.confirmation\",
   \"title\": \"Confirmation page\",
   \"description\": \"Confirmation page\",
   \"type\": \"object\",
   \"properties\": {
     \"_type\": {
-      \"const\": \"pageConfirmation\"
+      \"const\": \"page.confirmation\"
     },
     \"continue\": {
       \"const\": \"makes no sense\"
@@ -411,7 +411,7 @@ Let users know they’ve completed a transaction.
   },
   \"allOf\": [
     {
-      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/pageForm\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/page/form\"
     }
   ]
 }
@@ -424,14 +424,14 @@ Let users know they’ve completed a transaction.
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/pageConfirmation\",
-  \"_name\": \"pageConfirmation\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/page/confirmation\",
+  \"_name\": \"page.confirmation\",
   \"title\": \"Confirmation page\",
   \"description\": \"Confirmation page\",
   \"type\": \"object\",
   \"properties\": {
     \"_type\": {
-      \"const\": \"pageConfirmation\",
+      \"const\": \"page.confirmation\",
       \"title\": \"Data type\",
       \"type\": \"string\"
     },
@@ -443,7 +443,7 @@ Let users know they’ve completed a transaction.
       \"type\": \"array\",
       \"items\": {
         \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
-        \"_name\": \"component.definition\",
+        \"_name\": \"definition.component\",
         \"title\": \"Component definition\",
         \"category\": [
           \"component\",
@@ -458,8 +458,8 @@ Let users know they’ve completed a transaction.
             \"title\": \"Whether to show block or not\",
             \"oneOf\": [
               {
-                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-                \"_name\": \"conditional.boolean.definition\",
+                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                \"_name\": \"definition.conditional.boolean\",
                 \"title\": \"Boolean or condition\",
                 \"type\": [
                   \"boolean\",
@@ -505,8 +505,8 @@ Let users know they’ve completed a transaction.
       }
     },
     \"nextPage\": {
-      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/nextPage\",
-      \"_name\": \"nextPage.definition\",
+      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/nextpage\",
+      \"_name\": \"definition.nextpage\",
       \"title\": \"Next page definition\",
       \"description\": \"What page (if any), and under what condtions, to go to next\",
       \"type\": \"object\",
@@ -525,8 +525,8 @@ Let users know they’ve completed a transaction.
                     \"type\": \"string\"
                   },
                   \"condition\": {
-                    \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-                    \"_name\": \"conditional.boolean.definition\",
+                    \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                    \"_name\": \"definition.conditional.boolean\",
                     \"title\": \"Boolean or condition\",
                     \"type\": [
                       \"boolean\",
@@ -586,8 +586,8 @@ Let users know they’ve completed a transaction.
       \"title\": \"Whether to show block or not\",
       \"oneOf\": [
         {
-          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-          \"_name\": \"conditional.boolean.definition\",
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+          \"_name\": \"definition.conditional.boolean\",
           \"title\": \"Boolean or condition\",
           \"type\": [
             \"boolean\",
@@ -623,7 +623,7 @@ Let users know they’ve completed a transaction.
       \"type\": \"array\",
       \"items\": {
         \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
-        \"_name\": \"component.definition\",
+        \"_name\": \"definition.component\",
         \"title\": \"Component definition\",
         \"category\": [
           \"component\",
@@ -638,8 +638,8 @@ Let users know they’ve completed a transaction.
             \"title\": \"Whether to show block or not\",
             \"oneOf\": [
               {
-                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-                \"_name\": \"conditional.boolean.definition\",
+                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                \"_name\": \"definition.conditional.boolean\",
                 \"title\": \"Boolean or condition\",
                 \"type\": [
                   \"boolean\",
@@ -726,7 +726,7 @@ Let users know they’ve completed a transaction.
 
 ### Schema uses
 
-- [Form page definition](/definition/pageForm)
+- [Form page definition](/definition/page/form)
 
 ### Categories
 

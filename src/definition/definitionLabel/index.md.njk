@@ -1,0 +1,151 @@
+---
+title: Label definition
+description: undefined
+section: Definitions
+theme: 
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
+
+
+
+### Properties
+
+
+{{ govukTable({
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "hint"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Hint text"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "label"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Label"
+    },
+    {
+      "html": "-"
+    }
+  ]
+]
+}) }}
+
+
+
+
+
+
+### Schema
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/label\",
+  \"_name\": \"definition.label\",
+  \"title\": \"Label definition\",
+  \"type\": \"object\",
+  \"properties\": {
+    \"label\": {
+      \"title\": \"Label\",
+      \"type\": \"string\"
+    },
+    \"hint\": {
+      \"title\": \"Hint text\",
+      \"type\": \"string\"
+    }
+  },
+  \"category\": [
+    \"definition\"
+  ]
+}
+```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/label\",
+  \"_name\": \"definition.label\",
+  \"title\": \"Label definition\",
+  \"type\": \"object\",
+  \"properties\": {
+    \"label\": {
+      \"title\": \"Label\",
+      \"type\": \"string\"
+    },
+    \"hint\": {
+      \"title\": \"Hint text\",
+      \"type\": \"string\"
+    }
+  },
+  \"category\": [
+    \"definition\"
+  ]
+}
+```
+"
+}) }}
+
+
+
+
+
+
+
+
+
+### Categories
+
+definition
+
+        

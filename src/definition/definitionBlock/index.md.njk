@@ -1,0 +1,225 @@
+---
+title: Block definition
+description: undefined
+section: Definitions
+theme: 
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
+
+Fundamental definition providing baseline properties for [all blocks](/overview/block)
+
+### Properties
+
+
+{{ govukTable({
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "_id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data ID"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_type"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data type"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_isa"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "show"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Whether to show block or not"
+    },
+    {
+      "html": true
+    }
+  ]
+]
+}) }}
+
+
+
+
+
+
+### Schema
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/block\",
+  \"_name\": \"definition.block\",
+  \"title\": \"Block definition\",
+  \"properties\": {
+    \"show\": {
+      \"title\": \"Whether to show block or not\",
+      \"oneOf\": [
+        {
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\"
+        }
+      ],
+      \"default\": true
+    }
+  },
+  \"allOf\": [
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/data\"
+    }
+  ],
+  \"category\": [
+    \"definition\"
+  ]
+}
+```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/block\",
+  \"_name\": \"definition.block\",
+  \"title\": \"Block definition\",
+  \"properties\": {
+    \"show\": {
+      \"title\": \"Whether to show block or not\",
+      \"oneOf\": [
+        {
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+          \"_name\": \"definition.conditional.boolean\",
+          \"title\": \"Boolean or condition\",
+          \"type\": [
+            \"boolean\",
+            \"object\"
+          ],
+          \"oneOf\": [
+            {
+              \"type\": \"boolean\"
+            },
+            {
+              \"$ref\": \"http://gov.uk/schema/v1.0.0/condition\"
+            }
+          ],
+          \"category\": [
+            \"definition\"
+          ]
+        }
+      ],
+      \"default\": true
+    },
+    \"_id\": {
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
+    },
+    \"_type\": {
+      \"title\": \"Data type\",
+      \"type\": \"string\"
+    },
+    \"_isa\": {
+      \"title\": \"Based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
+      \"type\": \"string\",
+      \"blockReference\": true
+    }
+  },
+  \"category\": [
+    \"definition\"
+  ],
+  \"required\": [
+    \"_id\",
+    \"_type\"
+  ]
+}
+```
+"
+}) }}
+
+### Schema used by
+
+- [Component definition](/definition/component)
+- [Option definition](/definition/option)
+- [Page definition](/definition/page)
+
+### Schema uses
+
+- [Data definition](/definition/data)
+
+### Categories
+
+definition
+
+        

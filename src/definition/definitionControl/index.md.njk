@@ -1,0 +1,463 @@
+---
+title: Control definition
+description: Additional HTML attributes
+section: Definitions
+theme: 
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
+
+
+
+### Properties
+
+
+{{ govukTable({
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "_id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data ID"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_type"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data type"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_isa"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "attributes"
+    },
+    {
+      "text": "object"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML attributes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "classes"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML classes"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "disabled"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Disabled"
+    },
+    {
+      "html": false
+    }
+  ],
+  [
+    {
+      "text": "errors"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional HTML id"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "model"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Model to store field in"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "modelProtect"
+    },
+    {
+      "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Whether to prevent the block’s model being overridden or appended "
+    },
+    {
+      "html": false
+    }
+  ],
+  [
+    {
+      "text": "show"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Whether to show block or not"
+    },
+    {
+      "html": true
+    }
+  ],
+  [
+    {
+      "text": "validation"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ]
+]
+}) }}
+
+
+
+
+
+
+### Schema
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/control\",
+  \"_name\": \"definition.control\",
+  \"title\": \"Control definition\",
+  \"allOf\": [
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/component\"
+    },
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/htmlattributes\"
+    },
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/model\"
+    },
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/validations#/definitions/requiredBundle\"
+    }
+  ],
+  \"properties\": {
+    \"disabled\": {
+      \"title\": \"Disabled\",
+      \"oneOf\": [
+        {
+          \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\"
+        }
+      ],
+      \"default\": false
+    }
+  },
+  \"category\": [
+    \"control\"
+  ]
+}
+```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/control\",
+  \"_name\": \"definition.control\",
+  \"title\": \"Control definition\",
+  \"properties\": {
+    \"disabled\": {
+      \"title\": \"Disabled\",
+      \"oneOf\": [
+        {
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+          \"_name\": \"definition.conditional.boolean\",
+          \"title\": \"Boolean or condition\",
+          \"type\": [
+            \"boolean\",
+            \"object\"
+          ],
+          \"oneOf\": [
+            {
+              \"type\": \"boolean\"
+            },
+            {
+              \"$ref\": \"http://gov.uk/schema/v1.0.0/condition\"
+            }
+          ],
+          \"category\": [
+            \"definition\"
+          ]
+        }
+      ],
+      \"default\": false
+    },
+    \"show\": {
+      \"title\": \"Whether to show block or not\",
+      \"oneOf\": [
+        {
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+          \"_name\": \"definition.conditional.boolean\",
+          \"title\": \"Boolean or condition\",
+          \"type\": [
+            \"boolean\",
+            \"object\"
+          ],
+          \"oneOf\": [
+            {
+              \"type\": \"boolean\"
+            },
+            {
+              \"$ref\": \"http://gov.uk/schema/v1.0.0/condition\"
+            }
+          ],
+          \"category\": [
+            \"definition\"
+          ]
+        }
+      ],
+      \"default\": true
+    },
+    \"_id\": {
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
+    },
+    \"_type\": {
+      \"title\": \"Data type\",
+      \"type\": \"string\"
+    },
+    \"_isa\": {
+      \"title\": \"Based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
+      \"type\": \"string\",
+      \"blockReference\": true
+    },
+    \"id\": {
+      \"title\": \"Additional HTML id\",
+      \"type\": \"string\"
+    },
+    \"classes\": {
+      \"title\": \"Additional HTML classes\",
+      \"type\": \"string\"
+    },
+    \"attributes\": {
+      \"title\": \"Additional HTML attributes\",
+      \"type\": \"object\"
+    },
+    \"model\": {
+      \"title\": \"Model to store field in\",
+      \"type\": \"string\"
+    },
+    \"modelProtect\": {
+      \"title\": \"Whether to prevent the block’s model being overridden or appended \",
+      \"type\": \"boolean\",
+      \"default\": false
+    },
+    \"validation\": {
+      \"role\": \"validation\",
+      \"properties\": {
+        \"required\": {
+          \"title\": \"Required\",
+          \"oneOf\": [
+            {
+              \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+              \"_name\": \"definition.conditional.boolean\",
+              \"title\": \"Boolean or condition\",
+              \"type\": [
+                \"boolean\",
+                \"object\"
+              ],
+              \"oneOf\": [
+                {
+                  \"type\": \"boolean\"
+                },
+                {
+                  \"$ref\": \"http://gov.uk/schema/v1.0.0/condition\"
+                }
+              ],
+              \"category\": [
+                \"definition\"
+              ]
+            }
+          ],
+          \"default\": true
+        }
+      }
+    },
+    \"errors\": {
+      \"role\": \"errorStrings\",
+      \"properties\": {
+        \"required\": {
+          \"title\": \"Error strings for required\",
+          \"type\": \"object\",
+          \"properties\": {
+            \"inline\": {
+              \"type\": \"string\",
+              \"role\": \"errorString\"
+            },
+            \"summary\": {
+              \"type\": \"string\",
+              \"role\": \"errorString\"
+            }
+          }
+        }
+      }
+    }
+  },
+  \"category\": [
+    \"component\",
+    \"control\",
+    \"definition\"
+  ],
+  \"required\": [
+    \"_id\",
+    \"_type\"
+  ],
+  \"description\": \"Additional HTML attributes\",
+  \"type\": \"object\"
+}
+```
+"
+}) }}
+
+### Schema used by
+
+- [Field definition](/definition/field)
+- [Fieldset definition](/definition/fieldset)
+
+### Schema uses
+
+- [Component definition](/definition/component)
+- [HTML attributes definition](/definition/htmlattributes)
+- [Model definition](/definition/model)
+- [Validations](/definition/validations)
+
+### Categories
+
+component, control, definition
+
+        

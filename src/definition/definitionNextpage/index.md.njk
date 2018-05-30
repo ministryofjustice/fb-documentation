@@ -1,0 +1,154 @@
+---
+title: Next page definition
+description: What page (if any), and under what condtions, to go to next
+section: Definitions
+theme: 
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
+
+
+
+
+
+
+
+
+
+
+
+### Schema
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/nextpage\",
+  \"_name\": \"definition.nextpage\",
+  \"title\": \"Next page definition\",
+  \"description\": \"What page (if any), and under what condtions, to go to next\",
+  \"type\": \"object\",
+  \"oneOf\": [
+    {
+      \"type\": \"string\"
+    },
+    {
+      \"type\": \"array\",
+      \"items\": {
+        \"oneOf\": [
+          {
+            \"type\": \"object\",
+            \"properties\": {
+              \"page\": {
+                \"type\": \"string\"
+              },
+              \"condition\": {
+                \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\"
+              }
+            },
+            \"required\": [
+              \"page\",
+              \"condition\"
+            ]
+          },
+          {
+            \"type\": \"string\"
+          }
+        ]
+      }
+    }
+  ],
+  \"category\": [
+    \"definition\"
+  ]
+}
+```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/nextpage\",
+  \"_name\": \"definition.nextPage\",
+  \"title\": \"Next page definition\",
+  \"description\": \"What page (if any), and under what condtions, to go to next\",
+  \"type\": \"object\",
+  \"oneOf\": [
+    {
+      \"type\": \"string\"
+    },
+    {
+      \"type\": \"array\",
+      \"items\": {
+        \"oneOf\": [
+          {
+            \"type\": \"object\",
+            \"properties\": {
+              \"page\": {
+                \"type\": \"string\"
+              },
+              \"condition\": {
+                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                \"_name\": \"definition.conditional.boolean\",
+                \"title\": \"Boolean or condition\",
+                \"type\": [
+                  \"boolean\",
+                  \"object\"
+                ],
+                \"oneOf\": [
+                  {
+                    \"type\": \"boolean\"
+                  },
+                  {
+                    \"$ref\": \"http://gov.uk/schema/v1.0.0/condition\"
+                  }
+                ],
+                \"category\": [
+                  \"definition\"
+                ]
+              }
+            },
+            \"required\": [
+              \"page\",
+              \"condition\"
+            ]
+          },
+          {
+            \"type\": \"string\"
+          }
+        ]
+      }
+    }
+  ],
+  \"category\": [
+    \"definition\"
+  ]
+}
+```
+"
+}) }}
+
+### Schema used by
+
+- [Next page definition](/definition/nextpage)
+- [Form page definition](/definition/page/form)
+
+
+
+
+
+### Categories
+
+definition
+
+        

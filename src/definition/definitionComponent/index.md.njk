@@ -1,0 +1,226 @@
+---
+title: Component definition
+description: undefined
+section: Definitions
+theme: 
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
+
+
+
+### Properties
+
+
+{{ govukTable({
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "_id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data ID"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_type"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data type"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_isa"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "show"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Whether to show block or not"
+    },
+    {
+      "html": true
+    }
+  ]
+]
+}) }}
+
+
+
+
+
+
+### Schema
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
+  \"_name\": \"definition.component\",
+  \"title\": \"Component definition\",
+  \"allOf\": [
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/block\"
+    }
+  ],
+  \"category\": [
+    \"component\"
+  ]
+}
+```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
+  \"_name\": \"definition.component\",
+  \"title\": \"Component definition\",
+  \"category\": [
+    \"component\",
+    \"definition\"
+  ],
+  \"required\": [
+    \"_id\",
+    \"_type\"
+  ],
+  \"properties\": {
+    \"show\": {
+      \"title\": \"Whether to show block or not\",
+      \"oneOf\": [
+        {
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+          \"_name\": \"definition.conditional.boolean\",
+          \"title\": \"Boolean or condition\",
+          \"type\": [
+            \"boolean\",
+            \"object\"
+          ],
+          \"oneOf\": [
+            {
+              \"type\": \"boolean\"
+            },
+            {
+              \"$ref\": \"http://gov.uk/schema/v1.0.0/condition\"
+            }
+          ],
+          \"category\": [
+            \"definition\"
+          ]
+        }
+      ],
+      \"default\": true
+    },
+    \"_id\": {
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
+    },
+    \"_type\": {
+      \"title\": \"Data type\",
+      \"type\": \"string\"
+    },
+    \"_isa\": {
+      \"title\": \"Based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
+      \"type\": \"string\",
+      \"blockReference\": true
+    }
+  }
+}
+```
+"
+}) }}
+
+### Schema used by
+
+- [Content](/component/content)
+- [Components definition](/definition/components)
+- [Content definition](/definition/content)
+- [Content definition](/definition/content)
+- [Control definition](/definition/control)
+- [Control definition](/definition/control)
+- [Grouping definition](/definition/grouping)
+- [Grouping definition](/definition/grouping)
+- [Form page definition](/definition/page/form)
+- [Details](/component/details)
+- [Select option](/component/option)
+- [Section](/component/section)
+- [Table](/component/table)
+- [Warning text](/component/warningText)
+
+### Schema uses
+
+- [Block definition](/definition/block)
+
+### Categories
+
+component, definition
+
+        

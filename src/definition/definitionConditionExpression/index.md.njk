@@ -1,0 +1,238 @@
+---
+title: Single expression condition properties
+description: undefined
+section: Definitions
+theme: 
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
+
+
+
+
+
+
+
+
+
+
+
+### Schema
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition/expression\",
+  \"_name\": \"definition.condition.expression\",
+  \"title\": \"Single expression condition properties\",
+  \"oneOf\": [
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/condition/defined\"
+    },
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/condition/text\"
+    },
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/condition/number\"
+    },
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/condition/boolean\"
+    }
+  ],
+  \"category\": [
+    \"definition\"
+  ]
+}
+```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition/expression\",
+  \"_name\": \"definition.condition.expression\",
+  \"title\": \"Single expression condition properties\",
+  \"oneOf\": [
+    {
+      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition/defined\",
+      \"_name\": \"definition.condition.defined\",
+      \"title\": \"Defined condition properties\",
+      \"properties\": {
+        \"operator\": {
+          \"title\": \"Operator\",
+          \"type\": \"string\",
+          \"enum\": [
+            \"defined\"
+          ]
+        },
+        \"identifier\": {
+          \"title\": \"Identifier\",
+          \"type\": \"string\"
+        },
+        \"identifierType\": {
+          \"title\": \"Identifier type\",
+          \"type\": \"string\",
+          \"enum\": [
+            \"input\",
+            \"feature\"
+          ]
+        }
+      },
+      \"required\": [
+        \"identifier\",
+        \"operator\"
+      ],
+      \"category\": [
+        \"definition\"
+      ]
+    },
+    {
+      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition/text\",
+      \"_name\": \"definition.condition.text\",
+      \"title\": \"Text condition properties\",
+      \"properties\": {
+        \"operator\": {
+          \"title\": \"Operator\",
+          \"type\": \"string\",
+          \"enum\": [
+            \"is\",
+            \"startsWith\",
+            \"endsWith\",
+            \"includes\"
+          ]
+        },
+        \"value\": {
+          \"title\": \"Value\",
+          \"type\": \"string\"
+        },
+        \"identifier\": {
+          \"title\": \"Identifier\",
+          \"type\": \"string\"
+        },
+        \"identifierType\": {
+          \"title\": \"Identifier type\",
+          \"type\": \"string\",
+          \"enum\": [
+            \"input\",
+            \"feature\"
+          ]
+        }
+      },
+      \"required\": [
+        \"identifier\",
+        \"operator\",
+        \"value\"
+      ],
+      \"category\": [
+        \"definition\"
+      ]
+    },
+    {
+      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition/number\",
+      \"_name\": \"definition.condition.number\",
+      \"title\": \"Number condition properties\",
+      \"properties\": {
+        \"operator\": {
+          \"title\": \"Operator\",
+          \"type\": \"string\",
+          \"enum\": [
+            \"equals\",
+            \"greaterThan\",
+            \"greaterThanOrEqualTo\",
+            \"lessThan\",
+            \"lessThanOrEqualTo\",
+            \"multipleOf\"
+          ]
+        },
+        \"value\": {
+          \"title\": \"Value\",
+          \"type\": \"number\"
+        },
+        \"identifier\": {
+          \"title\": \"Identifier\",
+          \"type\": \"string\"
+        },
+        \"identifierType\": {
+          \"title\": \"Identifier type\",
+          \"type\": \"string\",
+          \"enum\": [
+            \"input\",
+            \"feature\"
+          ]
+        }
+      },
+      \"required\": [
+        \"identifier\",
+        \"operator\",
+        \"value\"
+      ],
+      \"category\": [
+        \"definition\"
+      ]
+    },
+    {
+      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition/boolean\",
+      \"_name\": \"definition.condition.boolean\",
+      \"title\": \"Boolean condition properties\",
+      \"properties\": {
+        \"operator\": {
+          \"title\": \"Operator\",
+          \"type\": \"string\",
+          \"enum\": [
+            \"isTrue\"
+          ]
+        },
+        \"identifier\": {
+          \"title\": \"Identifier\",
+          \"type\": \"string\"
+        },
+        \"identifierType\": {
+          \"title\": \"Identifier type\",
+          \"type\": \"string\",
+          \"enum\": [
+            \"input\",
+            \"feature\"
+          ]
+        }
+      },
+      \"required\": [
+        \"identifier\",
+        \"operator\"
+      ],
+      \"category\": [
+        \"definition\"
+      ]
+    }
+  ],
+  \"category\": [
+    \"definition\"
+  ]
+}
+```
+"
+}) }}
+
+### Schema used by
+
+- [Condition](/component/condition)
+
+
+
+
+
+### Categories
+
+definition
+
+        

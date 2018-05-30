@@ -285,7 +285,7 @@ Basic table example
       \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/component\"
     },
     {
-      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/htmlAttributes\"
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/htmlattributes\"
     }
   ],
   \"required\": [
@@ -356,7 +356,7 @@ Basic table example
       \"type\": \"array\",
       \"items\": {
         \"$id\": \"http://gov.uk/schema/v1.0.0/definition/data\",
-        \"_name\": \"data.definition\",
+        \"_name\": \"definition.data\",
         \"title\": \"Data definition\",
         \"required\": [
           \"_id\",
@@ -402,7 +402,7 @@ Basic table example
       \"type\": \"array\",
       \"items\": {
         \"$id\": \"http://gov.uk/schema/v1.0.0/definition/data\",
-        \"_name\": \"data.definition\",
+        \"_name\": \"definition.data\",
         \"title\": \"Data definition\",
         \"required\": [
           \"_id\",
@@ -448,8 +448,8 @@ Basic table example
       \"title\": \"Whether to show block or not\",
       \"oneOf\": [
         {
-          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional.boolean\",
-          \"_name\": \"conditional.boolean.definition\",
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+          \"_name\": \"definition.conditional.boolean\",
           \"title\": \"Boolean or condition\",
           \"type\": [
             \"boolean\",
@@ -501,7 +501,7 @@ Basic table example
   \"definitions\": {
     \"cell\": {
       \"$id\": \"http://gov.uk/schema/v1.0.0/definition/data\",
-      \"_name\": \"data.definition\",
+      \"_name\": \"definition.data\",
       \"title\": \"Data definition\",
       \"required\": [
         \"_id\",
@@ -560,7 +560,7 @@ Basic table example
 ### Schema uses
 
 - [Component definition](/definition/component)
-- [HTML attributes definition](/definition/htmlAttributes)
+- [HTML attributes definition](/definition/htmlattributes)
 
 ### Categories
 

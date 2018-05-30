@@ -1,0 +1,221 @@
+---
+title: Text condition properties
+description: undefined
+section: Definitions
+theme: 
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
+
+
+
+### Properties
+
+
+{{ govukTable({
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "identifier"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Identifier"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "operator"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Operator"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "value"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Value"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "identifierType"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Identifier type"
+    },
+    {
+      "html": "-"
+    }
+  ]
+]
+}) }}
+
+
+
+
+
+
+### Schema
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition/text\",
+  \"_name\": \"definition.condition.text\",
+  \"title\": \"Text condition properties\",
+  \"allOf\": [
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/condition/base\"
+    }
+  ],
+  \"properties\": {
+    \"operator\": {
+      \"title\": \"Operator\",
+      \"type\": \"string\",
+      \"enum\": [
+        \"is\",
+        \"startsWith\",
+        \"endsWith\",
+        \"includes\"
+      ]
+    },
+    \"value\": {
+      \"title\": \"Value\",
+      \"type\": \"string\"
+    }
+  },
+  \"required\": [
+    \"operator\",
+    \"value\"
+  ],
+  \"category\": [
+    \"definition\"
+  ]
+}
+```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition/text\",
+  \"_name\": \"definition.condition.text\",
+  \"title\": \"Text condition properties\",
+  \"properties\": {
+    \"operator\": {
+      \"title\": \"Operator\",
+      \"type\": \"string\",
+      \"enum\": [
+        \"is\",
+        \"startsWith\",
+        \"endsWith\",
+        \"includes\"
+      ]
+    },
+    \"value\": {
+      \"title\": \"Value\",
+      \"type\": \"string\"
+    },
+    \"identifier\": {
+      \"title\": \"Identifier\",
+      \"type\": \"string\"
+    },
+    \"identifierType\": {
+      \"title\": \"Identifier type\",
+      \"type\": \"string\",
+      \"enum\": [
+        \"input\",
+        \"feature\"
+      ]
+    }
+  },
+  \"required\": [
+    \"identifier\",
+    \"operator\",
+    \"value\"
+  ],
+  \"category\": [
+    \"definition\"
+  ]
+}
+```
+"
+}) }}
+
+### Schema used by
+
+- [Single expression condition properties](/definition/condition/expression)
+
+### Schema uses
+
+- [Base condition properties](/definition/condition/base)
+
+### Categories
+
+definition
+
+        

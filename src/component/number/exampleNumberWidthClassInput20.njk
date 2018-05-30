@@ -2,18 +2,16 @@
 layout: layout-specification.njk
 ---
 {%- macro checkboxes(data) %}
-{% from "checkboxes/macro.njk" import govukCheckboxes %}
 {% set params = setError(data) %}
 {% set params = setItemsLabel(params) %}
 {% set params = setInputWidthClass(params) %}
-{{ govukCheckboxes(params) }}
+{{ callMacro('govukCheckboxes', params) }}
 {% endmacro -%}{%- macro content(data) %}
 <div class="govuk-prose-scope fb-content">
 {% set params = setContent(data) %}
 {{ params.html | safe }}
 </div>
 {% endmacro -%}{%- macro date(data) %}
-{% from "date-input/macro.njk" import govukDateInput %}
 {% set params = setError(data) %}
 {% set params = setLabel(params) %}
 {% set params = setItemsLabel(params) %}
@@ -31,83 +29,68 @@ layout: layout-specification.njk
     }
   ]
 }) %}
-{{ govukDateInput(params) }}
+{{ callMacro('govukDateInput', params) }}
 {% endmacro -%}{%- macro details(data) %}
-{% from "details/macro.njk" import govukDetails %}
 {% set params = setError(data) %}
 {% set params = setObject(params, {
   summaryHtml: params.summary
 }) %}
-{{ govukDetails(params) }}
-{% endmacro -%}{%- macro fieldset(data) %}
-{% from "fieldset/macro.njk" import govukFieldset %}
+{{ callMacro('govukDetails', params) }}
+{% endmacro -%}{% macro fieldset(data) -%}
 {% set params = setError(data) %}
 {% set params = setItemsLabel(params) %}
-{%- call govukFieldset(params) %}
-{%- for component in data.components %}
-{{ blocks[component._type](component) }}
-{% endfor -%}
-{% endcall -%}
-{% endmacro -%}{%- macro group(data) %}
+{% call callMacro('govukFieldset', params) -%}
+{{ callBlocks(data.components) }}
+{%- endcall %}
+{%- endmacro %}{%- macro group(data) %}
 <div class="fb-group">
-{%- for component in data.components %}
-{{ blocks[component._type](component) }}
-{% endfor -%}
+{{- callBlocks(data.components) -}}
 </div>
 {% endmacro -%}{%- macro number(data) %}
-{% from "input/macro.njk" import govukInput %}
 {% set params = setError(data) %}
 {% set params = setLabel(params) %}
 {% set params = setInputWidthClass(params, '10') %}
-{{ govukInput(params) }}
+{{ callMacro('govukInput', params) }}
 {% endmacro -%}{%- macro radios(data) %}
-{% from "radios/macro.njk" import govukRadios %}
 {% set params = setError(data) %}
 {% set params = setItemsLabel(params) %}
 {% set params = setInputWidthClass(params) %}
-{{ govukRadios(params) }}
-{% endmacro -%}{%- macro section(data) %}
+{{ callMacro('govukRadios', params) }}
+{% endmacro -%}{% macro section(data) -%}
 <section class="govuk-prose-scope fb-section">
-{%- if data.heading %}
+{% if data.heading -%}
 <h2>{{ data.heading }}</h2>
-{% endif -%}
-{%- if data.lede %}
+{%- endif %}
+{% if data.lede -%}
 <p class="fb-section--lede">{{ data.lede }}</p>
-{% endif -%}
-{%- if data.content %}
+{%- endif %}
+{% if data.content -%}
 <div class="fb-section--content">{{ data.content }}</div>
-{% endif -%}
-{%- for component in data.components %}
-{{ blocks[component._type](component) }}
-{% endfor -%}
+{%- endif %}
+{{- callBlocks(data.components) -}}
 </section>
-{% endmacro -%}{%- macro select(data) %}
-{% from "select/macro.njk" import govukSelect %}
+{%- endmacro %}{%- macro select(data) %}
 {% set params = setError(data) %}
 {% set params = setLabel(params) %}
 {% set params = setItemsLabel(params) %}
 {% set params = setInputWidthClass(params) %}
-{{ govukSelect(params) }}
+{{ callMacro('govukSelect', params) }}
 {% endmacro -%}{%- macro table(data) %}
-{% from "table/macro.njk" import govukTable %}
-{{ govukTable(data) }}
+{{ callMacro('govukTable', data) }}
 {% endmacro -%}{%- macro text(data) %}
-{% from "input/macro.njk" import govukInput %}
 {% set params = setError(data) %}
 {% set params = setLabel(params) %}
 {% set params = setInputWidthClass(params) %}
-{{ govukInput(params) }}
+{{ callMacro('govukInput', params) }}
 {% endmacro -%}{%- macro textarea(data) %}
-{% from "textarea/macro.njk" import govukTextarea %}
 {% set params = setError(data) %}
 {% set params = setLabel(params) %}
 {% set params = setInputWidthClass(params) %}
-{{ govukTextarea(params) }}
+{{ callMacro('govukTextarea', params) }}
 {% endmacro -%}{%- macro warningText(data) %}
-{% from "warning-text/macro.njk" import govukWarningText %}
 {% set params = setError(data) %}
-{{ govukWarningText(params) }}
-{% endmacro -%}{% set blocks = {
+{{ callMacro('govukWarningText', params) }}
+{% endmacro -%}{% from "checkboxes/macro.njk" import govukCheckboxes %}{% from "date-input/macro.njk" import govukDateInput %}{% from "details/macro.njk" import govukDetails %}{% from "fieldset/macro.njk" import govukFieldset %}{% from "input/macro.njk" import govukInput %}{% from "radios/macro.njk" import govukRadios %}{% from "select/macro.njk" import govukSelect %}{% from "table/macro.njk" import govukTable %}{% from "input/macro.njk" import govukInput %}{% from "textarea/macro.njk" import govukTextarea %}{% from "warning-text/macro.njk" import govukWarningText %}{% set $macros = {
 checkboxes: checkboxes,
 content: content,
 date: date,
@@ -121,15 +104,37 @@ select: select,
 table: table,
 text: text,
 textarea: textarea,
-warningText: warningText
+warningText: warningText,
+govukCheckboxes: govukCheckboxes,
+govukDateInput: govukDateInput,
+govukDetails: govukDetails,
+govukFieldset: govukFieldset,
+govukInput: govukInput,
+govukRadios: govukRadios,
+govukSelect: govukSelect,
+govukTable: govukTable,
+govukInput: govukInput,
+govukTextarea: govukTextarea,
+govukWarningText: govukWarningText
 } %}
-{%- macro number(data) %}
-{% from "input/macro.njk" import govukInput %}
-{% set params = setError(data) %}
-{% set params = setLabel(params) %}
-{% set params = setInputWidthClass(params, '10') %}
-{{ govukInput(params) }}
-{% endmacro -%}
+{% macro callMacro(path, params) %}
+{% if caller -%}
+{% call $macros[path](data) -%}
+{{ caller() }}
+{%- endcall %}
+{%- else -%}
+{{ $macros[path](params)}}
+{%- endif %}
+{% endmacro %}
+{% macro callBlock(params) %}
+{{ callMacro(params._type, params)}}
+{% endmacro %}
+{% macro callBlocks(blocks) %}
+{% for cblock in blocks %}
+{{ callBlock(cblock)}}
+{% endfor %}
+{% endmacro %}
+
 {% set data = {
   "_id": "componentId",
   "_type": "number",
@@ -137,4 +142,4 @@ warningText: warningText
   "label": "How old are you?",
   "widthClassInput": "20"
 } %}
-{{ number(data) }}
+{{ callBlock(data) }}

@@ -1,0 +1,736 @@
+---
+title: Form page definition
+description: undefined
+section: Definitions
+theme: 
+aliases:
+backlog_issue_id:
+layout: layout-pane.njk
+---
+
+{% from "_specExample.njk" import specExample %}
+{% from "table/macro.njk" import govukTable %}
+{% from "details/macro.njk" import govukDetails %}
+{% set $DesignSystem = 'https://govuk-design-system-production.cloudapps.digital' %}
+
+
+
+### Properties
+
+
+{{ govukTable({
+  "firstCellIsHeader": true,
+  "head": [
+    {
+      "text": "Property"
+    },
+    {
+      "text": "Type"
+    },
+    {
+      "text": "Required"
+    },
+    {
+      "text": "Description"
+    },
+    {
+      "text": "Default"
+    }
+  ],
+  "rows": [
+  [
+    {
+      "text": "_id"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data ID"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_type"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "Data type"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "url"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "yes"
+    },
+    {
+      "html": "URL"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "_isa"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "components"
+    },
+    {
+      "text": "array"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Components"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "content"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Content"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "extraComponents"
+    },
+    {
+      "text": "array"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Additional components following continue button"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "heading"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Heading"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "lede"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Lede"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "model"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Model to store field in"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "modelProtect"
+    },
+    {
+      "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Whether to prevent the block’s model being overridden or appended "
+    },
+    {
+      "html": false
+    }
+  ],
+  [
+    {
+      "text": "multiple"
+    },
+    {
+      "text": "boolean"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleAdd"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleDelete"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleMaximum"
+    },
+    {
+      "text": "number"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "multipleMinimum"
+    },
+    {
+      "text": "number"
+    },
+    {
+      "text": "no"
+    },
+    {},
+    {
+      "html": 1
+    }
+  ],
+  [
+    {
+      "text": "nextPage"
+    },
+    {
+      "text": "object"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Next page definition"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "show"
+    },
+    {},
+    {
+      "text": "no"
+    },
+    {
+      "html": "Whether to show block or not"
+    },
+    {
+      "html": true
+    }
+  ],
+  [
+    {
+      "text": "steps"
+    },
+    {
+      "text": "array"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Steps"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "title"
+    },
+    {
+      "text": "string"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Title"
+    },
+    {
+      "html": "-"
+    }
+  ]
+]
+}) }}
+
+
+
+
+
+
+### Schema
+
+{{ govukDetails({
+  "summaryText": "Raw schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/page/form\",
+  \"_name\": \"definition.page.form\",
+  \"title\": \"Form page definition\",
+  \"properties\": {
+    \"extraComponents\": {
+      \"title\": \"Additional components following continue button\",
+      \"type\": \"array\",
+      \"items\": {
+        \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/component\"
+      }
+    },
+    \"steps\": {
+      \"title\": \"Steps\",
+      \"type\": \"array\",
+      \"items\": {
+        \"type\": \"string\"
+      }
+    },
+    \"nextPage\": {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/nextpage\"
+    }
+  },
+  \"allOf\": [
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/page\"
+    },
+    {
+      \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/multiple\"
+    }
+  ],
+  \"category\": [
+    \"formPage\"
+  ]
+}
+```
+"
+}) }}
+
+{{ govukDetails({
+  "summaryText": "Expanded schema",
+  "html": "
+```
+{
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/page/form\",
+  \"_name\": \"definition.page.form\",
+  \"title\": \"Form page definition\",
+  \"properties\": {
+    \"extraComponents\": {
+      \"title\": \"Additional components following continue button\",
+      \"type\": \"array\",
+      \"items\": {
+        \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
+        \"_name\": \"definition.component\",
+        \"title\": \"Component definition\",
+        \"category\": [
+          \"component\",
+          \"definition\"
+        ],
+        \"required\": [
+          \"_id\",
+          \"_type\"
+        ],
+        \"properties\": {
+          \"show\": {
+            \"title\": \"Whether to show block or not\",
+            \"oneOf\": [
+              {
+                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                \"_name\": \"definition.conditional.boolean\",
+                \"title\": \"Boolean or condition\",
+                \"type\": [
+                  \"boolean\",
+                  \"object\"
+                ],
+                \"oneOf\": [
+                  {
+                    \"type\": \"boolean\"
+                  },
+                  {
+                    \"$ref\": \"http://gov.uk/schema/v1.0.0/condition\"
+                  }
+                ],
+                \"category\": [
+                  \"definition\"
+                ]
+              }
+            ],
+            \"default\": true
+          },
+          \"_id\": {
+            \"title\": \"Data ID\",
+            \"type\": \"string\"
+          },
+          \"_type\": {
+            \"title\": \"Data type\",
+            \"type\": \"string\"
+          },
+          \"_isa\": {
+            \"title\": \"Based on\",
+            \"description\": \"Id of referenced data current data inherits property values from\",
+            \"type\": \"string\",
+            \"blockReference\": true
+          }
+        }
+      }
+    },
+    \"steps\": {
+      \"title\": \"Steps\",
+      \"type\": \"array\",
+      \"items\": {
+        \"type\": \"string\"
+      }
+    },
+    \"nextPage\": {
+      \"$id\": \"http://gov.uk/schema/v1.0.0/definition/nextpage\",
+      \"_name\": \"definition.nextpage\",
+      \"title\": \"Next page definition\",
+      \"description\": \"What page (if any), and under what condtions, to go to next\",
+      \"type\": \"object\",
+      \"oneOf\": [
+        {
+          \"type\": \"string\"
+        },
+        {
+          \"type\": \"array\",
+          \"items\": {
+            \"oneOf\": [
+              {
+                \"type\": \"object\",
+                \"properties\": {
+                  \"page\": {
+                    \"type\": \"string\"
+                  },
+                  \"condition\": {
+                    \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                    \"_name\": \"definition.conditional.boolean\",
+                    \"title\": \"Boolean or condition\",
+                    \"type\": [
+                      \"boolean\",
+                      \"object\"
+                    ],
+                    \"oneOf\": [
+                      {
+                        \"type\": \"boolean\"
+                      },
+                      {
+                        \"$ref\": \"http://gov.uk/schema/v1.0.0/condition\"
+                      }
+                    ],
+                    \"category\": [
+                      \"definition\"
+                    ]
+                  }
+                },
+                \"required\": [
+                  \"page\",
+                  \"condition\"
+                ]
+              },
+              {
+                \"type\": \"string\"
+              }
+            ]
+          }
+        }
+      ],
+      \"category\": [
+        \"definition\"
+      ]
+    },
+    \"url\": {
+      \"title\": \"URL\",
+      \"type\": \"string\"
+    },
+    \"heading\": {
+      \"title\": \"Heading\",
+      \"type\": \"string\"
+    },
+    \"title\": {
+      \"title\": \"Title\",
+      \"type\": \"string\"
+    },
+    \"lede\": {
+      \"title\": \"Lede\",
+      \"type\": \"string\"
+    },
+    \"content\": {
+      \"title\": \"Content\",
+      \"type\": \"string\",
+      \"multiline\": true
+    },
+    \"show\": {
+      \"title\": \"Whether to show block or not\",
+      \"oneOf\": [
+        {
+          \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+          \"_name\": \"definition.conditional.boolean\",
+          \"title\": \"Boolean or condition\",
+          \"type\": [
+            \"boolean\",
+            \"object\"
+          ],
+          \"oneOf\": [
+            {
+              \"type\": \"boolean\"
+            },
+            {
+              \"$ref\": \"http://gov.uk/schema/v1.0.0/condition\"
+            }
+          ],
+          \"category\": [
+            \"definition\"
+          ]
+        }
+      ],
+      \"default\": true
+    },
+    \"_id\": {
+      \"title\": \"Data ID\",
+      \"type\": \"string\"
+    },
+    \"_type\": {
+      \"title\": \"Data type\",
+      \"type\": \"string\"
+    },
+    \"_isa\": {
+      \"title\": \"Based on\",
+      \"description\": \"Id of referenced data current data inherits property values from\",
+      \"type\": \"string\",
+      \"blockReference\": true
+    },
+    \"components\": {
+      \"title\": \"Components\",
+      \"type\": \"array\",
+      \"items\": {
+        \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
+        \"_name\": \"definition.component\",
+        \"title\": \"Component definition\",
+        \"category\": [
+          \"component\",
+          \"definition\"
+        ],
+        \"required\": [
+          \"_id\",
+          \"_type\"
+        ],
+        \"properties\": {
+          \"show\": {
+            \"title\": \"Whether to show block or not\",
+            \"oneOf\": [
+              {
+                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                \"_name\": \"definition.conditional.boolean\",
+                \"title\": \"Boolean or condition\",
+                \"type\": [
+                  \"boolean\",
+                  \"object\"
+                ],
+                \"oneOf\": [
+                  {
+                    \"type\": \"boolean\"
+                  },
+                  {
+                    \"$ref\": \"http://gov.uk/schema/v1.0.0/condition\"
+                  }
+                ],
+                \"category\": [
+                  \"definition\"
+                ]
+              }
+            ],
+            \"default\": true
+          },
+          \"_id\": {
+            \"title\": \"Data ID\",
+            \"type\": \"string\"
+          },
+          \"_type\": {
+            \"title\": \"Data type\",
+            \"type\": \"string\"
+          },
+          \"_isa\": {
+            \"title\": \"Based on\",
+            \"description\": \"Id of referenced data current data inherits property values from\",
+            \"type\": \"string\",
+            \"blockReference\": true
+          }
+        }
+      }
+    },
+    \"multiple\": {
+      \"type\": \"boolean\"
+    },
+    \"multipleMinimum\": {
+      \"type\": \"number\",
+      \"minimum\": 0,
+      \"default\": 1
+    },
+    \"multipleMaximum\": {
+      \"type\": \"number\",
+      \"minimum\": 0
+    },
+    \"multipleAdd\": {
+      \"type\": \"string\"
+    },
+    \"multipleDelete\": {
+      \"type\": \"string\"
+    },
+    \"model\": {
+      \"title\": \"Model to store field in\",
+      \"type\": \"string\"
+    },
+    \"modelProtect\": {
+      \"title\": \"Whether to prevent the block’s model being overridden or appended \",
+      \"type\": \"boolean\",
+      \"default\": false
+    }
+  },
+  \"category\": [
+    \"definition\",
+    \"formPage\",
+    \"page\"
+  ],
+  \"required\": [
+    \"_id\",
+    \"_type\",
+    \"url\"
+  ],
+  \"type\": \"object\"
+}
+```
+"
+}) }}
+
+### Schema used by
+
+- [Confirmation page](/page/page/confirmation)
+- [Flash card page](/page/page/flashcard)
+- [Form page](/page/page/form)
+- [Single question page](/page/page/singlequestion)
+- [Start page](/page/page/start)
+- [Summary page](/page/page/summary)
+
+### Schema uses
+
+- [Page definition](/definition/page)
+- [Multiple definition](/definition/multiple)
+
+### Categories
+
+definition, formPage, page
+
+        
