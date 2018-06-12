@@ -1,11 +1,11 @@
 [
   {
-    "label": "About",
-    "url": ""
-  },
-  {
     "label": "Get started",
     "url": "get-started"
+  },
+  {
+    "label": "Glossary",
+    "url": "glossary"
   },
   {
     "label": "Overview",

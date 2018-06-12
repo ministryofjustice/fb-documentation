@@ -76,7 +76,7 @@ Preferred approach for asking users questions within a service, one question at 
   ],
   [
     {
-      "text": "components"
+      "text": "blocks"
     },
     {
       "text": "array"
@@ -85,7 +85,7 @@ Preferred approach for asking users questions within a service, one question at 
       "text": "yes"
     },
     {
-      "html": "Components"
+      "html": "Blocks"
     },
     {
       "html": "-"
@@ -392,7 +392,7 @@ Preferred approach for asking users questions within a service, one question at 
     \"_type\": {
       \"const\": \"page.singlequestion\"
     },
-    \"components\": {
+    \"blocks\": {
       \"maxItems\": 1
     }
   },
@@ -402,7 +402,7 @@ Preferred approach for asking users questions within a service, one question at 
     }
   ],
   \"required\": [
-    \"components\"
+    \"blocks\"
   ]
 }
 ```
@@ -425,16 +425,15 @@ Preferred approach for asking users questions within a service, one question at 
       \"title\": \"Data type\",
       \"type\": \"string\"
     },
-    \"components\": {
+    \"blocks\": {
       \"maxItems\": 1,
-      \"title\": \"Components\",
+      \"title\": \"Blocks\",
       \"type\": \"array\",
       \"items\": {
-        \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
-        \"_name\": \"definition.component\",
-        \"title\": \"Component definition\",
+        \"$id\": \"http://gov.uk/schema/v1.0.0/definition/block\",
+        \"_name\": \"definition.block\",
+        \"title\": \"Block definition\",
         \"category\": [
-          \"component\",
           \"definition\"
         ],
         \"required\": [
@@ -696,7 +695,7 @@ Preferred approach for asking users questions within a service, one question at 
   \"required\": [
     \"_id\",
     \"_type\",
-    \"components\",
+    \"blocks\",
     \"url\"
   ],
   \"category\": [

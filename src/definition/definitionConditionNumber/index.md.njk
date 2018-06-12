@@ -76,9 +76,7 @@ layout: layout-pane.njk
     {
       "text": "value"
     },
-    {
-      "text": "number"
-    },
+    {},
     {
       "text": "yes"
     },
@@ -143,8 +141,22 @@ layout: layout-pane.njk
       ]
     },
     \"value\": {
-      \"title\": \"Value\",
-      \"type\": \"number\"
+      \"title\": \"Value\"
+    }
+  },
+  \"if\": {
+    \"required\": [
+      \"valueType\"
+    ]
+  },
+  \"then\": {
+    \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/condition/valuetype\"
+  },
+  \"else\": {
+    \"properties\": {
+      \"value\": {
+        \"type\": \"number\"
+      }
     }
   },
   \"required\": [
@@ -181,8 +193,7 @@ layout: layout-pane.njk
       ]
     },
     \"value\": {
-      \"title\": \"Value\",
-      \"type\": \"number\"
+      \"title\": \"Value\"
     },
     \"identifier\": {
       \"title\": \"Identifier\",
@@ -195,6 +206,42 @@ layout: layout-pane.njk
         \"input\",
         \"feature\"
       ]
+    }
+  },
+  \"if\": {
+    \"required\": [
+      \"valueType\"
+    ]
+  },
+  \"then\": {
+    \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition/valuetype\",
+    \"_name\": \"definition.condition.valuetype\",
+    \"title\": \"Condition value type properties\",
+    \"properties\": {
+      \"value\": {
+        \"type\": \"string\"
+      },
+      \"valueType\": {
+        \"type\": \"string\",
+        \"enum\": [
+          \"value\",
+          \"input\",
+          \"feature\"
+        ]
+      }
+    },
+    \"required\": [
+      \"valueType\"
+    ],
+    \"category\": [
+      \"definition\"
+    ]
+  },
+  \"else\": {
+    \"properties\": {
+      \"value\": {
+        \"type\": \"number\"
+      }
     }
   },
   \"required\": [

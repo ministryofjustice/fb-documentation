@@ -1,5 +1,5 @@
 ---
-title: Components definition
+title: Blocks definition
 description: undefined
 section: Definitions
 theme: 
@@ -40,7 +40,7 @@ layout: layout-pane.njk
   "rows": [
   [
     {
-      "text": "components"
+      "text": "blocks"
     },
     {
       "text": "array"
@@ -49,7 +49,7 @@ layout: layout-pane.njk
       "text": "no"
     },
     {
-      "html": "Components"
+      "html": "Blocks"
     },
     {
       "html": "-"
@@ -70,15 +70,15 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/components\",
-  \"_name\": \"definition.components\",
-  \"title\": \"Components definition\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/blocks\",
+  \"_name\": \"definition.blocks\",
+  \"title\": \"Blocks definition\",
   \"properties\": {
-    \"components\": {
-      \"title\": \"Components\",
+    \"blocks\": {
+      \"title\": \"Blocks\",
       \"type\": \"array\",
       \"items\": {
-        \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/component\"
+        \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/block\"
       }
     }
   }
@@ -92,19 +92,18 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/components\",
-  \"_name\": \"definition.components\",
-  \"title\": \"Components definition\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/blocks\",
+  \"_name\": \"definition.blocks\",
+  \"title\": \"Blocks definition\",
   \"properties\": {
-    \"components\": {
-      \"title\": \"Components\",
+    \"blocks\": {
+      \"title\": \"Blocks\",
       \"type\": \"array\",
       \"items\": {
-        \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
-        \"_name\": \"definition.component\",
-        \"title\": \"Component definition\",
+        \"$id\": \"http://gov.uk/schema/v1.0.0/definition/block\",
+        \"_name\": \"definition.block\",
+        \"title\": \"Block definition\",
         \"category\": [
-          \"component\",
           \"definition\"
         ],
         \"required\": [
@@ -163,9 +162,7 @@ layout: layout-pane.njk
 
 ### Schema used by
 
-- [Grouping definition](/definition/grouping)
-- [Grouping definition](/definition/grouping)
-- [Section](/component/section)
+- [Page definition](/definition/page)
 
 
 

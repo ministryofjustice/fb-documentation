@@ -1,5 +1,5 @@
 ---
-title: Data definition
+title: Condition value type properties
 description: undefined
 section: Definitions
 theme: 
@@ -40,7 +40,7 @@ layout: layout-pane.njk
   "rows": [
   [
     {
-      "text": "_id"
+      "text": "valueType"
     },
     {
       "text": "string"
@@ -48,33 +48,14 @@ layout: layout-pane.njk
     {
       "text": "yes"
     },
-    {
-      "html": "Data ID"
-    },
+    {},
     {
       "html": "-"
     }
   ],
   [
     {
-      "text": "_type"
-    },
-    {
-      "text": "string"
-    },
-    {
-      "text": "yes"
-    },
-    {
-      "html": "Data type"
-    },
-    {
-      "html": "-"
-    }
-  ],
-  [
-    {
-      "text": "_isa"
+      "text": "value"
     },
     {
       "text": "string"
@@ -82,9 +63,7 @@ layout: layout-pane.njk
     {
       "text": "no"
     },
-    {
-      "html": "Based on"
-    },
+    {},
     {
       "html": "-"
     }
@@ -104,28 +83,24 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/data\",
-  \"_name\": \"definition.data\",
-  \"title\": \"Data definition\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition/valuetype\",
+  \"_name\": \"definition.condition.valuetype\",
+  \"title\": \"Condition value type properties\",
   \"properties\": {
-    \"_id\": {
-      \"title\": \"Data ID\",
+    \"value\": {
       \"type\": \"string\"
     },
-    \"_type\": {
-      \"title\": \"Data type\",
-      \"type\": \"string\"
-    },
-    \"_isa\": {
-      \"title\": \"Based on\",
-      \"description\": \"Id of referenced data current data inherits property values from\",
+    \"valueType\": {
       \"type\": \"string\",
-      \"blockReference\": true
+      \"enum\": [
+        \"value\",
+        \"input\",
+        \"feature\"
+      ]
     }
   },
   \"required\": [
-    \"_id\",
-    \"_type\"
+    \"valueType\"
   ],
   \"category\": [
     \"definition\"
@@ -140,28 +115,24 @@ layout: layout-pane.njk
   "html": "
 ```
 {
-  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/data\",
-  \"_name\": \"definition.data\",
-  \"title\": \"Data definition\",
+  \"$id\": \"http://gov.uk/schema/v1.0.0/definition/condition/valuetype\",
+  \"_name\": \"definition.condition.valuetype\",
+  \"title\": \"Condition value type properties\",
   \"properties\": {
-    \"_id\": {
-      \"title\": \"Data ID\",
+    \"value\": {
       \"type\": \"string\"
     },
-    \"_type\": {
-      \"title\": \"Data type\",
-      \"type\": \"string\"
-    },
-    \"_isa\": {
-      \"title\": \"Based on\",
-      \"description\": \"Id of referenced data current data inherits property values from\",
+    \"valueType\": {
       \"type\": \"string\",
-      \"blockReference\": true
+      \"enum\": [
+        \"value\",
+        \"input\",
+        \"feature\"
+      ]
     }
   },
   \"required\": [
-    \"_id\",
-    \"_type\"
+    \"valueType\"
   ],
   \"category\": [
     \"definition\"
@@ -173,9 +144,8 @@ layout: layout-pane.njk
 
 ### Schema used by
 
-- [Block definition](/definition/block)
-- [Service](/component/service)
-- [Table](/component/table)
+- [Number condition properties](/definition/condition/number)
+- [Text condition properties](/definition/condition/text)
 
 
 
