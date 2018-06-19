@@ -708,6 +708,11 @@ layout: layout-pane.njk
     \"_type\",
     \"url\"
   ],
+  \"transforms\": {
+    \"model\": {
+      \"propagation\": \"components[?(@.$control || @.$grouping)]\"
+    }
+  },
   \"type\": \"object\"
 }
 ```

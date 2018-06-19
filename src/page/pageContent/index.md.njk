@@ -383,7 +383,12 @@ A generic content page to provide users with guidance during the service flow or
     \"contentPage\",
     \"definition\",
     \"page\"
-  ]
+  ],
+  \"transforms\": {
+    \"model\": {
+      \"propagation\": \"components[?(@.$control || @.$grouping)]\"
+    }
+  }
 }
 ```
 "

@@ -550,7 +550,12 @@ Basic example of fieldset
     \"_id\",
     \"_type\",
     \"legend\"
-  ]
+  ],
+  \"transforms\": {
+    \"model\": {
+      \"propagation\": \"components[?(@.$control || @.$grouping)]\"
+    }
+  }
 }
 ```
 "

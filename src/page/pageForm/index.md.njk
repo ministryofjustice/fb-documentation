@@ -729,7 +729,12 @@ Generic form page to handle situations when one question per page approach is no
     \"_id\",
     \"_type\",
     \"url\"
-  ]
+  ],
+  \"transforms\": {
+    \"model\": {
+      \"propagation\": \"components[?(@.$control || @.$grouping)]\"
+    }
+  }
 }
 ```
 "

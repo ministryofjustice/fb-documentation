@@ -259,6 +259,11 @@ layout: layout-pane.njk
     \"definition\",
     \"page\"
   ],
+  \"transforms\": {
+    \"model\": {
+      \"propagation\": \"components[?(@.$control || @.$grouping)]\"
+    }
+  },
   \"properties\": {
     \"url\": {
       \"title\": \"URL\",

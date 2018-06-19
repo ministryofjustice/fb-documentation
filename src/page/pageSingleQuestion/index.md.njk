@@ -702,7 +702,12 @@ Preferred approach for asking users questions within a service, one question at 
     \"definition\",
     \"formPage\",
     \"page\"
-  ]
+  ],
+  \"transforms\": {
+    \"model\": {
+      \"propagation\": \"components[?(@.$control || @.$grouping)]\"
+    }
+  }
 }
 ```
 "

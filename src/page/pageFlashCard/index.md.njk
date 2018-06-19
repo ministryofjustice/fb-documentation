@@ -699,7 +699,12 @@ This page type is adapted from approach used by the Home Office Passport Renewal
     \"_id\",
     \"_type\",
     \"url\"
-  ]
+  ],
+  \"transforms\": {
+    \"model\": {
+      \"propagation\": \"components[?(@.$control || @.$grouping)]\"
+    }
+  }
 }
 ```
 "

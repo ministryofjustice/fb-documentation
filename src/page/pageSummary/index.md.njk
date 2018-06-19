@@ -694,7 +694,12 @@ Provide users with a summary of what information they have entered - especially 
     \"_id\",
     \"_type\",
     \"url\"
-  ]
+  ],
+  \"transforms\": {
+    \"model\": {
+      \"propagation\": \"components[?(@.$control || @.$grouping)]\"
+    }
+  }
 }
 ```
 "

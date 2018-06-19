@@ -240,7 +240,12 @@ layout: layout-pane.njk
   ],
   \"category\": [
     \"grouping\"
-  ]
+  ],
+  \"transforms\": {
+    \"model\": {
+      \"propagation\": \"components[?(@.$control || @.$grouping)]\"
+    }
+  }
 }
 ```
 "
@@ -259,6 +264,11 @@ layout: layout-pane.njk
     \"definition\",
     \"grouping\"
   ],
+  \"transforms\": {
+    \"model\": {
+      \"propagation\": \"components[?(@.$control || @.$grouping)]\"
+    }
+  },
   \"required\": [
     \"_id\",
     \"_type\"
