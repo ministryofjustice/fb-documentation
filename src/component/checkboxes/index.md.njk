@@ -344,7 +344,12 @@ Basic checkboxes example
     {
       \"$ref\": \"http://gov.uk/schema/v1.0.0/definition/name\"
     }
-  ]
+  ],
+  \"transforms\": {
+    \"model\": {
+      \"propagation\": \"items[?(@._type === 'checkbox')]\"
+    }
+  }
 }
 ```
 "
@@ -589,6 +594,11 @@ Basic checkboxes example
     \"name\": {
       \"title\": \"Input name\",
       \"type\": \"string\"
+    }
+  },
+  \"transforms\": {
+    \"model\": {
+      \"propagation\": \"items[?(@._type === 'checkbox')]\"
     }
   },
   \"required\": [

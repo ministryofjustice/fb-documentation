@@ -78,15 +78,11 @@ Preferred approach for asking users questions within a service, one question at 
     {
       "text": "blocks"
     },
-    {
-      "text": "array"
-    },
+    {},
     {
       "text": "yes"
     },
-    {
-      "html": "Blocks"
-    },
+    {},
     {
       "html": "-"
     }
@@ -120,6 +116,23 @@ Preferred approach for asking users questions within a service, one question at 
     },
     {
       "html": "Based on"
+    },
+    {
+      "html": "-"
+    }
+  ],
+  [
+    {
+      "text": "components"
+    },
+    {
+      "text": "array"
+    },
+    {
+      "text": "no"
+    },
+    {
+      "html": "Components"
     },
     {
       "html": "-"
@@ -426,63 +439,7 @@ Preferred approach for asking users questions within a service, one question at 
       \"type\": \"string\"
     },
     \"blocks\": {
-      \"maxItems\": 1,
-      \"title\": \"Blocks\",
-      \"type\": \"array\",
-      \"items\": {
-        \"$id\": \"http://gov.uk/schema/v1.0.0/definition/block\",
-        \"_name\": \"definition.block\",
-        \"title\": \"Block definition\",
-        \"category\": [
-          \"definition\"
-        ],
-        \"required\": [
-          \"_id\",
-          \"_type\"
-        ],
-        \"properties\": {
-          \"show\": {
-            \"title\": \"Whether to show block or not\",
-            \"oneOf\": [
-              {
-                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
-                \"_name\": \"definition.conditional.boolean\",
-                \"title\": \"Boolean or condition\",
-                \"type\": [
-                  \"boolean\",
-                  \"object\"
-                ],
-                \"oneOf\": [
-                  {
-                    \"type\": \"boolean\"
-                  },
-                  {
-                    \"$ref\": \"http://gov.uk/schema/v1.0.0/condition\"
-                  }
-                ],
-                \"category\": [
-                  \"definition\"
-                ]
-              }
-            ],
-            \"default\": true
-          },
-          \"_id\": {
-            \"title\": \"Data ID\",
-            \"type\": \"string\"
-          },
-          \"_type\": {
-            \"title\": \"Data type\",
-            \"type\": \"string\"
-          },
-          \"_isa\": {
-            \"title\": \"Based on\",
-            \"description\": \"Id of referenced data current data inherits property values from\",
-            \"type\": \"string\",
-            \"blockReference\": true
-          }
-        }
-      }
+      \"maxItems\": 1
     },
     \"extraComponents\": {
       \"title\": \"Additional components following continue button\",
@@ -663,6 +620,65 @@ Preferred approach for asking users questions within a service, one question at 
       \"description\": \"Id of referenced data current data inherits property values from\",
       \"type\": \"string\",
       \"blockReference\": true
+    },
+    \"components\": {
+      \"title\": \"Components\",
+      \"type\": \"array\",
+      \"items\": {
+        \"$id\": \"http://gov.uk/schema/v1.0.0/definition/component\",
+        \"_name\": \"definition.component\",
+        \"title\": \"Component definition\",
+        \"category\": [
+          \"component\",
+          \"definition\"
+        ],
+        \"required\": [
+          \"_id\",
+          \"_type\"
+        ],
+        \"properties\": {
+          \"show\": {
+            \"title\": \"Whether to show block or not\",
+            \"oneOf\": [
+              {
+                \"$id\": \"http://gov.uk/schema/v1.0.0/definition/conditional/boolean\",
+                \"_name\": \"definition.conditional.boolean\",
+                \"title\": \"Boolean or condition\",
+                \"type\": [
+                  \"boolean\",
+                  \"object\"
+                ],
+                \"oneOf\": [
+                  {
+                    \"type\": \"boolean\"
+                  },
+                  {
+                    \"$ref\": \"http://gov.uk/schema/v1.0.0/condition\"
+                  }
+                ],
+                \"category\": [
+                  \"definition\"
+                ]
+              }
+            ],
+            \"default\": true
+          },
+          \"_id\": {
+            \"title\": \"Data ID\",
+            \"type\": \"string\"
+          },
+          \"_type\": {
+            \"title\": \"Data type\",
+            \"type\": \"string\"
+          },
+          \"_isa\": {
+            \"title\": \"Based on\",
+            \"description\": \"Id of referenced data current data inherits property values from\",
+            \"type\": \"string\",
+            \"blockReference\": true
+          }
+        }
+      }
     },
     \"multiple\": {
       \"type\": \"boolean\"
