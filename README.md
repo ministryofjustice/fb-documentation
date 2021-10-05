@@ -1,4 +1,4 @@
-Documentation archived - Cureent documentation being created [Tech Docs](https://github.com/ministryofjustice/moj-forms-tech-docs)
+Documentation archived - Current documentation being created [Tech Docs](https://github.com/ministryofjustice/moj-forms-tech-docs)
 ---
 
 
